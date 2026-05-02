@@ -1338,8 +1338,15 @@ function openEmailModal(){document.getElementById('email-modal').classList.remov
 function closeEmailModal(){document.getElementById('email-modal').classList.add('hidden');}
 function submitEmail(){
   const email=document.getElementById('modal-email').value.trim();
-  if(!email||!email.includes('@')){document.getElementById('modal-email').style.borderColor='var(--red)';return;}
-  try{const leads=JSON.parse(localStorage.getItem('leads')||'[]');leads.push({name:document.getElementById('modal-name').value.trim(),email,date:new Date().toISOString()});localStorage.setItem('leads',JSON.stringify(leads));}catch(e){}
+  const name=document.getElementById('modal-name').value.trim();
+  if(!email||!email.includes('@')){
+    document.getElementById('modal-email').style.borderColor='var(--red)';return;
+  }
+  // Save locally
+  try{const leads=JSON.parse(localStorage.getItem('leads')||'[]');leads.push({name,email,date:new Date().toISOString()});localStorage.setItem('leads',JSON.stringify(leads));}catch(e){}
+  // Open Beehiiv subscribe page with email pre-filled
+  const url=`https://joesmealmap.beehiiv.com/subscribe?email=${encodeURIComponent(email)}${name?'&first_name='+encodeURIComponent(name.split(' ')[0]):''}`;
+  window.open(url,'_blank');
   document.getElementById('modal-form-view').classList.add('hidden');
   document.getElementById('modal-success-view').classList.remove('hidden');
 }
