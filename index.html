@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joe's MealMap</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;--surface:#fff;--border:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.15);
+  --text:#1a1a1a;--text-muted:#888;--text-faint:#bbb;
+  --green-dark:#1a3d1f;--teal-dark:#0d3535;
+  --red:#c0392b;--green-bg:#f0f7f0;--green:#2d7a3a;
+  --blue-bg:#edf3ff;--blue:#2040a0;
+  --pill-cal-bg:#fff8ed;--pill-cal:#a05000;
+  --pill-pro-bg:#edf7f0;--pill-pro:#1a6b35;
+  --pill-carb-bg:#edf3ff;--pill-carb:#2040a0;
+  --pill-fat-bg:#f5eeff;--pill-fat:#6020a0;
+  --radius:14px;--radius-sm:8px;
+  --shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:18px 24px;display:flex;align-items:baseline;gap:12px}
+header h1{font-size:20px;font-weight:600;letter-spacing:-0.3px}
+header span{font-size:13px;color:var(--text-muted);font-family:'DM Mono',monospace}
+.container{max-width:780px;margin:0 auto;padding:20px 16px 60px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.saved-flash{font-size:10px;background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:99px;opacity:0;transition:opacity 0.2s;font-family:'DM Mono',monospace}
+.saved-flash.show{opacity:1}
+.unit-toggle{margin-left:auto;display:flex;background:var(--bg);border:1px solid var(--border);border-radius:99px;padding:2px}
+.unit-btn{padding:3px 12px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;border:none;background:transparent;color:var(--text-muted);border-radius:99px;cursor:pointer;transition:all 0.15s}
+.unit-btn.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.cal-display{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:10px;display:flex;align-items:baseline;gap:8px}
+.cal-display .cal-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted)}
+.cal-display .cal-val{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--text);margin-left:auto}
+.cal-display .cal-unit{font-size:10px;color:var(--text-faint);font-family:'DM Mono',monospace}
+.macro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.macro-input{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;transition:border-color 0.15s}
+.macro-input:focus-within{border-color:var(--border-strong)}
+.macro-input label{display:block;font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.macro-input .input-row{display:flex;align-items:baseline;gap:3px}
+.macro-input input{width:100%;background:transparent;border:none;outline:none;font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--text)}
+.macro-input .unit{font-size:10px;color:var(--text-faint);font-family:'DM Mono',monospace;white-space:nowrap}
+.macro-input .secondary{font-size:11px;color:var(--text-faint);font-family:'DM Mono',monospace;margin-top:3px}
+.budget-row{display:flex;align-items:center;gap:12px}
+.budget-row label{font-size:13px;color:var(--text-muted);white-space:nowrap}
+.budget-input{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px;flex:1}
+.budget-input span{font-size:14px;color:var(--text-muted)}
+.budget-input input{background:transparent;border:none;outline:none;font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--text);width:100%}
+
+/* protein grid */
+.protein-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.proto-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--bg);cursor:pointer;transition:all 0.15s;user-select:none;position:relative}
+.proto-btn .proto-icon{font-size:22px;line-height:1}
+.proto-btn .proto-name{font-size:11px;font-weight:500;color:var(--text-muted);text-align:center;line-height:1.2}
+.proto-btn .proto-state{position:absolute;top:4px;right:4px;font-size:10px;width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.proto-btn.selected{border-color:#2d7a3a;background:#f0f7f0}
+.proto-btn.selected .proto-name{color:#1a3d1f}
+.proto-btn.selected .proto-state{background:#2d7a3a;color:#fff}
+.proto-btn.excluded{border-color:#c0392b;background:#fdf0ef}
+.proto-btn.excluded .proto-name{color:#c0392b;text-decoration:line-through}
+.proto-btn.excluded .proto-state{background:#c0392b;color:#fff}
+.proto-hint{font-size:11px;color:var(--text-faint);margin-top:8px;font-style:italic}
+.proto-warning{font-size:12px;color:#a05000;background:#fff8ed;border:1px solid #f5d5a0;border-radius:var(--radius-sm);padding:8px 12px;margin-top:8px;display:none}
+
+/* calc section */
+.calc-section{border-top:1px solid var(--border);margin-top:16px;padding-top:16px}
+.calc-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.calc-inputs-row{display:grid;grid-template-columns:1fr auto;gap:10px;margin-bottom:12px;align-items:end}
+.calc-input{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px}
+.calc-input label{display:block;font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
+.calc-input input{width:100%;background:transparent;border:none;outline:none;font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--text)}
+.wu-group{display:flex;flex-direction:column;gap:4px}
+.wu-group .wu-label{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted)}
+.wu-btns{display:flex;gap:4px}
+.wu-btn{padding:8px 14px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;border:1.5px solid var(--border-strong);background:var(--bg);color:var(--text-muted);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s}
+.wu-btn.active{background:#1a1a1a;color:#f5f5f0;border-color:#1a1a1a}
+.goals-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.goal-btn{padding:10px 12px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;border:1.5px solid var(--border);background:var(--bg);color:var(--text-muted);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s;text-align:left;line-height:1.3}
+.goal-btn .goal-name{display:block;color:var(--text);font-weight:600;font-size:13px}
+.goal-btn .goal-desc{display:block;font-size:10px;color:var(--text-faint);margin-top:3px;line-height:1.4}
+.goal-btn.active{border-color:#1a1a1a;background:#1a1a1a}
+.goal-btn.active .goal-name{color:#f5f5f0}
+.goal-btn.active .goal-desc{color:#777}
+.calc-btn{width:100%;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:var(--bg);color:var(--text);border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s}
+.calc-btn:hover{background:#eeeee8}
+.calc-result{margin-top:10px;padding:10px 14px;background:var(--green-bg);border-radius:var(--radius-sm);font-size:12px;color:var(--green);font-family:'DM Mono',monospace;display:none;line-height:1.8;white-space:pre-line}
+
+/* prefs */
+.pref-grid{display:flex;flex-wrap:wrap;gap:6px}
+.pref-divider{width:100%;height:1px;background:var(--border);margin:4px 0}
+.pref-pill{padding:7px 14px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;border-radius:99px;border:1.5px solid var(--border-strong);background:var(--bg);color:var(--text-muted);cursor:pointer;transition:all 0.15s;user-select:none}
+.pref-pill:hover{border-color:#999;color:var(--text)}
+.pref-pill.active{background:#1a1a1a;color:#f5f5f0;border-color:#1a1a1a}
+.pref-pill.veg.active{background:var(--green-dark);color:#d4f0d8;border-color:var(--green-dark)}
+.pref-pill.vegan.active{background:var(--teal-dark);color:#c8eeee;border-color:var(--teal-dark)}
+.pref-pill.skip-bfast.active{background:#7c3aed;color:#f3eeff;border-color:#7c3aed}
+
+.generate-btn{width:100%;padding:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;background:var(--text);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;letter-spacing:-0.2px;transition:opacity 0.15s,transform 0.1s}
+.generate-btn:hover{opacity:0.85}
+.generate-btn:active{transform:scale(0.99)}
+.hidden{display:none!important}
+
+/* meal type sections */
+.meal-type-section{margin-bottom:28px}
+.meal-type-section:last-child{margin-bottom:0}
+.meal-type-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.meal-type-title{font-size:15px;font-weight:600;color:var(--text)}
+.pick-counter{font-size:12px;font-family:'DM Mono',monospace;color:var(--text-muted);background:var(--bg);padding:3px 10px;border-radius:99px;border:1px solid var(--border)}
+.pick-counter.done{background:var(--green-bg);color:var(--green);border-color:#b8dfc0}
+.option-grid{display:flex;flex-direction:column;gap:6px}
+.option-card{border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;cursor:pointer;transition:all 0.15s;background:var(--surface);user-select:none;position:relative}
+.option-card:hover{border-color:var(--border-strong)}
+.option-card.selected{border-color:#2d7a3a;background:#f6fbf6}
+.option-card.locked{border-color:#2d7a3a;background:#f6fbf6;cursor:default}
+.option-card.dimmed{opacity:0.4;pointer-events:none}
+.option-card .oc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.option-card .oc-name{font-size:14px;font-weight:600;color:var(--text)}
+.option-card .oc-check{width:20px;height:20px;border-radius:99px;border:1.5px solid var(--border-strong);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.15s}
+.option-card.selected .oc-check,.option-card.locked .oc-check{background:#2d7a3a;border-color:#2d7a3a;color:#fff;font-size:11px}
+.option-card .oc-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px}
+.option-card .oc-desc{font-size:12px;color:var(--text-muted);line-height:1.4}
+.option-card .oc-proto{font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px}
+.lock-badge{font-size:10px;font-weight:600;color:#2d7a3a;background:#e0f2e5;padding:2px 7px;border-radius:99px;margin-left:6px;vertical-align:middle}
+.refresh-hint{font-size:12px;color:var(--text-faint);margin-top:8px;font-style:italic;text-align:center}
+.mpill{font-size:11px;font-family:'DM Mono',monospace;padding:2px 8px;border-radius:99px;font-weight:500}
+.mpill.cal{background:var(--pill-cal-bg);color:var(--pill-cal)}
+.mpill.pro{background:var(--pill-pro-bg);color:var(--pill-pro)}
+.mpill.carb{background:var(--pill-carb-bg);color:var(--pill-carb)}
+.mpill.fat{background:var(--pill-fat-bg);color:var(--pill-fat)}
+.confirm-btn{width:100%;padding:12px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;background:var(--green);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;margin-top:16px;transition:opacity 0.15s}
+.confirm-btn:hover{opacity:0.85}
+.confirm-btn:disabled{opacity:0.3;cursor:not-allowed}
+
+/* results */
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.stat-cell{background:var(--bg);border-radius:var(--radius-sm);padding:10px 12px;text-align:center}
+.stat-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--text)}
+.stat-lbl{font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-faint);margin-top:2px}
+.budget-bar-wrap{margin-bottom:14px}
+.budget-bar-info{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.remain.ok{color:var(--green);font-weight:500}
+.remain.over{color:var(--red);font-weight:500}
+.budget-track{height:5px;background:var(--bg);border-radius:99px;overflow:hidden}
+.budget-fill{height:100%;border-radius:99px;background:var(--green);transition:width 0.4s}
+.budget-fill.over{background:var(--red)}
+.action-bar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.action-btn{flex:1;min-width:110px;padding:9px 12px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
+.action-btn.outline{background:var(--bg);border:1.5px solid var(--border-strong);color:var(--text-muted)}
+.action-btn.outline:hover{border-color:var(--text);color:var(--text)}
+.action-btn.green{background:var(--green);border:1.5px solid var(--green);color:#fff}
+.action-btn.green:hover{opacity:0.85}
+.tabs{display:flex;gap:6px;margin-bottom:14px;background:var(--bg);padding:4px;border-radius:10px}
+.tab{flex:1;padding:7px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;border:none;background:transparent;color:var(--text-muted);border-radius:7px;cursor:pointer;transition:all 0.15s}
+.tab.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+
+/* results meal cards */
+.res-section{margin-bottom:20px}
+.res-section:last-child{margin-bottom:0}
+.res-section-hd{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.meal-card{border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:6px;background:var(--surface)}
+.meal-card:last-child{margin-bottom:0}
+.meal-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.meal-proto{font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-faint)}
+.swap-btn{font-size:11px;font-weight:500;font-family:'DM Sans',sans-serif;padding:3px 10px;border-radius:99px;border:1px solid var(--border-strong);background:var(--bg);color:var(--text-muted);cursor:pointer;transition:all 0.15s}
+.swap-btn:hover{background:var(--text);color:#fff;border-color:var(--text)}
+.meal-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.meal-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px}
+.meal-desc{font-size:12px;color:var(--text-muted);line-height:1.4}
+.meal-freq{font-size:11px;font-family:'DM Mono',monospace;color:var(--text-faint);margin-top:4px}
+
+/* shopping */
+.shop-section{margin-bottom:16px}
+.shop-section:last-child{margin-bottom:0}
+.shop-cat{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.shop-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);user-select:none}
+.shop-item:last-child{border-bottom:none}
+.shop-item.checked{opacity:0.4}
+.shop-item.checked .item-name{text-decoration:line-through}
+.shop-item.have .item-name{color:var(--text-faint);text-decoration:line-through}
+.shop-cbs{display:flex;gap:6px;flex-shrink:0}
+.cb-wrap{display:flex;flex-direction:column;align-items:center;gap:2px}
+.cb-lbl{font-size:9px;color:var(--text-faint);font-weight:500}
+.cb,.have-cb{width:20px;height:20px;border-radius:5px;border:1.5px solid var(--border-strong);background:var(--bg);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;cursor:pointer}
+.cb svg,.have-cb svg{display:none}
+.shop-item.checked .cb{background:var(--text);border-color:var(--text)}
+.shop-item.checked .cb svg{display:block}
+.shop-item.have .have-cb{background:#e6f1fb;border-color:#3a7fd5}
+.shop-item.have .have-cb svg{display:block}
+.item-name{font-size:14px;color:var(--text);flex:1}
+.item-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.item-price{font-size:12px;font-family:'DM Mono',monospace;color:var(--text-faint)}
+.item-qty{font-size:12px;font-family:'DM Mono',monospace;font-weight:500;color:var(--text-muted);background:var(--bg);border:1px solid var(--border);padding:2px 8px;border-radius:99px;white-space:nowrap}
+.walmart-link{font-size:10px;color:#0071ce;font-weight:600;text-decoration:none;padding:1px 6px;border-radius:4px;border:1px solid #cce4f7;background:#f0f8ff;transition:all 0.15s;flex-shrink:0}
+.walmart-link:hover{background:#0071ce;color:#fff;border-color:#0071ce}
+.progress-line{font-size:12px;font-family:'DM Mono',monospace;color:var(--text-muted);margin-bottom:10px}
+
+/* meal prep */
+.prep-section{margin-bottom:14px}
+.prep-hd{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.prep-badge{font-size:10px;background:#fff8ed;color:#a05000;padding:2px 8px;border-radius:99px;font-weight:600;text-transform:none;letter-spacing:0}
+.prep-item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:0.5px solid var(--border);font-size:13px}
+.prep-item:last-child{border-bottom:none}
+.prep-item-name{color:var(--text)}
+.prep-item-detail{font-family:'DM Mono',monospace;font-size:12px;color:var(--text-muted);text-align:right}
+
+/* email modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
+.modal-overlay.hidden{display:none!important}
+.modal{background:var(--surface);border-radius:var(--radius);padding:28px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-0.3px}
+.modal p{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.6}
+.modal input{width:100%;padding:11px 14px;font-size:14px;font-family:'DM Sans',sans-serif;border:1.5px solid var(--border-strong);border-radius:var(--radius-sm);outline:none;margin-bottom:10px;color:var(--text)}
+.modal input:focus{border-color:var(--text)}
+.modal-btns{display:flex;gap:8px}
+.modal-btns button{flex:1;padding:10px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;border-radius:var(--radius-sm);cursor:pointer;transition:all 0.15s}
+.modal-submit{background:var(--text);color:#fff;border:none}
+.modal-submit:hover{opacity:0.85}
+.modal-skip{background:transparent;color:var(--text-muted);border:1.5px solid var(--border)}
+.modal-success{text-align:center;padding:10px 0}
+.modal-success .success-icon{font-size:36px;margin-bottom:12px}
+
+/* skip bfast banner */
+.if-banner{background:#f3eeff;border:1px solid #d5bfff;border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;color:#5b21b6;margin-bottom:14px;display:none}
+.if-banner strong{font-weight:600}
+
+@media print{
+  header,#settings-area,.generate-btn,.action-bar,.tabs,.modal-overlay,.swap-btn,.shop-cbs,.walmart-link,.confirm-btn,#pick-section,#meals-panel{display:none!important}
+  .hidden{display:block!important}
+  #results,#results .card,#shopping-panel{display:block!important}
+  #shopping-panel .progress-line{display:none!important}
+  .card{box-shadow:none;border:none;padding:0}
+  body{background:#fff}
+  .container{padding:0;max-width:100%}
+  .shop-cat{font-size:11px;font-weight:700;border-bottom:1px solid #ccc;padding-bottom:4px;margin-bottom:6px;margin-top:14px}
+  .shop-item{padding:5px 0;border-bottom:0.5px solid #eee}
+  .item-qty{background:none;border:none;font-weight:600}
+  .item-price{display:none}
+}
+@media(max-width:520px){
+  .macro-grid{grid-template-columns:1fr 1fr}
+  .goals-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .protein-grid{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Joe's MealMap</h1>
+  <span>plan · shop · eat</span>
+</header>
+<div class="container" id="setcangs-area">
+
+  <!-- Macros -->
+  <div class="card">
+    <div class="card-label">
+      Daily targets
+      <span class="saved-flash" id="saved-flash">saved</span>
+      <div class="unit-toggle">
+        <button class="unit-btn active" id="btn-g" onclick="setUnit('g',this)">Grams</button>
+        <button class="unit-btn" id="btn-pct" onclick="setUnit('%',this)">%</button>
+      </div>
+    </div>
+    <div class="cal-display">
+      <span class="cal-label">Total calories</span>
+      <span class="cal-val" id="cal-display">2015</span>
+      <span class="cal-unit">kcal / day</span>
+    </div>
+    <div class="macro-grid">
+      <div class="macro-input"><label>Protein</label><div class="input-row"><input type="number" id="pro" value="160" oninput="onMacroChange()"><span class="unit" id="pro-unit">g</span></div><div class="secondary" id="pro-secondary">640 kcal · 32%</div></div>
+      <div class="macro-input"><label>Carbs</label><div class="input-row"><input type="number" id="carb" value="220" oninput="onMacroChange()"><span class="unit" id="carb-unit">g</span></div><div class="secondary" id="carb-secondary">880 kcal · 44%</div></div>
+      <div class="macro-input"><label>Fat</label><div class="input-row"><input type="number" id="fat" value="55" oninput="onMacroChange()"><span class="unit" id="fat-unit">g</span></div><div class="secondary" id="fat-secondary">495 kcal · 25%</div></div>
+    </div>
+    <div class="calc-section">
+      <div class="calc-label">Calculate macros from goal</div>
+      <div class="calc-inputs-row">
+        <div class="calc-input"><label>Body weight</label><input type="number" id="weight" placeholder="e.g. 180"></div>
+        <div class="wu-group"><span class="wu-label">Unit</span><div class="wu-btns"><button class="wu-btn active" onclick="setWeightUnit('lbs',this)">lbs</button><button class="wu-btn" onclick="setWeightUnit('kg',this)">kg</button></div></div>
+      </div>
+      <div class="goals-grid">
+        <button class="goal-btn" onclick="selectGoal(this,'muscle')"><span class="goal-name">Build muscle</span><span class="goal-desc">0.8g protein/lb · high carbs · surplus</span></button>
+        <button class="goal-btn" onclick="selectGoal(this,'fat-loss')"><span class="goal-name">Lose fat</span><span class="goal-desc">1.0g protein/lb · lower carbs · deficit</span></button>
+        <button class="goal-btn" onclick="selectGoal(this,'low-carb')"><span class="goal-name">Low carb</span><span class="goal-desc">0.7g protein/lb · very low carbs · high fat</span></button>
+        <button class="goal-btn" onclick="selectGoal(this,'maintenance')"><span class="goal-name">Maintenance</span><span class="goal-desc">0.7g protein/lb · balanced macros</span></button>
+        <button class="goal-btn" onclick="selectGoal(this,'endurance')"><span class="goal-name">Endurance</span><span class="goal-desc">0.6g protein/lb · very high carbs</span></button>
+        <button class="goal-btn" onclick="selectGoal(this,'recomp')"><span class="goal-name">Body recomp</span><span class="goal-desc">1.1g protein/lb · cut fat + build muscle</span></button>
+      </div>
+      <button class="calc-btn" onclick="calculateMacros()">Calculate my macros →</button>
+      <div class="calc-result" id="calc-result"></div>
+    </div>
+  </div>
+
+  <!-- Protein sources -->
+  <div class="card">
+    <div class="card-label">Protein sources</div>
+    <div class="protein-grid" id="protein-grid">
+      <button class="proto-btn" data-proto="chicken" onclick="cycleProto(this)"><span class="proto-icon">🍗</span><span class="proto-name">Chicken</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="beef" onclick="cycleProto(this)"><span class="proto-icon">🥩</span><span class="proto-name">Beef</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="pork" onclick="cycleProto(this)"><span class="proto-icon">🐷</span><span class="proto-name">Pork</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="eggs" onclick="cycleProto(this)"><span class="proto-icon">🥚</span><span class="proto-name">Eggs</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="fish" onclick="cycleProto(this)"><span class="proto-icon">🐟</span><span class="proto-name">Fish &amp; Seafood</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="legumes" onclick="cycleProto(this)"><span class="proto-icon">🫘</span><span class="proto-name">Legumes</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="yogurt" onclick="cycleProto(this)"><span class="proto-icon">🧀</span><span class="proto-name">Yogurt &amp; Dairy</span><span class="proto-state"></span></button>
+      <button class="proto-btn" data-proto="tofu" onclick="cycleProto(this)"><span class="proto-icon">🌱</span><span class="proto-name">Tofu &amp; Tempeh</span><span class="proto-state"></span></button>
+    </div>
+    <div class="proto-hint">Tap once to select ✓ · Tap again to exclude ✗ · Tap again to reset</div>
+    <div class="proto-warning" id="proto-warning">⚠ Only 1 protein source selected — you may see repeated meals.</div>
+  </div>
+
+  <!-- Budget -->
+  <div class="card">
+    <div class="card-label">Weekly budget</div>
+    <div class="budget-row"><label>Max per week</label><div class="budget-input"><span>$</span><input type="number" id="budget" value="150" oninput="savePrefs()"></div></div>
+  </div>
+
+  <!-- Dietary prefs -->
+  <div class="card">
+    <div class="card-label">Dietary preferences</div>
+    <div class="pref-grid">
+      <button class="pref-pill skip-bfast" onclick="toggleSkipBreakfast(this)">⏭ Skip breakfast</button>
+      <div class="pref-divider"></div>
+      <button class="pref-pill veg" onclick="togglePref(this,'vegetarian')">Vegetarian</button>
+      <button class="pref-pill vegan" onclick="togglePref(this,'vegan')">Vegan</button>
+      <div class="pref-divider"></div>
+      <button class="pref-pill" onclick="togglePref(this,'dairy')">No dairy</button>
+      <button class="pref-pill" onclick="togglePref(this,'gluten')">No gluten</button>
+      <button class="pref-pill" onclick="togglePref(this,'pork')">No pork</button>
+      <button class="pref-pill" onclick="togglePref(this,'seafood')">No seafood</button>
+      <button class="pref-pill" onclick="togglePref(this,'eggs')">No eggs</button>
+      <button class="pref-pill" onclick="togglePref(this,'nuts')">No nuts</button>
+    </div>
+  </div>
+
+  <button class="generate-btn" id="generate-btn" onclick="generate()">Generate my meal options →</button>
+  <button class="action-btn outline" id="reset-btn" onclick="resetEverything()" style="width:100%;margin-top:8px;color:var(--red);border-color:var(--red);display:none">↺ Reset everything</button>
+
+  <!-- Pick meals -->
+  <div id="pick-section" class="hidden">
+    <div class="card">
+      <div class="card-label">Pick your meals for the week</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;line-height:1.5">Pick <strong>3 from each category</strong> — these rotate across your week. Tap to select, tap again to deselect.</p>
+      <div id="if-banner" class="if-banner"><strong>⏭ Skipping breakfast</strong> — pick a Lunch, Dinner, and Meal 3 (lighter protein hit). Macros are spread across your 3 meals.</div>
+      <div id="pick-content"></div>
+      <button class="confirm-btn" id="confirm-btn" onclick="confirmPlan()" style="opacity:0.3;pointer-events:none">Pick 3 from each category to continue</button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results" class="hidden">
+    <div class="card">
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-val" id="t-cal">—</div><div class="stat-lbl">avg kcal/day</div></div>
+        <div class="stat-cell"><div class="stat-val" id="t-pro">—</div><div class="stat-lbl">protein</div></div>
+        <div class="stat-cell"><div class="stat-val" id="t-carb">—</div><div class="stat-lbl">carbs</div></div>
+        <div class="stat-cell"><div class="stat-val" id="t-fat">—</div><div class="stat-lbl">fat</div></div>
+      </div>
+      <div class="budget-bar-wrap">
+        <div class="budget-bar-info"><span id="b-total">Est. weekly total: $0</span><span class="remain ok" id="b-remain">$0 under budget</span></div>
+        <div class="budget-track"><div class="budget-fill" id="b-fill" style="width:0%"></div></div>
+      </div>
+      <div class="action-bar">
+        <button class="action-btn green" onclick="openEmailModal()">📧 Save my plan</button>
+        <button class="action-btn outline" onclick="printPlan()">🖨 Print list</button>
+        <button class="action-btn outline" onclick="resetToPickStep()">↩ Change meals</button>
+        <button class="action-btn outline" onclick="resetEverything()" style="color:var(--red);border-color:var(--red)">↺ Start over</button>
+      </div>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('meals',this)">My week</button>
+        <button class="tab" onclick="showTab('shopping',this)">Shopping list</button>
+      </div>
+      <div id="meals-panel"><div id="meal-list"></div></div>
+      <div id="shopping-panel" class="hidden">
+        <div class="progress-line" id="shop-progress"></div>
+        <div id="shop-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email modal -->
+<div class="modal-overlay hidden" id="email-modal">
+  <div class="modal">
+    <div id="modal-form-view">
+      <h3>Save your meal plan 📋</h3>
+      <p>Get this week's plan emailed to you, plus weekly macro tips and new meal ideas.</p>
+      <input type="text" id="modal-name" placeholder="First name">
+      <input type="email" id="modal-email" placeholder="Email address">
+      <div class="modal-btns">
+        <button class="modal-skip" onclick="closeEmailModal()">Maybe later</button>
+        <button class="modal-submit" onclick="submitEmail()">Send my plan →</button>
+      </div>
+    </div>
+    <div id="modal-success-view" class="modal-success hidden">
+      <div class="success-icon">🎉</div>
+      <h3 style="margin-bottom:8px">You're in!</h3>
+      <p style="color:var(--green);font-weight:500">Check your inbox — your plan is on its way.</p>
+      <button class="modal-submit" style="width:100%;margin-top:16px;padding:10px;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600" onclick="closeEmailModal()">Done</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── MEAL DATABASE ──────────────────────────────────────────
+// type: 'breakfast' | 'lunch' | 'dinner' | 'meal3'
+// proto: primary protein source
+// tags: dietary restriction flags
+// qty_unit: multiplier unit for weekly shopping ('serving' = ×3 per week since picked 3 times, rotated over 7 days)
+
+const MEALS = [
+
+// ════════════════════════════════════════════════════════
+// BREAKFAST (30)
+// ════════════════════════════════════════════════════════
+{type:'breakfast',name:'Greek yogurt & berry bowl',proto:'yogurt',cal:340,pro:32,carb:36,fat:6,cost:4,desc:'Greek yogurt, mixed berries, honey, granola, chia seeds',tags:['vegetarian','dairy'],
+ shopping:{Produce:[{name:'Mixed berries',qty:'2 pints',price:7}],Dairy:[{name:'Greek yogurt',qty:'2 large tubs',price:9}],Pantry:[{name:'Granola',qty:'1 bag',price:5},{name:'Honey',qty:'12 oz bottle',price:4},{name:'Chia seeds',qty:'1 bag',price:4}]}},
+
+{type:'breakfast',name:'Scrambled eggs & turkey',proto:'eggs',cal:380,pro:36,carb:12,fat:18,cost:5,desc:'Scrambled eggs, ground turkey, spinach, whole grain toast',tags:['meat','eggs','gluten'],
+ shopping:{Produce:[{name:'Baby spinach',qty:'1 bag',price:3}],Meat:[{name:'Ground turkey',qty:'1 lb',price:6}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4}]}},
+
+{type:'breakfast',name:'Overnight oats',proto:'yogurt',cal:420,pro:22,carb:58,fat:10,cost:3,desc:'Rolled oats, almond milk, banana, peanut butter, chia seeds',tags:['vegetarian','vegan','nuts','gluten'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Rolled oats',qty:'18 oz canister',price:3},{name:'Almond milk',qty:'half gallon',price:4},{name:'Peanut butter',qty:'16 oz jar',price:4},{name:'Chia seeds',qty:'1 bag',price:4}]}},
+
+{type:'breakfast',name:'Protein pancakes',proto:'eggs',cal:390,pro:34,carb:38,fat:10,cost:4,desc:'Protein powder pancakes with fresh berries and maple syrup',tags:['vegetarian','eggs','dairy','gluten'],
+ shopping:{Produce:[{name:'Mixed berries',qty:'1 pint',price:4}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Protein powder',qty:'1 scoop',price:3},{name:'Oat flour',qty:'2 lb bag',price:3},{name:'Maple syrup',qty:'12 oz bottle',price:4}]}},
+
+{type:'breakfast',name:'Egg white omelette',proto:'eggs',cal:280,pro:30,carb:10,fat:8,cost:4,desc:'Egg whites, mushrooms, bell peppers, onion, side of fruit',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Mushrooms',qty:'1 pack',price:3},{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1},{name:'Banana',qty:'2',price:1}],Dairy:[{name:'Egg whites',qty:'1 carton',price:4}]}},
+
+{type:'breakfast',name:'Cottage cheese & fruit',proto:'yogurt',cal:310,pro:28,carb:30,fat:6,cost:4,desc:'Cottage cheese, sliced peaches or pineapple, walnuts, honey',tags:['vegetarian','dairy','nuts'],
+ shopping:{Produce:[{name:'Peaches or pineapple chunks',qty:'15 oz can',price:3}],Dairy:[{name:'Cottage cheese',qty:'2 tubs',price:7}],Pantry:[{name:'Walnuts',qty:'8 oz bag',price:5},{name:'Honey',qty:'12 oz bottle',price:4}]}},
+
+{type:'breakfast',name:'Avocado & egg toast',proto:'eggs',cal:420,pro:20,carb:36,fat:22,cost:5,desc:'Whole grain toast, mashed avocado, fried eggs, red pepper flakes',tags:['vegetarian','eggs','gluten'],
+ shopping:{Produce:[{name:'Avocado',qty:'3',price:5}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4},{name:'Red pepper flakes',qty:'1 jar',price:2}]}},
+
+{type:'breakfast',name:'Smoothie bowl',proto:'yogurt',cal:360,pro:28,carb:44,fat:7,cost:5,desc:'Frozen mango, banana, Greek yogurt, protein powder, granola topping',tags:['vegetarian','dairy'],
+ shopping:{Produce:[{name:'Frozen mango',qty:'1 bag',price:4},{name:'Bananas',qty:'1 bunch',price:2}],Dairy:[{name:'Greek yogurt',qty:'1 large tub',price:5}],Pantry:[{name:'Protein powder',qty:'1 scoop',price:3},{name:'Granola',qty:'1 bag',price:5}]}},
+
+{type:'breakfast',name:'Turkey & egg breakfast bowl',proto:'eggs',cal:410,pro:38,carb:22,fat:16,cost:6,desc:'Ground turkey, scrambled eggs, roasted sweet potato, salsa',tags:['meat','eggs'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2}],Meat:[{name:'Ground turkey',qty:'1 lb',price:6}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Salsa',qty:'16 oz jar',price:3}]}},
+
+{type:'breakfast',name:'Peanut butter oat bowl',proto:'yogurt',cal:440,pro:20,carb:54,fat:14,cost:3,desc:'Oats, peanut butter, banana, honey, a scoop of protein powder',tags:['vegetarian','vegan','nuts','gluten'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Rolled oats',qty:'18 oz canister',price:3},{name:'Peanut butter',qty:'16 oz jar',price:4},{name:'Honey',qty:'12 oz bottle',price:4},{name:'Protein powder',qty:'1 scoop',price:3}]}},
+
+{type:'breakfast',name:'Salmon & egg scramble',proto:'fish',cal:390,pro:38,carb:8,fat:22,cost:7,desc:'Smoked salmon, scrambled eggs, cream cheese on whole grain toast',tags:['meat','seafood','eggs','dairy','gluten'],
+ shopping:{Meat:[{name:'Smoked salmon',qty:'1 pack',price:7}],Dairy:[{name:'Eggs',qty:'12-pack',price:5},{name:'Cream cheese',qty:'1 tub',price:4}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4}]}},
+
+{type:'breakfast',name:'Tofu scramble',proto:'tofu',cal:320,pro:24,carb:22,fat:14,cost:4,desc:'Turmeric tofu scramble, black beans, salsa, whole grain toast',tags:['vegetarian','vegan','gluten'],
+ shopping:{Produce:[{name:'Baby spinach',qty:'1 bag',price:3}],Pantry:[{name:'Firm tofu',qty:'1 block',price:3},{name:'Black beans',qty:'15 oz can',price:1},{name:'Salsa',qty:'16 oz jar',price:3},{name:'Whole grain bread',qty:'1 loaf',price:4},{name:'Turmeric',qty:'1 jar',price:3}]}},
+
+{type:'breakfast',name:'Chicken sausage & eggs',proto:'chicken',cal:400,pro:36,carb:14,fat:20,cost:5,desc:'Chicken sausage links, 2 eggs any style, sauteed peppers and onions',tags:['meat','eggs'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Chicken sausage links',qty:'1 pack',price:5}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}]}},
+
+{type:'breakfast',name:'High protein oatmeal',proto:'yogurt',cal:380,pro:30,carb:48,fat:8,cost:4,desc:'Oats cooked with protein powder, topped with banana and almond butter',tags:['vegetarian','nuts','gluten'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Rolled oats',qty:'18 oz canister',price:3},{name:'Protein powder',qty:'1 scoop',price:3},{name:'Almond butter',qty:'16 oz jar',price:6}]}},
+
+{type:'breakfast',name:'Beef & egg skillet',proto:'beef',cal:430,pro:38,carb:12,fat:24,cost:6,desc:'Lean ground beef, eggs, diced potatoes, peppers, onion skillet',tags:['meat','eggs'],
+ shopping:{Produce:[{name:'Potatoes',qty:'2',price:2},{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}]}},
+
+{type:'breakfast',name:'Ricotta & berry toast',proto:'yogurt',cal:360,pro:22,carb:38,fat:12,cost:5,desc:'Whipped ricotta on sourdough, fresh strawberries, honey, almonds',tags:['vegetarian','dairy','gluten','nuts'],
+ shopping:{Produce:[{name:'Strawberries',qty:'1 pint',price:4}],Dairy:[{name:'Ricotta',qty:'1 tub',price:4}],Pantry:[{name:'Sourdough bread',qty:'1 loaf',price:4},{name:'Honey',qty:'12 oz bottle',price:4},{name:'Sliced almonds',qty:'1 bag',price:4}]}},
+
+{type:'breakfast',name:'Lentil breakfast bowl',proto:'legumes',cal:350,pro:22,carb:48,fat:6,cost:4,desc:'Warm spiced lentils, soft-boiled egg, avocado, hot sauce',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Green lentils',qty:'1 lb bag',price:3},{name:'Cumin & paprika',qty:'1 jar each',price:4},{name:'Hot sauce',qty:'5 oz bottle',price:3}]}},
+
+{type:'breakfast',name:'Pork sausage & egg muffins',proto:'pork',cal:380,pro:32,carb:10,fat:22,cost:5,desc:'Baked egg muffins with pork sausage, cheese, and bell pepper',tags:['meat','pork','eggs','dairy'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2}],Meat:[{name:'Pork breakfast sausage',qty:'1 lb',price:5}],Dairy:[{name:'Eggs',qty:'12-pack',price:5},{name:'Shredded cheese',qty:'1 bag',price:4}]}},
+
+{type:'breakfast',name:'Chickpea breakfast scramble',proto:'legumes',cal:340,pro:20,carb:40,fat:10,cost:4,desc:'Spiced chickpeas, spinach, tomatoes, whole grain toast',tags:['vegetarian','vegan','gluten'],
+ shopping:{Produce:[{name:'Baby spinach',qty:'1 bag',price:3},{name:'Cherry tomatoes',qty:'1 pint',price:3}],Pantry:[{name:'Chickpeas',qty:'2 cans',price:3},{name:'Whole grain bread',qty:'1 loaf',price:4},{name:'Smoked paprika',qty:'1 jar',price:3}]}},
+
+{type:'breakfast',name:'Yogurt parfait',proto:'yogurt',cal:320,pro:26,carb:38,fat:6,cost:4,desc:'Layered Greek yogurt, granola, blueberries, honey, flaxseed',tags:['vegetarian','dairy','gluten'],
+ shopping:{Produce:[{name:'Blueberries',qty:'1 pint',price:4}],Dairy:[{name:'Greek yogurt',qty:'2 large tubs',price:9}],Pantry:[{name:'Granola',qty:'1 bag',price:5},{name:'Honey',qty:'12 oz bottle',price:4},{name:'Ground flaxseed',qty:'1 bag',price:4}]}},
+
+{type:'breakfast',name:'Shrimp & egg scramble',proto:'fish',cal:360,pro:36,carb:10,fat:16,cost:6,desc:'Shrimp, scrambled eggs, avocado, hot sauce, corn tortillas',tags:['meat','seafood','eggs'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Meat:[{name:'Shrimp',qty:'1 lb',price:9}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Corn tortillas',qty:'30-count pack',price:3},{name:'Hot sauce',qty:'5 oz bottle',price:3}]}},
+
+{type:'breakfast',name:'Almond butter banana wrap',proto:'yogurt',cal:400,pro:18,carb:50,fat:14,cost:4,desc:'Whole wheat wrap, almond butter, sliced banana, honey, granola',tags:['vegetarian','vegan','nuts','gluten'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Whole wheat wraps',qty:'1 pack',price:3},{name:'Almond butter',qty:'16 oz jar',price:6},{name:'Honey',qty:'12 oz bottle',price:4},{name:'Granola',qty:'1 bag',price:5}]}},
+
+{type:'breakfast',name:'Black bean breakfast bowl',proto:'legumes',cal:370,pro:22,carb:46,fat:10,cost:4,desc:'Black beans, scrambled eggs, salsa, avocado, corn tortillas',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Black beans',qty:'2 cans',price:2},{name:'Salsa',qty:'16 oz jar',price:3},{name:'Corn tortillas',qty:'30-count pack',price:3}]}},
+
+{type:'breakfast',name:'Tuna & avocado toast',proto:'fish',cal:380,pro:34,carb:28,fat:14,cost:4,desc:'Canned tuna mixed with avocado, lemon, on whole grain toast',tags:['meat','seafood','gluten'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Canned tuna',qty:'2 cans',price:4}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4}]}},
+
+{type:'breakfast',name:'Beef & potato hash',proto:'beef',cal:440,pro:36,carb:34,fat:18,cost:6,desc:'Ground beef, diced potatoes, onion, peppers, topped with fried egg',tags:['meat','eggs'],
+ shopping:{Produce:[{name:'Potatoes',qty:'3',price:2},{name:'Onion',qty:'1',price:1},{name:'Bell peppers',qty:'2',price:2}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}]}},
+
+{type:'breakfast',name:'Tofu veggie bowl',proto:'tofu',cal:300,pro:22,carb:26,fat:12,cost:4,desc:'Baked tofu, roasted cherry tomatoes, spinach, brown rice, soy',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Baby spinach',qty:'1 bag',price:3}],Pantry:[{name:'Firm tofu',qty:'1 block',price:3},{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'breakfast',name:'Pork & apple oatmeal',proto:'pork',cal:410,pro:26,carb:50,fat:12,cost:5,desc:'Oatmeal topped with crumbled pork sausage, diced apple, cinnamon',tags:['meat','pork','gluten'],
+ shopping:{Produce:[{name:'Apple',qty:'2',price:2}],Meat:[{name:'Pork breakfast sausage',qty:'1 lb',price:5}],Pantry:[{name:'Rolled oats',qty:'18 oz canister',price:3},{name:'Cinnamon',qty:'1 jar',price:2}]}},
+
+{type:'breakfast',name:'Chicken & rice breakfast bowl',proto:'chicken',cal:420,pro:40,carb:38,fat:10,cost:6,desc:'Shredded chicken breast, brown rice, fried egg, avocado, hot sauce',tags:['meat','eggs'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Hot sauce',qty:'5 oz bottle',price:3}]}},
+
+{type:'breakfast',name:'Edamame & egg bowl',proto:'legumes',cal:350,pro:28,carb:26,fat:14,cost:5,desc:'Steamed edamame, soft-boiled eggs, brown rice, soy sesame dressing',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Frozen edamame',qty:'1 bag',price:3}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3},{name:'Sesame oil',qty:'8 oz bottle',price:4}]}},
+
+{type:'breakfast',name:'Whey protein shake & oats',proto:'yogurt',cal:360,pro:36,carb:40,fat:6,cost:3,desc:'Protein shake with almond milk, banana, and a bowl of oats with honey',tags:['vegetarian','gluten'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Protein powder',qty:'1 scoop',price:3},{name:'Almond milk',qty:'half gallon',price:4},{name:'Rolled oats',qty:'18 oz canister',price:3},{name:'Honey',qty:'12 oz bottle',price:4}]}},
+
+// ════════════════════════════════════════════════════════
+// LUNCH (30)
+// ════════════════════════════════════════════════════════
+{type:'lunch',name:'Chicken Caesar salad',proto:'chicken',cal:480,pro:44,carb:20,fat:22,cost:7,desc:'Grilled chicken, romaine, parmesan, Caesar dressing, croutons',tags:['meat','dairy','gluten'],
+ shopping:{Produce:[{name:'Romaine lettuce',qty:'2 heads',price:4},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Dairy:[{name:'Parmesan',qty:'1 block',price:4}],Pantry:[{name:'Caesar dressing',qty:'1 bottle',price:3},{name:'Croutons',qty:'5 oz bag',price:3}]}},
+
+{type:'lunch',name:'Turkey & avocado wrap',proto:'chicken',cal:460,pro:38,carb:38,fat:16,cost:6,desc:'Sliced turkey, avocado, lettuce, tomato, mustard in a whole wheat wrap',tags:['meat','gluten'],
+ shopping:{Produce:[{name:'Avocado',qty:'3',price:5},{name:'Romaine lettuce',qty:'1 head',price:2},{name:'Tomatoes',qty:'2',price:2}],Meat:[{name:'Deli turkey',qty:'1 lb',price:6}],Pantry:[{name:'Whole wheat wraps',qty:'1 pack',price:3},{name:'Mustard',qty:'14 oz bottle',price:2}]}},
+
+{type:'lunch',name:'Tuna salad on whole grain',proto:'fish',cal:440,pro:38,carb:32,fat:14,cost:5,desc:'Tuna mixed with Greek yogurt, celery, onion, on whole grain bread',tags:['meat','seafood','dairy','gluten'],
+ shopping:{Produce:[{name:'Celery',qty:'1 bunch',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Canned tuna',qty:'3 cans',price:5}],Dairy:[{name:'Greek yogurt',qty:'1 small tub',price:3}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4}]}},
+
+{type:'lunch',name:'Beef taco salad',proto:'beef',cal:510,pro:42,carb:30,fat:22,cost:7,desc:'Seasoned ground beef, romaine, black beans, salsa, shredded cheese, lime',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Romaine lettuce',qty:'1 head',price:2},{name:'Lime',qty:'2',price:1},{name:'Avocado',qty:'1',price:2}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Dairy:[{name:'Shredded cheese',qty:'1 bag',price:4}],Pantry:[{name:'Black beans',qty:'15 oz can',price:1},{name:'Salsa',qty:'16 oz jar',price:3},{name:'Taco seasoning',qty:'1 pack',price:2}]}},
+
+{type:'lunch',name:'Chicken rice bowl',proto:'chicken',cal:520,pro:46,carb:52,fat:10,cost:8,desc:'Grilled chicken breast, steamed brown rice, broccoli, soy glaze',tags:['meat'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'lunch',name:'Lentil soup & bread',proto:'legumes',cal:400,pro:22,carb:56,fat:6,cost:5,desc:'Chunky lentil soup with carrots, celery, tomatoes, sourdough bread',tags:['vegetarian','vegan','gluten'],
+ shopping:{Produce:[{name:'Carrots',qty:'3',price:2},{name:'Celery',qty:'1 bunch',price:2},{name:'Onion',qty:'1',price:1}],Pantry:[{name:'Green lentils',qty:'1 lb bag',price:3},{name:'Diced tomatoes',qty:'14.5 oz can',price:2},{name:'Vegetable stock',qty:'32 oz carton',price:3},{name:'Sourdough bread',qty:'1 loaf',price:4}]}},
+
+{type:'lunch',name:'Shrimp & avocado salad',proto:'fish',cal:420,pro:36,carb:18,fat:20,cost:8,desc:'Shrimp, avocado, cucumber, cherry tomatoes, lime citrus dressing',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Cucumber',qty:'1',price:1},{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Lime',qty:'2',price:1}],Meat:[{name:'Shrimp',qty:'1 lb',price:9}]}},
+
+{type:'lunch',name:'Egg salad sandwich',proto:'eggs',cal:430,pro:26,carb:36,fat:18,cost:4,desc:'Hard-boiled eggs, Greek yogurt mayo, celery, whole grain bread, lettuce',tags:['vegetarian','eggs','dairy','gluten'],
+ shopping:{Produce:[{name:'Celery',qty:'1 bunch',price:2},{name:'Romaine lettuce',qty:'1 head',price:2}],Dairy:[{name:'Eggs',qty:'12-pack',price:5},{name:'Greek yogurt',qty:'1 small tub',price:3}],Pantry:[{name:'Whole grain bread',qty:'1 loaf',price:4},{name:'Mustard',qty:'14 oz bottle',price:2}]}},
+
+{type:'lunch',name:'Black bean & veggie burrito',proto:'legumes',cal:480,pro:22,carb:64,fat:12,cost:5,desc:'Black beans, brown rice, peppers, onion, salsa, cheese in a whole wheat wrap',tags:['vegetarian','dairy','gluten'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1},{name:'Avocado',qty:'1',price:2}],Dairy:[{name:'Shredded cheese',qty:'1 bag',price:4}],Pantry:[{name:'Black beans',qty:'2 cans',price:2},{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Salsa',qty:'16 oz jar',price:3},{name:'Whole wheat wraps',qty:'1 pack',price:3}]}},
+
+{type:'lunch',name:'Salmon & quinoa bowl',proto:'fish',cal:510,pro:44,carb:36,fat:18,cost:10,desc:'Baked salmon, quinoa, cucumber, avocado, lemon herb dressing',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Cucumber',qty:'1',price:1},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Salmon fillets',qty:'2',price:10}],Pantry:[{name:'Quinoa',qty:'1 lb bag',price:5},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Ground beef & rice bowl',proto:'beef',cal:530,pro:44,carb:48,fat:16,cost:7,desc:'Korean-style ground beef, steamed rice, cucumber, green onions, soy',tags:['meat'],
+ shopping:{Produce:[{name:'Cucumber',qty:'1',price:1},{name:'Green onions',qty:'1 bunch',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3},{name:'Sesame oil',qty:'8 oz bottle',price:4}]}},
+
+{type:'lunch',name:'Chicken & veggie soup',proto:'chicken',cal:360,pro:38,carb:30,fat:8,cost:6,desc:'Chicken breast chunks, carrots, celery, potatoes, chicken broth',tags:['meat'],
+ shopping:{Produce:[{name:'Carrots',qty:'3',price:2},{name:'Celery',qty:'1 bunch',price:2},{name:'Potatoes',qty:'2',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'Chicken stock',qty:'32 oz carton',price:3}]}},
+
+{type:'lunch',name:'Tofu & veggie wrap',proto:'tofu',cal:400,pro:26,carb:42,fat:14,cost:5,desc:'Crispy tofu, shredded carrots, cucumber, hummus, whole wheat wrap',tags:['vegetarian','vegan','gluten'],
+ shopping:{Produce:[{name:'Carrots',qty:'2',price:1},{name:'Cucumber',qty:'1',price:1}],Pantry:[{name:'Firm tofu',qty:'1 block',price:3},{name:'Hummus',qty:'1 tub',price:4},{name:'Whole wheat wraps',qty:'1 pack',price:3}]}},
+
+{type:'lunch',name:'Pork tenderloin salad',proto:'pork',cal:430,pro:40,carb:20,fat:18,cost:7,desc:'Sliced pork tenderloin, mixed greens, apples, walnuts, balsamic dressing',tags:['meat','pork','nuts'],
+ shopping:{Produce:[{name:'Mixed salad greens',qty:'1 bag',price:3},{name:'Apple',qty:'2',price:2}],Meat:[{name:'Pork tenderloin',qty:'1 lb',price:7}],Pantry:[{name:'Walnuts',qty:'8 oz bag',price:5},{name:'Balsamic vinegar',qty:'16 oz bottle',price:4},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Chickpea & veggie bowl',proto:'legumes',cal:420,pro:20,carb:54,fat:10,cost:5,desc:'Roasted chickpeas, quinoa, roasted sweet potato, tahini dressing',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2}],Pantry:[{name:'Chickpeas',qty:'2 cans',price:3},{name:'Quinoa',qty:'1 lb bag',price:5},{name:'Tahini',qty:'16 oz jar',price:5}]}},
+
+{type:'lunch',name:'BLT wrap with turkey',proto:'chicken',cal:440,pro:36,carb:34,fat:16,cost:6,desc:'Turkey, bacon, lettuce, tomato, avocado, whole wheat wrap',tags:['meat','pork','gluten'],
+ shopping:{Produce:[{name:'Romaine lettuce',qty:'1 head',price:2},{name:'Tomatoes',qty:'2',price:2},{name:'Avocado',qty:'2',price:3}],Meat:[{name:'Deli turkey',qty:'0.5 lb',price:4},{name:'Turkey bacon',qty:'1 pack',price:4}],Pantry:[{name:'Whole wheat wraps',qty:'1 pack',price:3}]}},
+
+{type:'lunch',name:'Beef & veggie stir fry',proto:'beef',cal:490,pro:42,carb:38,fat:16,cost:8,desc:'Beef sirloin strips, broccoli, snap peas, brown rice, oyster sauce',tags:['meat'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2},{name:'Snap peas',qty:'1 bag',price:3}],Meat:[{name:'Beef sirloin',qty:'1 lb',price:8}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Oyster sauce',qty:'9 oz bottle',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'lunch',name:'Greek salad with chicken',proto:'chicken',cal:450,pro:42,carb:16,fat:22,cost:7,desc:'Grilled chicken, romaine, cucumber, tomatoes, olives, feta, lemon dressing',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Romaine lettuce',qty:'1 head',price:2},{name:'Cucumber',qty:'1',price:1},{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Dairy:[{name:'Feta cheese',qty:'1 pack',price:4}],Pantry:[{name:'Kalamata olives',qty:'1 jar',price:3},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Fish tacos',proto:'fish',cal:460,pro:36,carb:42,fat:14,cost:8,desc:'White fish, corn tortillas, shredded cabbage, avocado, lime crema',tags:['meat','seafood','dairy'],
+ shopping:{Produce:[{name:'Coleslaw mix',qty:'1 bag',price:3},{name:'Avocado',qty:'2',price:3},{name:'Lime',qty:'2',price:1}],Meat:[{name:'White fish fillets',qty:'2',price:7}],Dairy:[{name:'Greek yogurt',qty:'1 small tub',price:3}],Pantry:[{name:'Corn tortillas',qty:'30-count pack',price:3}]}},
+
+{type:'lunch',name:'Tempeh grain bowl',proto:'tofu',cal:460,pro:28,carb:48,fat:14,cost:7,desc:'Marinated tempeh, quinoa, roasted beets, arugula, lemon vinaigrette',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Beets',qty:'3',price:3},{name:'Arugula',qty:'1 bag',price:3},{name:'Lemon',qty:'1',price:1}],Pantry:[{name:'Tempeh',qty:'2 blocks',price:5},{name:'Quinoa',qty:'1 lb bag',price:5},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Turkey chili',proto:'chicken',cal:440,pro:40,carb:40,fat:10,cost:7,desc:'Ground turkey, kidney beans, tomatoes, peppers, chili spices',tags:['meat'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Ground turkey',qty:'1 lb',price:6}],Pantry:[{name:'Kidney beans',qty:'2 cans',price:2},{name:'Diced tomatoes',qty:'2 × 14.5 oz cans',price:3},{name:'Chili powder',qty:'1 jar',price:3}]}},
+
+{type:'lunch',name:'White bean & kale soup',proto:'legumes',cal:360,pro:20,carb:46,fat:6,cost:5,desc:'Cannellini beans, kale, tomatoes, garlic, vegetable broth',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Kale',qty:'1 bunch',price:3},{name:'Garlic',qty:'1 bulb',price:1},{name:'Onion',qty:'1',price:1}],Pantry:[{name:'Cannellini beans',qty:'2 cans',price:3},{name:'Diced tomatoes',qty:'14.5 oz can',price:2},{name:'Vegetable stock',qty:'32 oz carton',price:3}]}},
+
+{type:'lunch',name:'Pork & rice bowl',proto:'pork',cal:480,pro:40,carb:44,fat:14,cost:7,desc:'Pork tenderloin, brown rice, steamed broccoli, teriyaki sauce',tags:['meat','pork'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2}],Meat:[{name:'Pork tenderloin',qty:'1 lb',price:7}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Teriyaki sauce',qty:'12 oz bottle',price:3}]}},
+
+{type:'lunch',name:'Caprese chicken',proto:'chicken',cal:420,pro:44,carb:12,fat:20,cost:7,desc:'Grilled chicken, fresh mozzarella, tomatoes, basil, balsamic glaze',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Tomatoes',qty:'3',price:3},{name:'Fresh basil',qty:'1 bunch',price:2}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Dairy:[{name:'Fresh mozzarella',qty:'1 ball',price:4}],Pantry:[{name:'Balsamic glaze',qty:'16 oz bottle',price:4},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Salmon rice bowl',proto:'fish',cal:490,pro:42,carb:44,fat:14,cost:9,desc:'Teriyaki salmon, steamed broccoli, white rice, sesame seeds',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2}],Meat:[{name:'Salmon fillets',qty:'2',price:10}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Teriyaki sauce',qty:'12 oz bottle',price:3}]}},
+
+{type:'lunch',name:'Steak & veggie bowl',proto:'beef',cal:520,pro:46,carb:24,fat:22,cost:10,desc:'Sirloin steak, roasted sweet potato, asparagus, garlic butter',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2},{name:'Asparagus',qty:'1 bunch',price:3}],Meat:[{name:'Sirloin steak',qty:'1 lb',price:10}],Dairy:[{name:'Butter',qty:'1 stick',price:2}],Pantry:[{name:'Garlic',qty:'1 bulb',price:1},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'lunch',name:'Edamame rice bowl',proto:'legumes',cal:400,pro:22,carb:52,fat:10,cost:6,desc:'Edamame, brown rice, shredded carrots, cucumber, miso dressing',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Frozen edamame',qty:'1 bag',price:3},{name:'Carrots',qty:'2',price:1},{name:'Cucumber',qty:'1',price:1}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Miso paste',qty:'1 tub',price:4},{name:'Soy sauce',qty:'10 oz bottle',price:3},{name:'Sesame oil',qty:'8 oz bottle',price:4}]}},
+
+{type:'lunch',name:'Pulled pork bowl',proto:'pork',cal:510,pro:42,carb:48,fat:14,cost:8,desc:'Slow-cooked pulled pork, brown rice, coleslaw, BBQ sauce',tags:['meat','pork'],
+ shopping:{Produce:[{name:'Coleslaw mix',qty:'1 bag',price:3}],Meat:[{name:'Pork shoulder',qty:'1.5 lbs',price:7}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'BBQ sauce',qty:'18 oz bottle',price:3}]}},
+
+{type:'lunch',name:'Falafel & hummus bowl',proto:'legumes',cal:450,pro:18,carb:56,fat:14,cost:6,desc:'Baked falafel, hummus, tabbouleh, cucumber, cherry tomatoes, pita',tags:['vegetarian','vegan','gluten'],
+ shopping:{Produce:[{name:'Cucumber',qty:'1',price:1},{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Parsley',qty:'1 bunch',price:2},{name:'Lemon',qty:'1',price:1}],Pantry:[{name:'Chickpeas',qty:'2 cans',price:3},{name:'Tahini',qty:'16 oz jar',price:5},{name:'Pita bread',qty:'1 pack',price:3}]}},
+
+{type:'lunch',name:'Cottage cheese power salad',proto:'yogurt',cal:360,pro:30,carb:24,fat:14,cost:5,desc:'Cottage cheese, mixed greens, cherry tomatoes, cucumber, walnuts, lemon',tags:['vegetarian','dairy','nuts'],
+ shopping:{Produce:[{name:'Mixed salad greens',qty:'1 bag',price:3},{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Cucumber',qty:'1',price:1},{name:'Lemon',qty:'1',price:1}],Dairy:[{name:'Cottage cheese',qty:'1 tub',price:4}],Pantry:[{name:'Walnuts',qty:'8 oz bag',price:5},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+// ════════════════════════════════════════════════════════
+// DINNER (30) — US-friendly, protein-forward
+// ════════════════════════════════════════════════════════
+{type:'dinner',name:'Grilled chicken & rice bowl',proto:'chicken',cal:520,pro:46,carb:52,fat:10,cost:9,desc:'Grilled chicken breast, steamed white rice, broccoli, soy glaze',tags:['meat'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2},{name:'Bell peppers',qty:'2',price:2}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Beef & broccoli stir fry',proto:'beef',cal:510,pro:44,carb:38,fat:16,cost:11,desc:'Thinly sliced beef, broccoli, garlic, oyster sauce, steamed rice',tags:['meat'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Beef sirloin',qty:'1 lb',price:8}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Oyster sauce',qty:'9 oz bottle',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Baked salmon & sweet potato',proto:'fish',cal:490,pro:40,carb:40,fat:17,cost:14,desc:'Salmon fillet, roasted sweet potato, wilted spinach',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2},{name:'Baby spinach',qty:'1 bag',price:3}],Meat:[{name:'Salmon fillets',qty:'2',price:10}],Dairy:[{name:'Butter',qty:'1 stick',price:2}]}},
+
+{type:'dinner',name:'Ground turkey stir fry',proto:'chicken',cal:460,pro:43,carb:36,fat:12,cost:10,desc:'Lean ground turkey, mixed veg, garlic, oyster sauce, brown rice',tags:['meat'],
+ shopping:{Produce:[{name:'Stir fry veg mix',qty:'1 bag',price:3},{name:'Garlic',qty:'1 bulb',price:1},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Ground turkey',qty:'1 lb',price:6}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Oyster sauce',qty:'9 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Lean beef & veggie stew',proto:'beef',cal:540,pro:45,carb:44,fat:14,cost:13,desc:'Lean beef chunks, potatoes, carrots, celery, rich tomato broth',tags:['meat'],
+ shopping:{Produce:[{name:'Potatoes',qty:'3',price:2},{name:'Carrots',qty:'4',price:2},{name:'Celery',qty:'1 bunch',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Lean beef chunks',qty:'1.5 lbs',price:9}],Pantry:[{name:'Beef stock',qty:'32 oz carton',price:3},{name:'Tomato paste',qty:'6 oz can',price:2}]}},
+
+{type:'dinner',name:'Chicken & black bean bowl',proto:'chicken',cal:550,pro:48,carb:55,fat:11,cost:10,desc:'Spiced chicken thighs, black beans, brown rice, avocado, salsa',tags:['meat'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Lime',qty:'2',price:1},{name:'Romaine lettuce',qty:'1 head',price:2}],Meat:[{name:'Chicken thighs',qty:'2',price:5}],Pantry:[{name:'Black beans',qty:'15 oz can',price:1},{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Salsa',qty:'16 oz jar',price:3}]}},
+
+{type:'dinner',name:'Pork tenderloin & roasted veg',proto:'pork',cal:500,pro:44,carb:38,fat:13,cost:11,desc:'Lean pork tenderloin, roasted zucchini, bell peppers, herbs',tags:['meat','pork'],
+ shopping:{Produce:[{name:'Zucchini',qty:'2',price:2},{name:'Bell peppers',qty:'2',price:2}],Meat:[{name:'Pork tenderloin',qty:'1 lb',price:7}],Pantry:[{name:'Olive oil',qty:'16 oz bottle',price:5},{name:'Mixed herbs',qty:'1 jar',price:3}]}},
+
+{type:'dinner',name:'Tofu & veggie stir fry',proto:'tofu',cal:420,pro:28,carb:40,fat:14,cost:9,desc:'Crispy tofu, broccoli, snap peas, ginger soy sauce, brown rice',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2},{name:'Snap peas',qty:'1 bag',price:3},{name:'Ginger',qty:'1 knob',price:1}],Pantry:[{name:'Firm tofu',qty:'2 blocks',price:5},{name:'Soy sauce',qty:'10 oz bottle',price:3},{name:'Brown rice',qty:'2 lb bag',price:3}]}},
+
+{type:'dinner',name:'Lentil & sweet potato curry',proto:'legumes',cal:450,pro:22,carb:62,fat:9,cost:7,desc:'Red lentils, sweet potato, coconut milk, warm spices, basmati rice',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2},{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Pantry:[{name:'Red lentils',qty:'1 lb bag',price:3},{name:'Coconut milk',qty:'2 × 13.5 oz cans',price:4},{name:'Curry powder',qty:'1 jar',price:3},{name:'Basmati rice',qty:'2 lb bag',price:3}]}},
+
+{type:'dinner',name:'Beef taco bowl',proto:'beef',cal:530,pro:44,carb:44,fat:16,cost:10,desc:'Seasoned ground beef, black beans, rice, salsa, shredded cheese',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Avocado',qty:'1',price:2},{name:'Lime',qty:'1',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Dairy:[{name:'Shredded cheese',qty:'1 bag',price:4}],Pantry:[{name:'Black beans',qty:'15 oz can',price:1},{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Taco seasoning',qty:'1 pack',price:2},{name:'Salsa',qty:'16 oz jar',price:3}]}},
+
+{type:'dinner',name:'Chicken tikka masala',proto:'chicken',cal:530,pro:46,carb:40,fat:14,cost:10,desc:'Chicken breast in spiced tomato cream sauce, basmati rice',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1},{name:'Fresh ginger',qty:'1 knob',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Dairy:[{name:'Heavy cream',qty:'1 small carton',price:3}],Pantry:[{name:'Basmati rice',qty:'2 lb bag',price:3},{name:'Tikka masala paste',qty:'1 jar',price:4}]}},
+
+{type:'dinner',name:'Shrimp & veggie bowl',proto:'fish',cal:430,pro:38,carb:42,fat:10,cost:12,desc:'Garlic shrimp, roasted zucchini and peppers, brown rice',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Zucchini',qty:'2',price:2},{name:'Bell peppers',qty:'2',price:2},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Shrimp',qty:'1 lb',price:9}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'dinner',name:'Steak & roasted veg',proto:'beef',cal:550,pro:48,carb:24,fat:22,cost:14,desc:'Sirloin steak, roasted sweet potato, asparagus, garlic butter',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2},{name:'Asparagus',qty:'1 bunch',price:3}],Meat:[{name:'Sirloin steak',qty:'2',price:12}],Dairy:[{name:'Butter',qty:'1 stick',price:2}],Pantry:[{name:'Garlic',qty:'1 bulb',price:1},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'dinner',name:'Chicken fajita bowl',proto:'chicken',cal:500,pro:44,carb:46,fat:12,cost:9,desc:'Spiced chicken strips, peppers, onions, brown rice, guacamole',tags:['meat'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'3',price:3},{name:'Onion',qty:'1',price:1},{name:'Avocado',qty:'1',price:2},{name:'Lime',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Fajita seasoning',qty:'1 pack',price:2}]}},
+
+{type:'dinner',name:'Beef stuffed peppers',proto:'beef',cal:480,pro:42,carb:36,fat:16,cost:10,desc:'Bell peppers stuffed with seasoned ground beef, rice, tomato sauce',tags:['meat'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'4',price:4},{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Diced tomatoes',qty:'14.5 oz can',price:2}]}},
+
+{type:'dinner',name:'Tempeh taco bowl',proto:'tofu',cal:450,pro:30,carb:46,fat:14,cost:9,desc:'Crumbled spiced tempeh, black beans, corn, avocado, brown rice',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Lime',qty:'2',price:1}],Pantry:[{name:'Tempeh',qty:'2 blocks',price:5},{name:'Black beans',qty:'15 oz can',price:1},{name:'Brown rice',qty:'2 lb bag',price:3},{name:'Taco seasoning',qty:'1 pack',price:2}]}},
+
+{type:'dinner',name:'Salmon & quinoa salad',proto:'fish',cal:510,pro:44,carb:36,fat:18,cost:13,desc:'Baked salmon, quinoa, avocado, cucumber, lemon herb dressing',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Avocado',qty:'1',price:2},{name:'Cucumber',qty:'1',price:1},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Salmon fillets',qty:'2',price:10}],Pantry:[{name:'Quinoa',qty:'1 lb bag',price:5},{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'dinner',name:'Pork chop & sweet potato mash',proto:'pork',cal:530,pro:44,carb:46,fat:14,cost:11,desc:'Pan-seared pork chop, sweet potato mash, steamed broccoli',tags:['meat','pork','dairy'],
+ shopping:{Produce:[{name:'Sweet potatoes',qty:'2',price:2},{name:'Broccoli',qty:'1 head',price:2}],Meat:[{name:'Pork chops',qty:'2',price:7}],Dairy:[{name:'Butter',qty:'1 stick',price:2}],Pantry:[{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'dinner',name:'Chickpea & spinach bowl',proto:'legumes',cal:400,pro:20,carb:52,fat:10,cost:7,desc:'Roasted chickpeas, wilted spinach, tahini dressing, quinoa',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Baby spinach',qty:'1 bag',price:3},{name:'Lemon',qty:'2',price:1}],Pantry:[{name:'Chickpeas',qty:'2 cans',price:3},{name:'Quinoa',qty:'1 lb bag',price:5},{name:'Tahini',qty:'16 oz jar',price:5}]}},
+
+{type:'dinner',name:'Beef chili',proto:'beef',cal:500,pro:44,carb:42,fat:14,cost:10,desc:'Ground beef, kidney beans, tomatoes, peppers, chili spices',tags:['meat'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2},{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Pantry:[{name:'Kidney beans',qty:'2 cans',price:2},{name:'Diced tomatoes',qty:'14.5 oz can',price:2},{name:'Chili powder',qty:'1 jar',price:3}]}},
+
+{type:'dinner',name:'Chicken & avocado salad',proto:'chicken',cal:420,pro:42,carb:18,fat:20,cost:9,desc:'Grilled chicken, avocado, cherry tomatoes, cucumber, lemon dressing',tags:['meat'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3},{name:'Cherry tomatoes',qty:'1 pint',price:3},{name:'Cucumber',qty:'1',price:1},{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'Olive oil',qty:'16 oz bottle',price:5}]}},
+
+{type:'dinner',name:'Ground pork lettuce cups',proto:'pork',cal:400,pro:38,carb:20,fat:18,cost:9,desc:'Seasoned ground pork, water chestnuts, hoisin, crisp lettuce cups',tags:['meat','pork'],
+ shopping:{Produce:[{name:'Iceberg lettuce',qty:'1 head',price:2},{name:'Green onions',qty:'1 bunch',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Meat:[{name:'Ground pork',qty:'1 lb',price:6}],Pantry:[{name:'Hoisin sauce',qty:'7 oz bottle',price:3},{name:'Water chestnuts',qty:'1 can',price:2},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Shrimp stir fry',proto:'fish',cal:420,pro:36,carb:40,fat:10,cost:12,desc:'Shrimp, broccoli, snap peas, ginger soy glaze, rice noodles',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2},{name:'Snap peas',qty:'1 bag',price:3},{name:'Ginger',qty:'1 knob',price:1}],Meat:[{name:'Shrimp',qty:'1 lb',price:9}],Pantry:[{name:'Rice noodles',qty:'1 pack',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Korean beef rice bowl',proto:'beef',cal:520,pro:42,carb:48,fat:14,cost:10,desc:'Ground beef, soy ginger sauce, steamed rice, cucumber, sesame seeds',tags:['meat'],
+ shopping:{Produce:[{name:'Cucumber',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1},{name:'Ginger',qty:'1 knob',price:1},{name:'Green onions',qty:'1 bunch',price:1}],Meat:[{name:'Lean ground beef',qty:'1 lb',price:6}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Soy sauce',qty:'10 oz bottle',price:3},{name:'Sesame oil',qty:'8 oz bottle',price:4}]}},
+
+{type:'dinner',name:'Veggie omelette & sweet potato',proto:'eggs',cal:380,pro:28,carb:36,fat:18,cost:6,desc:'3-egg omelette with peppers and spinach, roasted sweet potato on the side',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Bell peppers',qty:'2',price:2},{name:'Baby spinach',qty:'1 bag',price:3},{name:'Sweet potatoes',qty:'2',price:2}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}]}},
+
+{type:'dinner',name:'Chicken soup with veg',proto:'chicken',cal:380,pro:40,carb:32,fat:8,cost:8,desc:'Chunky chicken breast, carrots, celery, onion, chicken broth',tags:['meat'],
+ shopping:{Produce:[{name:'Carrots',qty:'3',price:2},{name:'Celery',qty:'1 bunch',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Chicken breasts',qty:'2',price:6}],Pantry:[{name:'Chicken stock',qty:'32 oz carton',price:3}]}},
+
+{type:'dinner',name:'Teriyaki salmon bowl',proto:'fish',cal:520,pro:42,carb:48,fat:14,cost:13,desc:'Teriyaki glazed salmon, steamed broccoli, white rice, sesame seeds',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Broccoli',qty:'1 head',price:2}],Meat:[{name:'Salmon fillets',qty:'2',price:10}],Pantry:[{name:'White rice',qty:'2 lb bag',price:3},{name:'Teriyaki sauce',qty:'12 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Pulled pork rice bowl',proto:'pork',cal:540,pro:44,carb:50,fat:14,cost:10,desc:'Slow-cooked pulled pork, brown rice, coleslaw, BBQ sauce',tags:['meat','pork'],
+ shopping:{Produce:[{name:'Coleslaw mix',qty:'1 bag',price:3}],Meat:[{name:'Pork shoulder',qty:'1.5 lbs',price:7}],Pantry:[{name:'Brown rice',qty:'2 lb bag',price:3},{name:'BBQ sauce',qty:'18 oz bottle',price:3}]}},
+
+{type:'dinner',name:'Tofu tikka bowl',proto:'tofu',cal:430,pro:24,carb:48,fat:14,cost:8,desc:'Tofu in tikka sauce, basmati rice, spinach, fresh cilantro',tags:['vegetarian','vegan'],
+ shopping:{Produce:[{name:'Baby spinach',qty:'1 bag',price:3},{name:'Onion',qty:'1',price:1},{name:'Garlic',qty:'1 bulb',price:1}],Pantry:[{name:'Firm tofu',qty:'2 blocks',price:5},{name:'Tikka masala paste',qty:'1 jar',price:4},{name:'Coconut milk',qty:'13.5 oz can',price:2},{name:'Basmati rice',qty:'2 lb bag',price:3}]}},
+
+{type:'dinner',name:'Beef & veggie soup',proto:'beef',cal:420,pro:40,carb:34,fat:12,cost:10,desc:'Lean beef, mixed root vegetables, brown rice, rich broth',tags:['meat'],
+ shopping:{Produce:[{name:'Carrots',qty:'3',price:2},{name:'Potatoes',qty:'2',price:2},{name:'Onion',qty:'1',price:1}],Meat:[{name:'Lean beef chunks',qty:'1 lb',price:6}],Pantry:[{name:'Beef stock',qty:'32 oz carton',price:3},{name:'Brown rice',qty:'2 lb bag',price:3}]}},
+
+// ════════════════════════════════════════════════════════
+// MEAL 3 — lighter protein hits for IF / skip breakfast
+// ════════════════════════════════════════════════════════
+{type:'meal3',name:'Greek yogurt & almonds',proto:'yogurt',cal:280,pro:24,carb:18,fat:10,cost:3,desc:'Greek yogurt, handful of almonds, honey, a piece of fruit',tags:['vegetarian','dairy','nuts'],
+ shopping:{Produce:[{name:'Banana or apple',qty:'3',price:2}],Dairy:[{name:'Greek yogurt',qty:'1 large tub',price:5}],Pantry:[{name:'Almonds',qty:'1 bag',price:5},{name:'Honey',qty:'12 oz bottle',price:4}]}},
+
+{type:'meal3',name:'Protein shake & fruit',proto:'yogurt',cal:260,pro:30,carb:22,fat:4,cost:3,desc:'Whey protein shake with almond milk, banana',tags:['vegetarian'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Protein powder',qty:'1 scoop',price:3},{name:'Almond milk',qty:'half gallon',price:4}]}},
+
+{type:'meal3',name:'Cottage cheese & veggies',proto:'yogurt',cal:240,pro:26,carb:14,fat:6,cost:3,desc:'Cottage cheese with cucumber, cherry tomatoes, black pepper, crackers',tags:['vegetarian','dairy','gluten'],
+ shopping:{Produce:[{name:'Cucumber',qty:'1',price:1},{name:'Cherry tomatoes',qty:'1 pint',price:3}],Dairy:[{name:'Cottage cheese',qty:'1 tub',price:4}],Pantry:[{name:'Whole grain crackers',qty:'1 box',price:3}]}},
+
+{type:'meal3',name:'Hard-boiled eggs & avocado',proto:'eggs',cal:300,pro:20,carb:8,fat:20,cost:3,desc:'3 hard-boiled eggs, half an avocado, salt, pepper, hot sauce',tags:['vegetarian','eggs'],
+ shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Hot sauce',qty:'5 oz bottle',price:3}]}},
+
+{type:'meal3',name:'Tuna & crackers',proto:'fish',cal:270,pro:28,carb:18,fat:6,cost:3,desc:'Canned tuna with lemon, mixed into whole grain crackers',tags:['meat','seafood','gluten'],
+ shopping:{Produce:[{name:'Lemon',qty:'1',price:1},{name:'Celery sticks',qty:'1 bunch',price:2}],Meat:[{name:'Canned tuna',qty:'2 cans',price:4}],Pantry:[{name:'Whole grain crackers',qty:'1 box',price:3}]}},
+
+{type:'meal3',name:'Peanut butter & banana',proto:'yogurt',cal:320,pro:16,carb:36,fat:14,cost:2,desc:'2 tablespoons peanut butter, banana, glass of milk',tags:['vegetarian','dairy','nuts'],
+ shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Dairy:[{name:'Milk',qty:'1 gallon',price:4}],Pantry:[{name:'Peanut butter',qty:'16 oz jar',price:4}]}},
+
+{type:'meal3',name:'Edamame & string cheese',proto:'legumes',cal:260,pro:24,carb:14,fat:10,cost:3,desc:'Steamed edamame, string cheese, a handful of almonds',tags:['vegetarian','dairy','nuts'],
+ shopping:{Produce:[{name:'Frozen edamame',qty:'1 bag',price:3}],Dairy:[{name:'String cheese',qty:'1 pack',price:4}],Pantry:[{name:'Almonds',qty:'1 bag',price:5}]}},
+
+{type:'meal3',name:'Turkey roll-ups',proto:'chicken',cal:280,pro:28,carb:8,fat:12,cost:4,desc:'Deli turkey slices, cream cheese, cucumber, rolled up',tags:['meat','dairy'],
+ shopping:{Produce:[{name:'Cucumber',qty:'1',price:1}],Meat:[{name:'Deli turkey',qty:'0.5 lb',price:4}],Dairy:[{name:'Cream cheese',qty:'1 tub',price:4}]}},
+
+{type:'meal3',name:'Beef jerky & apple',proto:'beef',cal:260,pro:22,carb:22,fat:6,cost:4,desc:'High protein beef jerky, a medium apple',tags:['meat'],
+ shopping:{Produce:[{name:'Apples',qty:'3',price:3}],Pantry:[{name:'Beef jerky',qty:'1 bag',price:6}]}},
+
+{type:'meal3',name:'Shrimp cocktail',proto:'fish',cal:200,pro:28,carb:10,fat:2,cost:5,desc:'Chilled shrimp, cocktail sauce, lemon — high protein, super low cal',tags:['meat','seafood'],
+ shopping:{Produce:[{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Shrimp (pre-cooked)',qty:'1 lb',price:9}],Pantry:[{name:'Cocktail sauce',qty:'1 bottle',price:3}]}},
+];
+
+// ── STATE ──────────────────────────────────────────────────
+const PROTO_STATES={};
+['chicken','beef','pork','eggs','fish','legumes','yogurt','tofu'].forEach(p=>PROTO_STATES[p]='neutral');
+let unitMode='g',weightUnit='lbs',selectedGoal=null;
+let excluded=new Set(),checkedItems=new Set(),pantryItems=new Set(),allItems=[];
+let saveTimer,storedCalories=2015,skipBreakfast=false;
+
+// picks: {breakfast:[], lunch:[], dinner:[], meal3:[]}
+let picks={breakfast:[],lunch:[],dinner:[],meal3:[]};
+// options shown in pick step
+let options={breakfast:[],lunch:[],dinner:[],meal3:[]};
+
+const GOALS={
+  muscle:{pro_per_lb:0.8,carb_per_lb:1.5,fat_per_lb:0.35,label:'Build muscle'},
+  'fat-loss':{pro_per_lb:1.0,carb_per_lb:0.75,fat_per_lb:0.30,label:'Lose fat'},
+  'low-carb':{pro_per_lb:0.7,carb_per_lb:0.2,fat_per_lb:0.60,label:'Low carb'},
+  maintenance:{pro_per_lb:0.7,carb_per_lb:1.2,fat_per_lb:0.35,label:'Maintenance'},
+  endurance:{pro_per_lb:0.6,carb_per_lb:2.5,fat_per_lb:0.30,label:'Endurance'},
+  recomp:{pro_per_lb:1.1,carb_per_lb:0.9,fat_per_lb:0.30,label:'Body recomp'},
+};
+
+const protoLabels={chicken:'🍗 Chicken',beef:'🥩 Beef',pork:'🐷 Pork',eggs:'🥚 Eggs',fish:'🐟 Fish & Seafood',legumes:'🫘 Legumes',yogurt:'🧀 Yogurt & Dairy',tofu:'🌱 Tofu & Tempeh'};
+
+// ── PROTEIN TOGGLE ─────────────────────────────────────────
+function cycleProto(btn){
+  const p=btn.dataset.proto;
+  const cur=PROTO_STATES[p];
+  const next=cur==='neutral'?'selected':cur==='selected'?'excluded':'neutral';
+  PROTO_STATES[p]=next;
+  btn.classList.remove('selected','excluded');
+  const stateEl=btn.querySelector('.proto-state');
+  if(next==='selected'){btn.classList.add('selected');stateEl.textContent='✓';}
+  else if(next==='excluded'){btn.classList.add('excluded');stateEl.textContent='✗';}
+  else{stateEl.textContent='';}
+  updateProtoWarning();savePrefs();
+}
+function updateProtoWarning(){
+  const sel=Object.entries(PROTO_STATES).filter(([,v])=>v==='selected');
+  document.getElementById('proto-warning').style.display=sel.length===1?'block':'none';
+}
+
+// dietary-only filter (no protein source check) — used for meal3
+function dietaryOk(m){
+  if(excluded.has('vegetarian')&&m.tags.includes('meat'))return false;
+  if(excluded.has('vegan')&&(m.tags.includes('meat')||m.tags.includes('dairy')||m.tags.includes('eggs')))return false;
+  if(excluded.has('dairy')&&m.tags.includes('dairy'))return false;
+  if(excluded.has('gluten')&&m.tags.includes('gluten'))return false;
+  if(excluded.has('pork')&&m.tags.includes('pork'))return false;
+  if(excluded.has('seafood')&&m.tags.includes('seafood'))return false;
+  if(excluded.has('eggs')&&m.tags.includes('eggs'))return false;
+  if(excluded.has('nuts')&&m.tags.includes('nuts'))return false;
+  return true;
+}
+
+// full filter including protein source
+function mealOk(m){
+  const selP=Object.entries(PROTO_STATES).filter(([,v])=>v==='selected').map(([k])=>k);
+  const exclP=Object.entries(PROTO_STATES).filter(([,v])=>v==='excluded').map(([k])=>k);
+  if(exclP.includes(m.proto))return false;
+  if(selP.length>0&&!selP.includes(m.proto))return false;
+  if(excluded.has('vegetarian')&&m.tags.includes('meat'))return false;
+  if(excluded.has('vegan')&&(m.tags.includes('meat')||m.tags.includes('dairy')||m.tags.includes('eggs')))return false;
+  if(excluded.has('dairy')&&m.tags.includes('dairy'))return false;
+  if(excluded.has('gluten')&&m.tags.includes('gluten'))return false;
+  if(excluded.has('pork')&&m.tags.includes('pork'))return false;
+  if(excluded.has('seafood')&&m.tags.includes('seafood'))return false;
+  if(excluded.has('eggs')&&m.tags.includes('eggs'))return false;
+  if(excluded.has('nuts')&&m.tags.includes('nuts'))return false;
+  return true;
+}
+
+// ── UNIT TOGGLE ────────────────────────────────────────────
+function setUnit(mode,btn){
+  const pro=parseFloat(document.getElementById('pro').value)||0;
+  const carb=parseFloat(document.getElementById('carb').value)||0;
+  const fat=parseFloat(document.getElementById('fat').value)||0;
+  if(mode==='%'&&unitMode==='g'){
+    const total=pro*4+carb*4+fat*9||1;storedCalories=Math.round(total);
+    document.getElementById('pro').value=Math.round(pro*4/total*100);
+    document.getElementById('carb').value=Math.round(carb*4/total*100);
+    document.getElementById('fat').value=Math.round(fat*9/total*100);
+    ['pro','carb','fat'].forEach(id=>document.getElementById(id+'-unit').textContent='%');
+  }else if(mode==='g'&&unitMode==='%'){
+    const cal=storedCalories||2000;
+    document.getElementById('pro').value=Math.round(pro/100*cal/4);
+    document.getElementById('carb').value=Math.round(carb/100*cal/4);
+    document.getElementById('fat').value=Math.round(fat/100*cal/9);
+    ['pro','carb','fat'].forEach(id=>document.getElementById(id+'-unit').textContent='g');
+  }
+  unitMode=mode;
+  document.querySelectorAll('.unit-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  updateSecondaries();
+}
+function setWeightUnit(unit,btn){weightUnit=unit;document.querySelectorAll('.wu-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function selectGoal(btn,goal){selectedGoal=goal;document.querySelectorAll('.goal-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function updateSecondaries(){
+  const pro=parseFloat(document.getElementById('pro').value)||0;
+  const carb=parseFloat(document.getElementById('carb').value)||0;
+  const fat=parseFloat(document.getElementById('fat').value)||0;
+  if(unitMode==='g'){
+    const cP=Math.round(pro*4),cC=Math.round(carb*4),cF=Math.round(fat*9),tot=cP+cC+cF||1;
+    document.getElementById('cal-display').textContent=tot;storedCalories=tot;
+    document.getElementById('pro-secondary').textContent=`${cP} kcal · ${Math.round(cP/tot*100)}%`;
+    document.getElementById('carb-secondary').textContent=`${cC} kcal · ${Math.round(cC/tot*100)}%`;
+    document.getElementById('fat-secondary').textContent=`${cF} kcal · ${Math.round(cF/tot*100)}%`;
+  }else{
+    const cal=storedCalories||2000;
+    document.getElementById('pro-secondary').textContent=`~${Math.round(pro/100*cal/4)}g`;
+    document.getElementById('carb-secondary').textContent=`~${Math.round(carb/100*cal/4)}g`;
+    document.getElementById('fat-secondary').textContent=`~${Math.round(fat/100*cal/9)}g`;
+  }
+}
+function onMacroChange(){updateSecondaries();savePrefs();}
+function calculateMacros(){
+  const wRaw=parseFloat(document.getElementById('weight').value);
+  if(!wRaw||wRaw<=0){alert('Please enter your body weight.');return;}
+  if(!selectedGoal){alert('Please select a goal.');return;}
+  const wLbs=weightUnit==='kg'?wRaw*2.205:wRaw;
+  const g=GOALS[selectedGoal];
+  const proG=Math.round(wLbs*g.pro_per_lb),carbG=Math.round(wLbs*g.carb_per_lb),fatG=Math.round(wLbs*g.fat_per_lb);
+  if(unitMode==='%'){unitMode='g';['pro','carb','fat'].forEach(id=>document.getElementById(id+'-unit').textContent='g');document.getElementById('btn-g').classList.add('active');document.getElementById('btn-pct').classList.remove('active');}
+  document.getElementById('pro').value=proG;document.getElementById('carb').value=carbG;document.getElementById('fat').value=fatG;
+  updateSecondaries();savePrefs();
+  const r=document.getElementById('calc-result');r.style.display='block';
+  r.textContent=`${g.label} · ${Math.round(wLbs)} lbs\nProtein: ${proG}g  (${g.pro_per_lb}g per lb)\nCarbs:   ${carbG}g  ·  Fat: ${fatG}g\nCalories: ${Math.round(proG*4+carbG*4+fatG*9)} kcal / day`;
+}
+
+// ── DIETARY PREFS ──────────────────────────────────────────
+function togglePref(btn,key){
+  if(excluded.has(key)){excluded.delete(key);btn.classList.remove('active');}
+  else{excluded.add(key);btn.classList.add('active');
+    if(key==='vegan'){excluded.add('vegetarian');document.querySelectorAll('.pref-pill').forEach(p=>{if(p.textContent.trim().toLowerCase()==='vegetarian')p.classList.add('active');});}}
+  if(key!=='vegan'&&excluded.has('vegan')&&key==='vegetarian'){excluded.delete('vegan');document.querySelectorAll('.pref-pill').forEach(p=>{if(p.textContent.trim().toLowerCase()==='vegan')p.classList.remove('active');});}
+  savePrefs();
+}
+function toggleSkipBreakfast(btn){
+  skipBreakfast=!skipBreakfast;
+  btn.classList.toggle('active',skipBreakfast);
+  savePrefs();
+}
+
+// ── SAVE / LOAD ────────────────────────────────────────────
+function savePrefs(){
+  try{
+    localStorage.setItem('macroPlanner4',JSON.stringify({
+      pro:document.getElementById('pro').value,carb:document.getElementById('carb').value,
+      fat:document.getElementById('fat').value,budget:document.getElementById('budget').value,
+      excluded:[...excluded],unitMode,storedCalories,protoStates:{...PROTO_STATES},skipBreakfast
+    }));
+    const f=document.getElementById('saved-flash');f.classList.add('show');clearTimeout(saveTimer);
+    saveTimer=setTimeout(()=>f.classList.remove('show'),1400);
+  }catch(e){}
+}
+function loadPrefs(){
+  try{
+    const p=JSON.parse(localStorage.getItem('macroPlanner4')||'{}');
+    if(p.pro)document.getElementById('pro').value=p.pro;
+    if(p.carb)document.getElementById('carb').value=p.carb;
+    if(p.fat)document.getElementById('fat').value=p.fat;
+    if(p.budget)document.getElementById('budget').value=p.budget;
+    if(p.storedCalories)storedCalories=p.storedCalories;
+    if(p.skipBreakfast){skipBreakfast=true;document.querySelector('.skip-bfast')?.classList.add('active');}
+    if(p.excluded){excluded=new Set(p.excluded);document.querySelectorAll('.pref-pill').forEach(btn=>{const key=btn.textContent.trim().toLowerCase().replace('no ','');if(excluded.has(key))btn.classList.add('active');});}
+    if(p.protoStates){
+      Object.entries(p.protoStates).forEach(([k,v])=>{
+        PROTO_STATES[k]=v;const btn=document.querySelector(`[data-proto="${k}"]`);if(!btn)return;
+        btn.classList.remove('selected','excluded');const stateEl=btn.querySelector('.proto-state');
+        if(v==='selected'){btn.classList.add('selected');stateEl.textContent='✓';}
+        else if(v==='excluded'){btn.classList.add('excluded');stateEl.textContent='✗';}
+        else stateEl.textContent='';
+      });updateProtoWarning();
+    }
+  }catch(e){}
+  updateSecondaries();
+}
+
+// ── GENERATE — show pick step ──────────────────────────────
+function buildVariedOptions(type, count=7, excludeNames=new Set()){
+  // meal3 ignores protein source filter — it's snack/light meals, not main protein
+  const eligible = MEALS.filter(m => {
+    if(m.type !== type) return false;
+    if(excludeNames.has(m.name)) return false;
+    if(type === 'meal3') return dietaryOk(m); // skip protein filter
+    return mealOk(m);
+  });
+  if(eligible.length === 0) return [];
+
+  const selectedProtos = Object.entries(PROTO_STATES).filter(([,v])=>v==='selected').map(([k])=>k);
+  const result = [];
+  const used = new Set();
+
+  // Step 1: guarantee at least 1 slot per selected protein (up to count slots)
+  if(selectedProtos.length > 0){
+    selectedProtos.forEach(proto => {
+      const pool = eligible.filter(m => m.proto === proto && !used.has(m.name));
+      if(pool.length > 0){
+        const pick = pool[Math.floor(Math.random()*pool.length)];
+        result.push(pick);
+        used.add(pick.name);
+      }
+    });
+  }
+
+  // Step 2: fill remaining slots randomly from all eligible
+  const remaining = eligible.filter(m => !used.has(m.name)).sort(()=>Math.random()-0.5);
+  for(const m of remaining){
+    if(result.length >= count) break;
+    result.push(m);
+    used.add(m.name);
+  }
+
+  // Step 3: shuffle so guaranteed picks aren't always first
+  return result.slice(0, count).sort(()=>Math.random()-0.5);
+}
+
+function generate(){
+  const types=skipBreakfast?['lunch','dinner','meal3']:['breakfast','lunch','dinner'];
+  const isRefresh = document.getElementById('pick-section').classList.contains('hidden')===false;
+
+  // On first generate, reset everything
+  if(!isRefresh){
+    picks={breakfast:[],lunch:[],dinner:[],meal3:[]};
+    options={breakfast:[],lunch:[],dinner:[],meal3:[]};
+  }
+
+  for(const type of types){
+    // Keep names of currently picked (locked) meals to exclude from new options
+    const lockedNames = new Set(picks[type].map(m=>m.name));
+    // Build new options, excluding already-picked meals
+    const built = buildVariedOptions(type, 7, lockedNames);
+    // Locked meals always appear first, then new options fill remaining slots
+    const lockedMeals = picks[type].slice(); // copy current picks
+    const freshSlots = Math.max(0, 7 - lockedMeals.length);
+    const fresh = built.filter(m=>!lockedNames.has(m.name)).slice(0, freshSlots);
+    options[type] = [...lockedMeals, ...fresh];
+    if(options[type].length === 0){
+      alert(`No ${type} options match your filters. Try adjusting protein sources or dietary preferences.`);return;
+    }
+  }
+
+  // Update generate button to say "Refresh options"
+  const btn = document.getElementById('generate-btn');
+  const hasAnyPick = types.some(t=>picks[t].length>0);
+  btn.textContent = hasAnyPick ? '🔄 Refresh unselected options' : 'Generate my meal options →';
+  document.getElementById('reset-btn').style.display='block';
+
+  renderPickStep(types);
+  document.getElementById('pick-section').classList.remove('hidden');
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('pick-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderPickStep(types){
+  const pc=document.getElementById('pick-content');
+  pc.innerHTML='';
+
+  const banner=document.getElementById('if-banner');
+  banner.style.display=skipBreakfast?'block':'none';
+
+  const typeLabels={
+    breakfast:'🌅 Breakfast',
+    lunch:'☀️ Lunch',
+    dinner:'🌙 Dinner',
+    meal3:'⚡ Meal 3 (lighter)'
+  };
+
+  types.forEach(type=>{
+    const sec=document.createElement('div');sec.className='meal-type-section';
+    const hd=document.createElement('div');hd.className='meal-type-header';
+    hd.innerHTML=`<span class="meal-type-title">${typeLabels[type]}</span><span class="pick-counter" id="counter-${type}">${picks[type].length} / 3 picked</span>`;
+    if(picks[type].length>=3) document.getElementById&&setTimeout(()=>{const el=document.getElementById(`counter-${type}`);if(el)el.classList.add('done');},0);
+    sec.appendChild(hd);
+
+    const grid=document.createElement('div');grid.className='option-grid';
+
+    options[type].forEach((m,i)=>{
+      const isLocked = picks[type].findIndex(p=>p.name===m.name)>=0;
+      const card=document.createElement('div');
+      card.className='option-card'+(isLocked?' selected':'');
+      card.dataset.type=type;card.dataset.idx=i;
+
+      card.innerHTML=`
+        <div class="oc-header">
+          <span class="oc-name">${m.name}${isLocked?'<span class="lock-badge">✓ Kept</span>':''}</span>
+          <div class="oc-check">${isLocked?'✓':''}</div>
+        </div>
+        <div class="oc-proto">${protoLabels[m.proto]||m.proto}</div>
+        <div class="oc-pills">
+          <span class="mpill cal">${m.cal} kcal</span>
+          <span class="mpill pro">${m.pro}g protein</span>
+          <span class="mpill carb">${m.carb}g carbs</span>
+          <span class="mpill fat">${m.fat}g fat</span>
+        </div>
+        <div class="oc-desc">${m.desc} · <strong>~$${m.cost}/serving</strong></div>`;
+
+      card.addEventListener('click',()=>togglePick(type,i,card));
+      grid.appendChild(card);
+    });
+
+    // Dim unselected if 3 already picked
+    if(picks[type].length>=3){
+      grid.querySelectorAll('.option-card:not(.selected)').forEach(c=>c.classList.add('dimmed'));
+    }
+
+    // Refresh hint if any picks exist but fewer than 7 total options
+    const hasLocked = picks[type].length > 0;
+    const freshCount = options[type].filter(m=>picks[type].findIndex(p=>p.name===m.name)<0).length;
+    if(hasLocked && freshCount > 0){
+      const hint=document.createElement('div');hint.className='refresh-hint';
+      hint.textContent=`${picks[type].length} kept · ${freshCount} new options shown · hit Refresh to swap them out`;
+      sec.appendChild(grid);sec.appendChild(hint);
+    } else {
+      sec.appendChild(grid);
+    }
+
+    pc.appendChild(sec);
+  });
+
+  updateConfirmBtn(types);
+}
+
+function togglePick(type,idx,card){
+  const meal=options[type][idx];
+  const alreadyIdx=picks[type].findIndex(m=>m.name===meal.name);
+  if(alreadyIdx>=0){
+    // Deselect — unlock it
+    picks[type].splice(alreadyIdx,1);
+    card.classList.remove('selected');
+    card.querySelector('.oc-check').textContent='';
+    // Remove lock badge if present
+    const badge=card.querySelector('.lock-badge');
+    if(badge)badge.remove();
+    // Remove dimming from all cards in this type since we freed a slot
+    document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(c=>c.classList.remove('dimmed'));
+  }else{
+    if(picks[type].length>=3)return;
+    picks[type].push(meal);
+    card.classList.add('selected');
+    card.querySelector('.oc-check').textContent='✓';
+  }
+  const types=skipBreakfast?['lunch','dinner','meal3']:['breakfast','lunch','dinner'];
+  updateCounters(type);
+  updateConfirmBtn(types);
+  // Dim unselected if 3 picked
+  if(picks[type].length>=3){
+    document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(c=>{
+      c.classList.toggle('dimmed',!c.classList.contains('selected'));
+    });
+  }
+  // Update generate button text
+  const hasAnyPick=types.some(t=>picks[t].length>0);
+  document.getElementById('generate-btn').textContent=hasAnyPick?'🔄 Refresh unselected options':'Generate my meal options →';
+}
+
+function updateCounters(type){
+  const el=document.getElementById(`counter-${type}`);
+  if(!el)return;
+  el.textContent=`${picks[type].length} / 3 picked`;
+  el.classList.toggle('done',picks[type].length>=3);
+}
+
+function updateConfirmBtn(types){
+  const allDone=types.every(t=>picks[t].length===3);
+  const btn=document.getElementById('confirm-btn');
+  btn.textContent=allDone?'Confirm my plan →':'Pick 3 from each category to continue';
+  btn.style.opacity=allDone?'1':'0.3';
+  btn.style.pointerEvents=allDone?'auto':'none';
+}
+
+function confirmPlan(){
+  checkedItems=new Set();pantryItems=new Set();allItems=[];
+  const types=skipBreakfast?['lunch','dinner','meal3']:['breakfast','lunch','dinner'];
+  renderResults(types);
+  document.getElementById('results').classList.remove('hidden');
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function resetEverything(){
+  if(!confirm('Start over? This will clear your meal picks, preferences, and saved settings.')) return;
+
+  // Clear state
+  picks={breakfast:[],lunch:[],dinner:[],meal3:[]};
+  options={breakfast:[],lunch:[],dinner:[],meal3:[]};
+  checkedItems=new Set();pantryItems=new Set();allItems=[];
+  excluded=new Set();
+  skipBreakfast=false;
+  selectedGoal=null;
+  ['chicken','beef','pork','eggs','fish','legumes','yogurt','tofu'].forEach(p=>PROTO_STATES[p]='neutral');
+
+  // Reset macro inputs to defaults
+  document.getElementById('pro').value=160;
+  document.getElementById('carb').value=220;
+  document.getElementById('fat').value=55;
+  document.getElementById('budget').value=150;
+  document.getElementById('weight').value='';
+  document.getElementById('calc-result').style.display='none';
+
+  // Reset unit mode
+  unitMode='g';storedCalories=2015;
+  ['pro','carb','fat'].forEach(id=>document.getElementById(id+'-unit').textContent='g');
+  document.getElementById('btn-g').classList.add('active');
+  document.getElementById('btn-pct').classList.remove('active');
+
+  // Reset protein buttons
+  document.querySelectorAll('.proto-btn').forEach(btn=>{
+    btn.classList.remove('selected','excluded');
+    btn.querySelector('.proto-state').textContent='';
+  });
+
+  // Reset dietary pref pills
+  document.querySelectorAll('.pref-pill').forEach(p=>p.classList.remove('active'));
+
+  // Reset goal buttons
+  document.querySelectorAll('.goal-btn').forEach(b=>b.classList.remove('active'));
+
+  // Reset generate button
+  document.getElementById('generate-btn').textContent='Generate my meal options →';
+  document.getElementById('reset-btn').style.display='none';
+
+  // Hide pick and results sections
+  document.getElementById('pick-section').classList.add('hidden');
+  document.getElementById('results').classList.add('hidden');
+
+  // Clear localStorage
+  try { localStorage.removeItem('macroPlanner4'); } catch(e) {}
+
+  // Update displays
+  updateSecondaries();
+  updateProtoWarning();
+
+  // Scroll to top
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function resetToPickStep(){
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('pick-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── RENDER RESULTS ─────────────────────────────────────────
+function renderResults(types){
+  const budget=parseInt(document.getElementById('budget').value)||150;
+  const ml=document.getElementById('meal-list');
+  const sl=document.getElementById('shop-list');
+  ml.innerHTML='';sl.innerHTML='';allItems=[];
+
+  // Each meal repeats roughly 7/3 times per week ≈ 2.33 times, round to whole
+  // We'll calc weekly totals: 3 meals chosen × 7 days / 3 options = each meal eaten ~2-3 times
+  // For macros: assume each option eaten equally: 7 days × (cal per day)
+  const typeLabels={breakfast:'🌅 Breakfast',lunch:'☀️ Lunch',dinner:'🌙 Dinner',meal3:'⚡ Meal 3'};
+
+  let totalWeeklyCal=0,totalWeeklyPro=0,totalWeeklyCarb=0,totalWeeklyFat=0,totalWeeklyCost=0;
+  const shopping={Meat:[],Produce:[],Dairy:[],Pantry:[]};
+
+  // Each of the 3 picks per category is eaten ~2-3 days (7 days / 3 meals rotated)
+  // We'll do: each pick eaten ceil(7/3) days, with one eaten floor(7/3)
+  // Simplest: 3+2+2=7. meals[0]×3, meals[1]×2, meals[2]×2
+  const dayCounts=[3,2,2];
+
+  types.forEach(type=>{
+    const sec=document.createElement('div');sec.className='res-section';
+    sec.innerHTML=`<div class="res-section-hd">${typeLabels[type]}</div>`;
+    picks[type].forEach((m,i)=>{
+      const days=dayCounts[i]||2;
+      totalWeeklyCal+=m.cal*days;totalWeeklyPro+=m.pro*days;
+      totalWeeklyCarb+=m.carb*days;totalWeeklyFat+=m.fat*days;
+      totalWeeklyCost+=m.cost*days;
+
+      const card=document.createElement('div');card.className='meal-card';
+      card.innerHTML=`
+        <div class="meal-card-header">
+          <span class="meal-proto">${protoLabels[m.proto]||m.proto}</span>
+          <button class="swap-btn" onclick="swapMeal('${type}',${i})">↻ Swap</button>
+        </div>
+        <div class="meal-name">${m.name}</div>
+        <div class="meal-pills">
+          <span class="mpill cal">${m.cal} kcal</span>
+          <span class="mpill pro">${m.pro}g protein</span>
+          <span class="mpill carb">${m.carb}g carbs</span>
+          <span class="mpill fat">${m.fat}g fat</span>
+        </div>
+        <div class="meal-desc">${m.desc}</div>
+        <div class="meal-freq">Eaten ${days}× this week · ~$${(m.cost*days).toFixed(0)} total</div>`;
+      sec.appendChild(card);
+
+      // scale shopping quantities by days eaten
+      Object.entries(m.shopping).forEach(([cat,items])=>{
+        items.forEach(item=>{
+          if(!shopping[cat])shopping[cat]=[];
+          const exiscang=shopping[cat].find(i=>i.name===item.name);
+          if(exiscang){exiscang.count=(exiscang.count||1)+days;exiscang.price+=item.price*days;}
+          else shopping[cat].push({...item,count:days,price:item.price*days});
+        });
+      });
+    });
+    ml.appendChild(sec);
+  });
+
+  // Stats — daily averages
+  const totalMealsPerDay=types.length;
+  document.getElementById('t-cal').textContent=Math.round(totalWeeklyCal/7);
+  document.getElementById('t-pro').textContent=Math.round(totalWeeklyPro/7)+'g';
+  document.getElementById('t-carb').textContent=Math.round(totalWeeklyCarb/7)+'g';
+  document.getElementById('t-fat').textContent=Math.round(totalWeeklyFat/7)+'g';
+
+  const over=totalWeeklyCost>budget,pct=Math.min(100,Math.round(totalWeeklyCost/budget*100));
+  document.getElementById('b-total').textContent=`Est. weekly total: $${Math.round(totalWeeklyCost)}`;
+  const remEl=document.getElementById('b-remain');
+  remEl.textContent=over?`$${Math.round(totalWeeklyCost-budget)} over budget`:`$${Math.round(budget-totalWeeklyCost)} under budget`;
+  remEl.className='remain '+(over?'over':'ok');
+  const fill=document.getElementById('b-fill');
+  fill.style.width=pct+'%';fill.className='budget-fill'+(over?' over':'');
+
+  // Shopping list with scaled qtys
+  ['Meat','Produce','Dairy','Pantry'].forEach(cat=>{
+    if(!shopping[cat]||!shopping[cat].length)return;
+    const sec=document.createElement('div');sec.className='shop-section';
+    const rows=shopping[cat].map((item,i)=>{
+      const id=`${cat}-${i}`;allItems.push(id);
+      return `<div class="shop-item" id="si-${id}">
+        <div class="shop-cbs">
+          <div class="cb-wrap"><div class="cb" id="cb-${id}" onclick="toggleCart('${id}')" style="cursor:pointer"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="cb-lbl">Cart</span></div>
+          <div class="cb-wrap"><div class="have-cb" id="hcb-${id}" onclick="togglePantry('${id}')" style="cursor:pointer"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5" stroke="#1a4a8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="cb-lbl">Have</span></div>
+        </div>
+        <span class="item-name">${item.name}</span>
+        <div class="item-right">
+          <span class="item-price">~$${Math.round(item.price)}</span>
+          <span class="item-qty">${item.qty}</span>
+          <a class="walmart-link" href="https://www.walmart.com/search?q=${encodeURIComponent(item.name)}" target="_blank" rel="noopener">🛒</a>
+        </div>
+      </div>`;
+    }).join('');
+    sec.innerHTML=`<div class="shop-cat">${cat}</div>${rows}`;sl.appendChild(sec);
+  });
+
+  updateProgress();
+}
+
+// ── SWAP MEAL ──────────────────────────────────────────────
+function swapMeal(type, pickIdx){
+  const current = picks[type][pickIdx];
+  const types = skipBreakfast?['lunch','dinner','meal3']:['breakfast','lunch','dinner'];
+
+  // Get all eligible meals of same type, excluding all currently picked meals
+  const currentNames = new Set(types.flatMap(t => picks[t].map(m => m.name)));
+  const pool = MEALS.filter(m =>
+    m.type === type &&
+    mealOk(m) &&
+    !currentNames.has(m.name)
+  );
+
+  if(pool.length === 0){
+    // If no completely fresh meals, just exclude the current one
+    const fallback = MEALS.filter(m => m.type === type && mealOk(m) && m.name !== current.name);
+    if(fallback.length === 0) return;
+    picks[type][pickIdx] = fallback[Math.floor(Math.random()*fallback.length)];
+  } else {
+    // Prefer same protein source for variety concanuity, fallback to any
+    const sameProto = pool.filter(m => m.proto === current.proto);
+    const candidates = sameProto.length > 0 ? sameProto : pool;
+    picks[type][pickIdx] = candidates[Math.floor(Math.random()*candidates.length)];
+  }
+
+  // Re-render results
+  checkedItems = new Set(); pantryItems = new Set(); allItems = [];
+  renderResults(types);
+}
+
+// ── SHOPPING INTERACTIONS ──────────────────────────────────
+function toggleCart(id){
+  if(checkedItems.has(id))checkedItems.delete(id);else checkedItems.add(id);
+  const si=document.getElementById('si-'+id),cb=document.getElementById('cb-'+id);
+  const on=checkedItems.has(id);
+  si?.classList.toggle('checked',on);
+  if(cb){cb.style.background=on?'var(--text)':'var(--bg)';cb.style.borderColor=on?'var(--text)':'var(--border-strong)';}
+  updateProgress();
+}
+function togglePantry(id){
+  if(pantryItems.has(id))pantryItems.delete(id);else pantryItems.add(id);
+  const si=document.getElementById('si-'+id),hcb=document.getElementById('hcb-'+id);
+  const on=pantryItems.has(id);
+  si?.classList.toggle('have',on);
+  if(hcb){hcb.style.background=on?'#e6f1fb':'var(--bg)';hcb.style.borderColor=on?'#3a7fd5':'var(--border-strong)';}
+}
+function updateProgress(){
+  const total=allItems.length,have=pantryItems.size,cart=checkedItems.size,need=total-have;
+  document.getElementById('shop-progress').textContent=total?`${cart} of ${need} needed items in cart${have>0?` · ${have} already at home`:''}` :'';
+}
+
+// ── TABS ───────────────────────────────────────────────────
+function showTab(tab,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  document.getElementById('meals-panel').classList.toggle('hidden',tab!=='meals');
+  document.getElementById('shopping-panel').classList.toggle('hidden',tab!=='shopping');
+}
+
+// ── PRINT ──────────────────────────────────────────────────
+function printPlan(){
+  // Switch to shopping tab first so it's visible
+  showTab('shopping', document.querySelector('.tab:nth-child(2)'));
+  setTimeout(()=>{
+    window.print();
+    // restore meals tab after print
+    setTimeout(()=>showTab('meals', document.querySelector('.tab:nth-child(1)')), 500);
+  }, 100);
+}
+
+// ── EMAIL ──────────────────────────────────────────────────
+function openEmailModal(){document.getElementById('email-modal').classList.remove('hidden');document.getElementById('modal-form-view').classList.remove('hidden');document.getElementById('modal-success-view').classList.add('hidden');document.getElementById('modal-email').value='';document.getElementById('modal-name').value='';}
+function closeEmailModal(){document.getElementById('email-modal').classList.add('hidden');}
+function submitEmail(){
+  const email=document.getElementById('modal-email').value.trim();
+  const name=document.getElementById('modal-name').value.trim();
+  if(!email||!email.includes('@')){
+    document.getElementById('modal-email').style.borderColor='var(--red)';return;
+  }
+  // Save locally
+  try{const leads=JSON.parse(localStorage.getItem('leads')||'[]');leads.push({name,email,date:new Date().toISOString()});localStorage.setItem('leads',JSON.stringify(leads));}catch(e){}
+  // Open Beehiiv subscribe page with email pre-filled
+  const url=`https://joesmealmap.beehiiv.com/subscribe?email=${encodeURIComponent(email)}${name?'&first_name='+encodeURIComponent(name.split(' ')[0]):''}`;
+  window.open(url,'_blank');
+  document.getElementById('modal-form-view').classList.add('hidden');
+  document.getElementById('modal-success-view').classList.remove('hidden');
+}
+document.getElementById('email-modal').addEventListener('click',function(e){if(e.target===this)closeEmailModal();});
+
+loadPrefs();
+</script>
+</body>
+</html>
