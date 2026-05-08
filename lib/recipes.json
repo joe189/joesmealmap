@@ -1,7 +1,7 @@
 [
   {
     "slug": "greek-yogurt-berry-bowl",
-    "name": "Greek Yogurt & Berry Bowl",
+    "name": "Greek yogurt & berry bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 0,
@@ -48,7 +48,7 @@
   },
   {
     "slug": "scrambled-eggs-turkey",
-    "name": "Scrambled Eggs & Turkey",
+    "name": "Scrambled eggs & turkey",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -100,7 +100,7 @@
   },
   {
     "slug": "overnight-oats",
-    "name": "Overnight Oats",
+    "name": "Overnight oats",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 0,
@@ -156,7 +156,7 @@
   },
   {
     "slug": "protein-pancakes",
-    "name": "Protein Pancakes",
+    "name": "Protein pancakes",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -203,7 +203,7 @@
   },
   {
     "slug": "egg-white-omelette",
-    "name": "Egg White Omelette",
+    "name": "Egg white omelette",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -255,7 +255,7 @@
   },
   {
     "slug": "cottage-cheese-fruit",
-    "name": "Cottage Cheese & Fruit",
+    "name": "Cottage cheese & fruit",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 0,
@@ -302,7 +302,7 @@
   },
   {
     "slug": "avocado-egg-toast",
-    "name": "Avocado & Egg Toast",
+    "name": "Avocado & egg toast",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -354,7 +354,7 @@
   },
   {
     "slug": "smoothie-bowl",
-    "name": "Smoothie Bowl",
+    "name": "Smoothie bowl",
     "type": "breakfast",
     "prepTime": 7,
     "cookTime": 0,
@@ -405,7 +405,7 @@
   },
   {
     "slug": "turkey-egg-breakfast-bowl",
-    "name": "Turkey & Egg Breakfast Bowl",
+    "name": "Turkey & egg breakfast bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 12,
@@ -457,7 +457,7 @@
   },
   {
     "slug": "peanut-butter-oat-bowl",
-    "name": "Peanut Butter Oat Bowl",
+    "name": "Peanut butter oat bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 5,
@@ -508,7 +508,7 @@
   },
   {
     "slug": "salmon-egg-scramble",
-    "name": "Salmon & Egg Scramble",
+    "name": "Salmon & egg scramble",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -560,7 +560,7 @@
   },
   {
     "slug": "tofu-scramble",
-    "name": "Tofu Scramble",
+    "name": "Tofu scramble",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -612,7 +612,7 @@
   },
   {
     "slug": "chicken-sausage-eggs",
-    "name": "Chicken Sausage & Eggs",
+    "name": "Chicken sausage & eggs",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -664,7 +664,7 @@
   },
   {
     "slug": "high-protein-oatmeal",
-    "name": "High Protein Oatmeal",
+    "name": "High protein oatmeal",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 5,
@@ -715,7 +715,7 @@
   },
   {
     "slug": "beef-egg-skillet",
-    "name": "Beef & Egg Skillet",
+    "name": "Beef & egg skillet",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 12,
@@ -767,7 +767,7 @@
   },
   {
     "slug": "ricotta-berry-toast",
-    "name": "Ricotta & Berry Toast",
+    "name": "Ricotta & berry toast",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 3,
@@ -814,7 +814,7 @@
   },
   {
     "slug": "lentil-breakfast-bowl",
-    "name": "Lentil Breakfast Bowl",
+    "name": "Lentil breakfast bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -861,7 +861,7 @@
   },
   {
     "slug": "pork-sausage-egg-muffins",
-    "name": "Pork Sausage & Egg Muffins",
+    "name": "Pork sausage & egg muffins",
     "type": "breakfast",
     "prepTime": 10,
     "cookTime": 15,
@@ -908,7 +908,7 @@
   },
   {
     "slug": "chickpea-breakfast-scramble",
-    "name": "Chickpea Breakfast Scramble",
+    "name": "Chickpea breakfast scramble",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -955,7 +955,7 @@
   },
   {
     "slug": "yogurt-parfait",
-    "name": "Yogurt Parfait",
+    "name": "Yogurt parfait",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 0,
@@ -997,7 +997,7 @@
   },
   {
     "slug": "shrimp-egg-scramble",
-    "name": "Shrimp & Egg Scramble",
+    "name": "Shrimp & egg scramble",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -1044,7 +1044,7 @@
   },
   {
     "slug": "almond-butter-banana-wrap",
-    "name": "Almond Butter Banana Wrap",
+    "name": "Almond butter banana wrap",
     "type": "breakfast",
     "prepTime": 3,
     "cookTime": 0,
@@ -1082,7 +1082,7 @@
   },
   {
     "slug": "black-bean-breakfast-bowl",
-    "name": "Black Bean Breakfast Bowl",
+    "name": "Black bean breakfast bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -1129,7 +1129,7 @@
   },
   {
     "slug": "tuna-avocado-toast",
-    "name": "Tuna & Avocado Toast",
+    "name": "Tuna & avocado toast",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 3,
@@ -1176,7 +1176,7 @@
   },
   {
     "slug": "beef-potato-hash",
-    "name": "Beef & Potato Hash",
+    "name": "Beef & potato hash",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 12,
@@ -1228,7 +1228,7 @@
   },
   {
     "slug": "tofu-veggie-bowl",
-    "name": "Tofu Veggie Bowl",
+    "name": "Tofu veggie bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -1275,7 +1275,7 @@
   },
   {
     "slug": "pork-apple-oatmeal",
-    "name": "Pork & Apple Oatmeal",
+    "name": "Pork & apple oatmeal",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -1322,7 +1322,7 @@
   },
   {
     "slug": "chicken-rice-breakfast-bowl",
-    "name": "Chicken & Rice Breakfast Bowl",
+    "name": "Chicken & rice breakfast bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 10,
@@ -1369,7 +1369,7 @@
   },
   {
     "slug": "edamame-egg-bowl",
-    "name": "Edamame & Egg Bowl",
+    "name": "Edamame & egg bowl",
     "type": "breakfast",
     "prepTime": 5,
     "cookTime": 8,
@@ -1415,8 +1415,8 @@
     "tips": "Add chili flakes for spice."
   },
   {
-    "slug": "protein-shake-oats",
-    "name": "Protein Shake & Oats",
+    "slug": "whey-protein-shake-oats",
+    "name": "Whey protein shake & oats",
     "type": "breakfast",
     "prepTime": 3,
     "cookTime": 5,
@@ -1463,7 +1463,7 @@
   },
   {
     "slug": "chicken-caesar-salad",
-    "name": "Chicken Caesar Salad",
+    "name": "Chicken Caesar salad",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -1510,7 +1510,7 @@
   },
   {
     "slug": "turkey-avocado-wrap",
-    "name": "Turkey & Avocado Wrap",
+    "name": "Turkey & avocado wrap",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 0,
@@ -1551,8 +1551,8 @@
     "tips": "Add mustard for extra flavor."
   },
   {
-    "slug": "tuna-salad-sandwich",
-    "name": "Tuna Salad Sandwich",
+    "slug": "tuna-salad-on-whole-grain",
+    "name": "Tuna salad on whole grain",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 0,
@@ -1594,7 +1594,7 @@
   },
   {
     "slug": "beef-taco-salad",
-    "name": "Beef Taco Salad",
+    "name": "Beef taco salad",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -1636,7 +1636,7 @@
   },
   {
     "slug": "chicken-rice-bowl",
-    "name": "Chicken Rice Bowl",
+    "name": "Chicken rice bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -1683,7 +1683,7 @@
   },
   {
     "slug": "lentil-soup-bread",
-    "name": "Lentil Soup & Bread",
+    "name": "Lentil soup & bread",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -1721,7 +1721,7 @@
   },
   {
     "slug": "shrimp-avocado-salad",
-    "name": "Shrimp & Avocado Salad",
+    "name": "Shrimp & avocado salad",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 8,
@@ -1768,7 +1768,7 @@
   },
   {
     "slug": "egg-salad-sandwich",
-    "name": "Egg Salad Sandwich",
+    "name": "Egg salad sandwich",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -1815,7 +1815,7 @@
   },
   {
     "slug": "black-bean-veggie-burrito",
-    "name": "Black Bean & Veggie Burrito",
+    "name": "Black bean & veggie burrito",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -1857,7 +1857,7 @@
   },
   {
     "slug": "salmon-quinoa-bowl",
-    "name": "Salmon & Quinoa Bowl",
+    "name": "Salmon & quinoa bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -1904,7 +1904,7 @@
   },
   {
     "slug": "ground-beef-rice-bowl",
-    "name": "Ground Beef Rice Bowl",
+    "name": "Ground beef & rice bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 12,
@@ -1951,7 +1951,7 @@
   },
   {
     "slug": "chicken-veggie-soup",
-    "name": "Chicken & Veggie Soup",
+    "name": "Chicken & veggie soup",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -1989,7 +1989,7 @@
   },
   {
     "slug": "tofu-veggie-wrap",
-    "name": "Tofu & Veggie Wrap",
+    "name": "Tofu & veggie wrap",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2031,7 +2031,7 @@
   },
   {
     "slug": "pork-tenderloin-salad",
-    "name": "Pork Tenderloin Salad",
+    "name": "Pork tenderloin salad",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -2078,7 +2078,7 @@
   },
   {
     "slug": "chickpea-veggie-bowl",
-    "name": "Chickpea & Veggie Bowl",
+    "name": "Chickpea & veggie bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2125,7 +2125,7 @@
   },
   {
     "slug": "blt-wrap-with-turkey",
-    "name": "BLT Wrap with Turkey",
+    "name": "BLT wrap with turkey",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 5,
@@ -2176,7 +2176,7 @@
   },
   {
     "slug": "beef-veggie-stir-fry",
-    "name": "Beef & Veggie Stir Fry",
+    "name": "Beef & veggie stir fry",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2223,7 +2223,7 @@
   },
   {
     "slug": "greek-salad-with-chicken",
-    "name": "Greek Salad with Chicken",
+    "name": "Greek salad with chicken",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2274,7 +2274,7 @@
   },
   {
     "slug": "fish-tacos",
-    "name": "Fish Tacos",
+    "name": "Fish tacos",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2316,7 +2316,7 @@
   },
   {
     "slug": "tempeh-grain-bowl",
-    "name": "Tempeh Grain Bowl",
+    "name": "Tempeh grain bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2363,7 +2363,7 @@
   },
   {
     "slug": "turkey-chili",
-    "name": "Turkey Chili",
+    "name": "Turkey chili",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -2405,7 +2405,7 @@
   },
   {
     "slug": "white-bean-kale-soup",
-    "name": "White Bean & Kale Soup",
+    "name": "White bean & kale soup",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 15,
@@ -2442,7 +2442,7 @@
   },
   {
     "slug": "pork-rice-bowl",
-    "name": "Pork & Rice Bowl",
+    "name": "Pork & rice bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 12,
@@ -2489,7 +2489,7 @@
   },
   {
     "slug": "caprese-chicken",
-    "name": "Caprese Chicken",
+    "name": "Caprese chicken",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 12,
@@ -2536,7 +2536,7 @@
   },
   {
     "slug": "salmon-rice-bowl",
-    "name": "Salmon Rice Bowl",
+    "name": "Salmon rice bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 12,
@@ -2578,7 +2578,7 @@
   },
   {
     "slug": "steak-veggie-bowl",
-    "name": "Steak & Veggie Bowl",
+    "name": "Steak & veggie bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 12,
@@ -2625,7 +2625,7 @@
   },
   {
     "slug": "edamame-rice-bowl",
-    "name": "Edamame Rice Bowl",
+    "name": "Edamame rice bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 8,
@@ -2663,7 +2663,7 @@
   },
   {
     "slug": "pulled-pork-bowl",
-    "name": "Pulled Pork Bowl",
+    "name": "Pulled pork bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2710,7 +2710,7 @@
   },
   {
     "slug": "falafel-hummus-bowl",
-    "name": "Falafel & Hummus Bowl",
+    "name": "Falafel & hummus bowl",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 10,
@@ -2752,7 +2752,7 @@
   },
   {
     "slug": "cottage-cheese-power-salad",
-    "name": "Cottage Cheese Power Salad",
+    "name": "Cottage cheese power salad",
     "type": "lunch",
     "prepTime": 5,
     "cookTime": 0,
@@ -2789,7 +2789,7 @@
   },
   {
     "slug": "grilled-chicken-rice-bowl",
-    "name": "Grilled Chicken & Rice Bowl",
+    "name": "Grilled chicken & rice bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 15,
@@ -2836,7 +2836,7 @@
   },
   {
     "slug": "beef-broccoli-stir-fry",
-    "name": "Beef & Broccoli Stir Fry",
+    "name": "Beef & broccoli stir fry",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -2883,7 +2883,7 @@
   },
   {
     "slug": "baked-salmon-sweet-potato",
-    "name": "Baked Salmon & Sweet Potato",
+    "name": "Baked salmon & sweet potato",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -2930,7 +2930,7 @@
   },
   {
     "slug": "ground-turkey-stir-fry",
-    "name": "Ground Turkey Stir Fry",
+    "name": "Ground turkey stir fry",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -2977,7 +2977,7 @@
   },
   {
     "slug": "lean-beef-veggie-stew",
-    "name": "Lean Beef & Veggie Stew",
+    "name": "Lean beef & veggie stew",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3015,7 +3015,7 @@
   },
   {
     "slug": "chicken-black-bean-bowl",
-    "name": "Chicken & Black Bean Bowl",
+    "name": "Chicken & black bean bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -3062,7 +3062,7 @@
   },
   {
     "slug": "pork-tenderloin-roasted-veg",
-    "name": "Pork Tenderloin & Roasted Veg",
+    "name": "Pork tenderloin & roasted veg",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3095,7 +3095,7 @@
   },
   {
     "slug": "tofu-veggie-stir-fry",
-    "name": "Tofu & Veggie Stir Fry",
+    "name": "Tofu & veggie stir fry",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3142,7 +3142,7 @@
   },
   {
     "slug": "lentil-sweet-potato-curry",
-    "name": "Lentil & Sweet Potato Curry",
+    "name": "Lentil & sweet potato curry",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3175,7 +3175,7 @@
   },
   {
     "slug": "beef-taco-bowl",
-    "name": "Beef Taco Bowl",
+    "name": "Beef taco bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -3217,7 +3217,7 @@
   },
   {
     "slug": "chicken-tikka-masala",
-    "name": "Chicken Tikka Masala",
+    "name": "Chicken tikka masala",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 15,
@@ -3260,7 +3260,7 @@
   },
   {
     "slug": "shrimp-veggie-bowl",
-    "name": "Shrimp & Veggie Bowl",
+    "name": "Shrimp & veggie bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 8,
@@ -3307,7 +3307,7 @@
   },
   {
     "slug": "steak-roasted-veg",
-    "name": "Steak & Roasted Veg",
+    "name": "Steak & roasted veg",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 15,
@@ -3350,7 +3350,7 @@
   },
   {
     "slug": "chicken-fajita-bowl",
-    "name": "Chicken Fajita Bowl",
+    "name": "Chicken fajita bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -3397,7 +3397,7 @@
   },
   {
     "slug": "beef-stuffed-peppers",
-    "name": "Beef Stuffed Peppers",
+    "name": "Beef stuffed peppers",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3444,7 +3444,7 @@
   },
   {
     "slug": "tempeh-taco-bowl",
-    "name": "Tempeh Taco Bowl",
+    "name": "Tempeh taco bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3486,7 +3486,7 @@
   },
   {
     "slug": "salmon-quinoa-salad",
-    "name": "Salmon & Quinoa Salad",
+    "name": "Salmon & quinoa salad",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -3533,7 +3533,7 @@
   },
   {
     "slug": "pork-chop-sweet-potato-mash",
-    "name": "Pork Chop & Sweet Potato Mash",
+    "name": "Pork chop & sweet potato mash",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3576,7 +3576,7 @@
   },
   {
     "slug": "chickpea-spinach-bowl",
-    "name": "Chickpea & Spinach Bowl",
+    "name": "Chickpea & spinach bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3623,7 +3623,7 @@
   },
   {
     "slug": "beef-chili",
-    "name": "Beef Chili",
+    "name": "Beef chili",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 20,
@@ -3665,7 +3665,7 @@
   },
   {
     "slug": "chicken-avocado-salad",
-    "name": "Chicken & Avocado Salad",
+    "name": "Chicken & avocado salad",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3707,7 +3707,7 @@
   },
   {
     "slug": "ground-pork-lettuce-cups",
-    "name": "Ground Pork Lettuce Cups",
+    "name": "Ground pork lettuce cups",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3745,7 +3745,7 @@
   },
   {
     "slug": "shrimp-stir-fry",
-    "name": "Shrimp Stir Fry",
+    "name": "Shrimp stir fry",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 8,
@@ -3783,7 +3783,7 @@
   },
   {
     "slug": "korean-beef-rice-bowl",
-    "name": "Korean Beef Rice Bowl",
+    "name": "Korean beef rice bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3830,7 +3830,7 @@
   },
   {
     "slug": "veggie-omelette-sweet-potato",
-    "name": "Veggie Omelette & Sweet Potato",
+    "name": "Veggie omelette & sweet potato",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3868,7 +3868,7 @@
   },
   {
     "slug": "chicken-soup-with-veg",
-    "name": "Chicken Soup with Veg",
+    "name": "Chicken soup with veg",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 15,
@@ -3906,7 +3906,7 @@
   },
   {
     "slug": "teriyaki-salmon-bowl",
-    "name": "Teriyaki Salmon Bowl",
+    "name": "Teriyaki salmon bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -3944,7 +3944,7 @@
   },
   {
     "slug": "pulled-pork-rice-bowl",
-    "name": "Pulled Pork Rice Bowl",
+    "name": "Pulled pork rice bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 10,
@@ -3982,7 +3982,7 @@
   },
   {
     "slug": "tofu-tikka-bowl",
-    "name": "Tofu Tikka Bowl",
+    "name": "Tofu tikka bowl",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 12,
@@ -4025,7 +4025,7 @@
   },
   {
     "slug": "beef-veggie-soup",
-    "name": "Beef & Veggie Soup",
+    "name": "Beef & veggie soup",
     "type": "dinner",
     "prepTime": 5,
     "cookTime": 15,
@@ -4063,7 +4063,7 @@
   },
   {
     "slug": "greek-yogurt-almonds",
-    "name": "Greek Yogurt & Almonds",
+    "name": "Greek yogurt & almonds",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4092,7 +4092,7 @@
   },
   {
     "slug": "protein-shake-fruit",
-    "name": "Protein Shake & Fruit",
+    "name": "Protein shake & fruit",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4130,7 +4130,7 @@
   },
   {
     "slug": "cottage-cheese-veggies",
-    "name": "Cottage Cheese & Veggies",
+    "name": "Cottage cheese & veggies",
     "type": "meal3",
     "prepTime": 3,
     "cookTime": 0,
@@ -4168,7 +4168,7 @@
   },
   {
     "slug": "hard-boiled-eggs-avocado",
-    "name": "Hard Boiled Eggs & Avocado",
+    "name": "Hard-boiled eggs & avocado",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 10,
@@ -4202,7 +4202,7 @@
   },
   {
     "slug": "tuna-crackers",
-    "name": "Tuna & Crackers",
+    "name": "Tuna & crackers",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4231,7 +4231,7 @@
   },
   {
     "slug": "peanut-butter-banana",
-    "name": "Peanut Butter & Banana",
+    "name": "Peanut butter & banana",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4260,7 +4260,7 @@
   },
   {
     "slug": "edamame-string-cheese",
-    "name": "Edamame & String Cheese",
+    "name": "Edamame & string cheese",
     "type": "meal3",
     "prepTime": 3,
     "cookTime": 5,
@@ -4294,7 +4294,7 @@
   },
   {
     "slug": "turkey-roll-ups",
-    "name": "Turkey Roll Ups",
+    "name": "Turkey roll-ups",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4323,7 +4323,7 @@
   },
   {
     "slug": "beef-jerky-apple",
-    "name": "Beef Jerky & Apple",
+    "name": "Beef jerky & apple",
     "type": "meal3",
     "prepTime": 2,
     "cookTime": 0,
@@ -4352,7 +4352,7 @@
   },
   {
     "slug": "shrimp-cocktail",
-    "name": "Shrimp Cocktail",
+    "name": "Shrimp cocktail",
     "type": "meal3",
     "prepTime": 5,
     "cookTime": 0,
