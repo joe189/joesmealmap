@@ -1,0 +1,4982 @@
+[
+  {
+    "slug": "greek-yogurt-berry-bowl",
+    "name": "Greek yogurt & berry bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "A fast high protein breakfast that takes almost no effort. Creamy Greek yogurt, berries, and granola make it easy, sweet, and filling.",
+    "photoSearch": "greek yogurt berry bowl",
+    "ingredients": [
+      {
+        "item": "plain Greek yogurt",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "mixed berries",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "granola",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "honey",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Add yogurt",
+        "instruction": "Spoon the Greek yogurt into a bowl."
+      },
+      {
+        "step": 2,
+        "title": "Add toppings",
+        "instruction": "Top with berries, granola, and honey."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Eat right away while the granola is crunchy."
+      }
+    ],
+    "tips": "Use vanilla Greek yogurt if you want it sweeter.",
+    "proto": "yogurt",
+    "cal": 340,
+    "pro": 32,
+    "carb": 36,
+    "fat": 6,
+    "cost": 4
+  },
+  {
+    "slug": "scrambled-eggs-turkey",
+    "name": "Scrambled eggs & turkey",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A simple egg and turkey breakfast that hits protein early. It is easy, savory, and works well with toast or fruit on the side.",
+    "photoSearch": "scrambled eggs turkey breakfast",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "deli turkey",
+        "quantity": "3 slices"
+      },
+      {
+        "item": "shredded cheddar cheese",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prep eggs",
+        "instruction": "Crack the eggs into a bowl and whisk them."
+      },
+      {
+        "step": 2,
+        "title": "Cook turkey",
+        "instruction": "Chop the turkey and warm it in a skillet for 1 minute."
+      },
+      {
+        "step": 3,
+        "title": "Scramble",
+        "instruction": "Add eggs and spinach, then cook until the eggs are set."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "instruction": "Sprinkle cheese on top and serve."
+      }
+    ],
+    "tips": "Add hot sauce if you want more flavor without much effort.",
+    "proto": "eggs",
+    "cal": 380,
+    "pro": 36,
+    "carb": 12,
+    "fat": 18,
+    "cost": 5
+  },
+  {
+    "slug": "overnight-oats",
+    "name": "Overnight oats",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "A make ahead breakfast that is ready when you wake up. Oats, Greek yogurt, and protein powder keep it filling and simple.",
+    "photoSearch": "overnight oats protein jar",
+    "ingredients": [
+      {
+        "item": "rolled oats",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "Greek yogurt",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "milk",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "berries",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Mix base",
+        "instruction": "Add oats, Greek yogurt, milk, and protein powder to a jar."
+      },
+      {
+        "step": 2,
+        "title": "Stir",
+        "instruction": "Mix until everything is combined."
+      },
+      {
+        "step": 3,
+        "title": "Chill",
+        "instruction": "Cover and refrigerate overnight."
+      },
+      {
+        "step": 4,
+        "title": "Top",
+        "instruction": "Add berries before eating."
+      }
+    ],
+    "tips": "Add a splash of milk in the morning if it gets too thick.",
+    "proto": "yogurt",
+    "cal": 420,
+    "pro": 22,
+    "carb": 58,
+    "fat": 10,
+    "cost": 3
+  },
+  {
+    "slug": "protein-pancakes",
+    "name": "Protein pancakes",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple pancakes with a higher protein setup. They are easy enough for a weekday but still feel like a real breakfast.",
+    "photoSearch": "protein pancakes breakfast plate",
+    "ingredients": [
+      {
+        "item": "protein pancake mix",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "egg",
+        "quantity": "1"
+      },
+      {
+        "item": "milk",
+        "quantity": "1/3 cup"
+      },
+      {
+        "item": "berries",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Make batter",
+        "instruction": "Mix pancake mix, egg, and milk in a bowl."
+      },
+      {
+        "step": 2,
+        "title": "Cook pancakes",
+        "instruction": "Pour batter into a warm skillet and cook until golden on both sides."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Top with berries and eat warm."
+      }
+    ],
+    "tips": "Use a nonstick pan so you do not need much oil.",
+    "proto": "eggs",
+    "cal": 390,
+    "pro": 34,
+    "carb": 38,
+    "fat": 10,
+    "cost": 4
+  },
+  {
+    "slug": "egg-white-omelette",
+    "name": "Egg white omelette",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A lean, high protein breakfast with very little prep. Egg whites, cheese, and vegetables make it light but still filling.",
+    "photoSearch": "egg white omelette plate",
+    "ingredients": [
+      {
+        "item": "egg whites",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "shredded mozzarella cheese",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Heat pan",
+        "instruction": "Warm a nonstick skillet over medium heat."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Pour in egg whites and cook until mostly set."
+      },
+      {
+        "step": 3,
+        "title": "Add filling",
+        "instruction": "Add spinach and cheese, then fold the omelette."
+      },
+      {
+        "step": 4,
+        "title": "Top",
+        "instruction": "Serve with salsa on top."
+      }
+    ],
+    "tips": "Add one whole egg if you want more flavor.",
+    "proto": "eggs",
+    "cal": 280,
+    "pro": 30,
+    "carb": 10,
+    "fat": 8,
+    "cost": 4
+  },
+  {
+    "slug": "cottage-cheese-fruit",
+    "name": "Cottage cheese & fruit",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "A no cook breakfast that is simple and surprisingly filling. Cottage cheese brings the protein while fruit keeps it fresh.",
+    "photoSearch": "cottage cheese fruit bowl",
+    "ingredients": [
+      {
+        "item": "cottage cheese",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "pineapple chunks",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "berries",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "almonds",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Add cottage cheese",
+        "instruction": "Spoon cottage cheese into a bowl."
+      },
+      {
+        "step": 2,
+        "title": "Top",
+        "instruction": "Add pineapple, berries, and almonds."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Eat cold."
+      }
+    ],
+    "tips": "Use low fat cottage cheese if you want fewer calories.",
+    "proto": "yogurt",
+    "cal": 310,
+    "pro": 28,
+    "carb": 30,
+    "fat": 6,
+    "cost": 4
+  },
+  {
+    "slug": "avocado-egg-toast",
+    "name": "Avocado & egg toast",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A simple toast breakfast with healthy fats and protein. The eggs make it filling and the avocado keeps it satisfying.",
+    "photoSearch": "avocado egg toast breakfast",
+    "ingredients": [
+      {
+        "item": "whole grain bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "everything bagel seasoning",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Toast bread",
+        "instruction": "Toast the bread until crisp."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook the eggs however you like them."
+      },
+      {
+        "step": 3,
+        "title": "Mash avocado",
+        "instruction": "Mash avocado onto the toast."
+      },
+      {
+        "step": 4,
+        "title": "Assemble",
+        "instruction": "Top with eggs and seasoning."
+      }
+    ],
+    "tips": "Use egg whites with one whole egg for a leaner version.",
+    "proto": "eggs",
+    "cal": 420,
+    "pro": 20,
+    "carb": 36,
+    "fat": 22,
+    "cost": 5
+  },
+  {
+    "slug": "smoothie-bowl",
+    "name": "Smoothie bowl",
+    "type": "breakfast",
+    "prepTime": 7,
+    "cookTime": 0,
+    "totalTime": 7,
+    "servings": 1,
+    "description": "A thick smoothie bowl that eats like a meal. It is cold, sweet, and built around protein instead of just fruit.",
+    "photoSearch": "protein smoothie bowl berries",
+    "ingredients": [
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "frozen berries",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "Greek yogurt",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "milk",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "granola",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Blend",
+        "instruction": "Blend protein powder, frozen berries, Greek yogurt, and milk until thick."
+      },
+      {
+        "step": 2,
+        "title": "Pour",
+        "instruction": "Pour into a bowl."
+      },
+      {
+        "step": 3,
+        "title": "Top",
+        "instruction": "Add granola on top and serve."
+      }
+    ],
+    "tips": "Use less milk for a thicker bowl.",
+    "proto": "yogurt",
+    "cal": 360,
+    "pro": 28,
+    "carb": 44,
+    "fat": 7,
+    "cost": 5
+  },
+  {
+    "slug": "turkey-egg-breakfast-bowl",
+    "name": "Turkey & egg breakfast bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "A savory breakfast bowl that feels like real food. Turkey, eggs, and potatoes make it simple, filling, and high protein.",
+    "photoSearch": "turkey egg breakfast bowl",
+    "ingredients": [
+      {
+        "item": "lean ground turkey",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "diced potatoes",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook potatoes",
+        "instruction": "Warm diced potatoes in a skillet until browned."
+      },
+      {
+        "step": 2,
+        "title": "Add turkey",
+        "instruction": "Add cooked turkey and heat through."
+      },
+      {
+        "step": 3,
+        "title": "Cook eggs",
+        "instruction": "Scramble or fry the eggs."
+      },
+      {
+        "step": 4,
+        "title": "Assemble",
+        "instruction": "Add everything to a bowl and top with salsa."
+      }
+    ],
+    "tips": "Use frozen diced potatoes to make this faster.",
+    "proto": "eggs",
+    "cal": 410,
+    "pro": 38,
+    "carb": 22,
+    "fat": 16,
+    "cost": 6
+  },
+  {
+    "slug": "peanut-butter-oat-bowl",
+    "name": "Peanut butter oat bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 5,
+    "totalTime": 10,
+    "servings": 1,
+    "description": "A quick oat bowl with protein, carbs, and flavor. Peanut butter makes it taste good without making the recipe complicated.",
+    "photoSearch": "peanut butter protein oats",
+    "ingredients": [
+      {
+        "item": "rolled oats",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "peanut butter",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "banana",
+        "quantity": "1"
+      },
+      {
+        "item": "milk",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook oats",
+        "instruction": "Cook oats with milk until soft."
+      },
+      {
+        "step": 2,
+        "title": "Add protein",
+        "instruction": "Stir in protein powder after cooking."
+      },
+      {
+        "step": 3,
+        "title": "Top",
+        "instruction": "Top with peanut butter and sliced banana."
+      }
+    ],
+    "tips": "Stir protein in after cooking so it stays smooth.",
+    "proto": "yogurt",
+    "cal": 440,
+    "pro": 20,
+    "carb": 54,
+    "fat": 14,
+    "cost": 3
+  },
+  {
+    "slug": "salmon-egg-scramble",
+    "name": "Salmon & egg scramble",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A higher protein breakfast with a little upgraded flavor. Eggs and salmon make it filling without needing a lot of ingredients.",
+    "photoSearch": "salmon egg scramble breakfast",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "smoked salmon",
+        "quantity": "3 oz"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "cream cheese",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Whisk eggs",
+        "instruction": "Crack the eggs into a bowl and whisk them."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Scramble the eggs in a skillet over medium heat."
+      },
+      {
+        "step": 3,
+        "title": "Add salmon",
+        "instruction": "Fold in smoked salmon, spinach, and cream cheese."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "instruction": "Cook until spinach softens and serve warm."
+      }
+    ],
+    "tips": "Use leftover cooked salmon if you do not have smoked salmon.",
+    "proto": "fish",
+    "cal": 390,
+    "pro": 38,
+    "carb": 8,
+    "fat": 22,
+    "cost": 7
+  },
+  {
+    "slug": "tofu-scramble",
+    "name": "Tofu scramble",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "A simple plant based breakfast that still brings protein. Tofu scrambles quickly and works well with basic vegetables.",
+    "photoSearch": "tofu scramble breakfast plate",
+    "ingredients": [
+      {
+        "item": "firm tofu",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      },
+      {
+        "item": "shredded cheese",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Crumble tofu",
+        "instruction": "Crumble tofu into a skillet."
+      },
+      {
+        "step": 2,
+        "title": "Cook",
+        "instruction": "Cook tofu over medium heat until warm."
+      },
+      {
+        "step": 3,
+        "title": "Add vegetables",
+        "instruction": "Add spinach and cook until softened."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "instruction": "Top with cheese and salsa."
+      }
+    ],
+    "tips": "Press the tofu first if you want it less watery.",
+    "proto": "tofu",
+    "cal": 320,
+    "pro": 24,
+    "carb": 22,
+    "fat": 14,
+    "cost": 4
+  },
+  {
+    "slug": "chicken-sausage-eggs",
+    "name": "Chicken sausage & eggs",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "A fast savory breakfast with strong protein and almost no prep. Chicken sausage and eggs are easy to cook and easy to repeat.",
+    "photoSearch": "chicken sausage eggs breakfast",
+    "ingredients": [
+      {
+        "item": "chicken sausage links",
+        "quantity": "2"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "whole grain toast",
+        "quantity": "1 slice"
+      },
+      {
+        "item": "berries",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook sausage",
+        "instruction": "Heat chicken sausage in a skillet until browned."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook eggs however you like them."
+      },
+      {
+        "step": 3,
+        "title": "Toast",
+        "instruction": "Toast the bread."
+      },
+      {
+        "step": 4,
+        "title": "Serve",
+        "instruction": "Plate sausage, eggs, toast, and berries."
+      }
+    ],
+    "tips": "Use pre cooked chicken sausage to save time.",
+    "proto": "chicken",
+    "cal": 400,
+    "pro": 36,
+    "carb": 14,
+    "fat": 20,
+    "cost": 5
+  },
+  {
+    "slug": "high-protein-oatmeal",
+    "name": "High protein oatmeal",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 5,
+    "totalTime": 10,
+    "servings": 1,
+    "description": "Classic oatmeal upgraded with protein. It is warm, easy, and a solid breakfast when you want something simple and filling.",
+    "photoSearch": "high protein oatmeal bowl",
+    "ingredients": [
+      {
+        "item": "rolled oats",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "milk",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "blueberries",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "peanut butter",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook oats",
+        "instruction": "Cook oats with milk until creamy."
+      },
+      {
+        "step": 2,
+        "title": "Add protein",
+        "instruction": "Remove from heat and stir in protein powder."
+      },
+      {
+        "step": 3,
+        "title": "Top",
+        "instruction": "Add blueberries and peanut butter."
+      }
+    ],
+    "tips": "Chocolate protein powder works great here.",
+    "proto": "yogurt",
+    "cal": 380,
+    "pro": 30,
+    "carb": 48,
+    "fat": 8,
+    "cost": 4
+  },
+  {
+    "slug": "beef-egg-skillet",
+    "name": "Beef & egg skillet",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "A hearty breakfast skillet for when you want real fuel. Ground beef and eggs keep it high protein with almost no complexity.",
+    "photoSearch": "beef egg breakfast skillet",
+    "ingredients": [
+      {
+        "item": "lean ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "diced potatoes",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "shredded cheddar cheese",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook potatoes",
+        "instruction": "Warm diced potatoes in a skillet until browned."
+      },
+      {
+        "step": 2,
+        "title": "Add beef",
+        "instruction": "Add cooked ground beef and heat through."
+      },
+      {
+        "step": 3,
+        "title": "Add eggs",
+        "instruction": "Crack in the eggs and cook until set."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "instruction": "Top with shredded cheese and serve."
+      }
+    ],
+    "tips": "Use leftover taco meat if you already have it.",
+    "proto": "beef",
+    "cal": 430,
+    "pro": 38,
+    "carb": 12,
+    "fat": 24,
+    "cost": 6
+  },
+  {
+    "slug": "ricotta-berry-toast",
+    "name": "Ricotta & berry toast",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 3,
+    "totalTime": 8,
+    "servings": 1,
+    "description": "Light, creamy toast with a protein bump from ricotta. Sweet, simple, and easy to repeat.",
+    "photoSearch": "ricotta berry toast breakfast",
+    "ingredients": [
+      {
+        "item": "whole grain bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "ricotta cheese",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "mixed berries",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "honey",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Toast bread",
+        "instruction": "Toast bread until crisp."
+      },
+      {
+        "step": 2,
+        "title": "Spread",
+        "instruction": "Spread ricotta on toast."
+      },
+      {
+        "step": 3,
+        "title": "Top",
+        "instruction": "Add berries and drizzle honey."
+      }
+    ],
+    "tips": "Swap honey for maple syrup if you prefer.",
+    "proto": "yogurt",
+    "cal": 360,
+    "pro": 22,
+    "carb": 38,
+    "fat": 12,
+    "cost": 5
+  },
+  {
+    "slug": "lentil-breakfast-bowl",
+    "name": "Lentil breakfast bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "A simple savory bowl using lentils for plant protein. Warm, filling, and easy to batch.",
+    "photoSearch": "lentil breakfast bowl eggs",
+    "ingredients": [
+      {
+        "item": "cooked lentils",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm lentils",
+        "instruction": "Heat lentils in a skillet."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook eggs to your preference."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine with spinach and top with salsa."
+      }
+    ],
+    "tips": "Use canned lentils to save time.",
+    "proto": "legumes",
+    "cal": 350,
+    "pro": 22,
+    "carb": 48,
+    "fat": 6,
+    "cost": 4
+  },
+  {
+    "slug": "pork-sausage-egg-muffins",
+    "name": "Pork sausage & egg muffins",
+    "type": "breakfast",
+    "prepTime": 10,
+    "cookTime": 15,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Easy baked egg muffins with sausage for grab and go mornings. High protein with minimal effort.",
+    "photoSearch": "sausage egg muffins breakfast",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "pork sausage",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "shredded cheese",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Mix",
+        "instruction": "Whisk eggs and mix with sausage, cheese, and spinach."
+      },
+      {
+        "step": 2,
+        "title": "Pour",
+        "instruction": "Pour into muffin cups."
+      },
+      {
+        "step": 3,
+        "title": "Bake",
+        "instruction": "Bake at 375 until set."
+      }
+    ],
+    "tips": "Make extra and store in the fridge.",
+    "proto": "pork",
+    "cal": 380,
+    "pro": 32,
+    "carb": 10,
+    "fat": 22,
+    "cost": 5
+  },
+  {
+    "slug": "chickpea-breakfast-scramble",
+    "name": "Chickpea breakfast scramble",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "A simple plant based scramble with chickpeas for protein. Fast, filling, and easy to customize.",
+    "photoSearch": "chickpea scramble breakfast bowl",
+    "ingredients": [
+      {
+        "item": "chickpeas",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Heat chickpeas",
+        "instruction": "Warm chickpeas in a skillet."
+      },
+      {
+        "step": 2,
+        "title": "Add eggs",
+        "instruction": "Scramble eggs into the chickpeas."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add spinach and salsa and cook until done."
+      }
+    ],
+    "tips": "Mash chickpeas slightly for better texture.",
+    "proto": "legumes",
+    "cal": 340,
+    "pro": 20,
+    "carb": 40,
+    "fat": 10,
+    "cost": 4
+  },
+  {
+    "slug": "yogurt-parfait",
+    "name": "Yogurt parfait",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "Layered yogurt with fruit and crunch. Quick, clean, and easy to eat on the go.",
+    "photoSearch": "yogurt parfait berries granola",
+    "ingredients": [
+      {
+        "item": "Greek yogurt",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "berries",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "granola",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "honey",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Layer",
+        "instruction": "Layer yogurt, berries, and granola."
+      },
+      {
+        "step": 2,
+        "title": "Top",
+        "instruction": "Drizzle honey on top."
+      }
+    ],
+    "tips": "Use a jar for easy transport.",
+    "proto": "yogurt",
+    "cal": 320,
+    "pro": 26,
+    "carb": 38,
+    "fat": 6,
+    "cost": 4
+  },
+  {
+    "slug": "shrimp-egg-scramble",
+    "name": "Shrimp & egg scramble",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A quick high protein scramble using shrimp and eggs. Simple but feels upgraded.",
+    "photoSearch": "shrimp egg scramble breakfast",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "shrimp",
+        "quantity": "4 oz"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "butter",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook shrimp",
+        "instruction": "Cook shrimp in butter until pink."
+      },
+      {
+        "step": 2,
+        "title": "Add eggs",
+        "instruction": "Add eggs and scramble."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add spinach and cook until wilted."
+      }
+    ],
+    "tips": "Use pre cooked shrimp for speed.",
+    "proto": "fish",
+    "cal": 360,
+    "pro": 36,
+    "carb": 10,
+    "fat": 16,
+    "cost": 6
+  },
+  {
+    "slug": "almond-butter-banana-wrap",
+    "name": "Almond butter banana wrap",
+    "type": "breakfast",
+    "prepTime": 3,
+    "cookTime": 0,
+    "totalTime": 3,
+    "servings": 1,
+    "description": "A super fast wrap with carbs, fats, and a bit of protein. Great when you need something now.",
+    "photoSearch": "banana almond butter wrap",
+    "ingredients": [
+      {
+        "item": "tortilla",
+        "quantity": "1"
+      },
+      {
+        "item": "almond butter",
+        "quantity": "2 tbsp"
+      },
+      {
+        "item": "banana",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Spread",
+        "instruction": "Spread almond butter on tortilla."
+      },
+      {
+        "step": 2,
+        "title": "Add banana",
+        "instruction": "Place banana and roll."
+      }
+    ],
+    "tips": "Add protein powder if you want more protein.",
+    "proto": "yogurt",
+    "cal": 400,
+    "pro": 18,
+    "carb": 50,
+    "fat": 14,
+    "cost": 4
+  },
+  {
+    "slug": "black-bean-breakfast-bowl",
+    "name": "Black bean breakfast bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple savory bowl with beans and eggs. Easy, filling, and budget friendly.",
+    "photoSearch": "black bean egg breakfast bowl",
+    "ingredients": [
+      {
+        "item": "black beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm beans",
+        "instruction": "Heat black beans and rice."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook eggs."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and top with salsa."
+      }
+    ],
+    "tips": "Add avocado if you want more calories.",
+    "proto": "legumes",
+    "cal": 370,
+    "pro": 22,
+    "carb": 46,
+    "fat": 10,
+    "cost": 4
+  },
+  {
+    "slug": "tuna-avocado-toast",
+    "name": "Tuna & avocado toast",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 3,
+    "totalTime": 8,
+    "servings": 1,
+    "description": "A simple toast with protein and healthy fats. Quick and easy for busy mornings.",
+    "photoSearch": "tuna avocado toast breakfast",
+    "ingredients": [
+      {
+        "item": "whole grain bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "tuna",
+        "quantity": "1 can"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "lemon juice",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Toast",
+        "instruction": "Toast bread."
+      },
+      {
+        "step": 2,
+        "title": "Mix tuna",
+        "instruction": "Mix tuna with lemon juice."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Top toast with tuna and avocado."
+      }
+    ],
+    "tips": "Add salt and pepper for more flavor.",
+    "proto": "fish",
+    "cal": 380,
+    "pro": 34,
+    "carb": 28,
+    "fat": 14,
+    "cost": 4
+  },
+  {
+    "slug": "beef-potato-hash",
+    "name": "Beef & potato hash",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "A hearty skillet with beef and potatoes. Simple and filling with solid protein.",
+    "photoSearch": "beef potato hash skillet",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "diced potatoes",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "cheddar cheese",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook potatoes",
+        "instruction": "Brown potatoes in skillet."
+      },
+      {
+        "step": 2,
+        "title": "Add beef",
+        "instruction": "Add beef and heat."
+      },
+      {
+        "step": 3,
+        "title": "Add eggs",
+        "instruction": "Crack eggs and cook."
+      },
+      {
+        "step": 4,
+        "title": "Finish",
+        "instruction": "Top with cheese."
+      }
+    ],
+    "tips": "Use leftover meat to save time.",
+    "proto": "beef",
+    "cal": 440,
+    "pro": 36,
+    "carb": 34,
+    "fat": 18,
+    "cost": 6
+  },
+  {
+    "slug": "tofu-veggie-bowl",
+    "name": "Tofu veggie bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "A simple plant based bowl with tofu and vegetables. Easy, clean, and filling.",
+    "photoSearch": "tofu veggie breakfast bowl",
+    "ingredients": [
+      {
+        "item": "firm tofu",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tofu",
+        "instruction": "Cook tofu in skillet until browned."
+      },
+      {
+        "step": 2,
+        "title": "Prep veggies",
+        "instruction": "Steam broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine with rice and soy sauce."
+      }
+    ],
+    "tips": "Press tofu first for better texture.",
+    "proto": "tofu",
+    "cal": 300,
+    "pro": 22,
+    "carb": 26,
+    "fat": 12,
+    "cost": 4
+  },
+  {
+    "slug": "pork-apple-oatmeal",
+    "name": "Pork & apple oatmeal",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "Sweet and savory oats with pork and apple. Different but simple and filling.",
+    "photoSearch": "savory oatmeal pork apple",
+    "ingredients": [
+      {
+        "item": "oats",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "pork sausage",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "apple",
+        "quantity": "1/2"
+      },
+      {
+        "item": "milk",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook oats",
+        "instruction": "Cook oats with milk."
+      },
+      {
+        "step": 2,
+        "title": "Cook pork",
+        "instruction": "Cook sausage separately."
+      },
+      {
+        "step": 3,
+        "title": "Combine",
+        "instruction": "Add chopped apple and pork to oats."
+      }
+    ],
+    "tips": "Use cinnamon for extra flavor.",
+    "proto": "pork",
+    "cal": 410,
+    "pro": 26,
+    "carb": 50,
+    "fat": 12,
+    "cost": 5
+  },
+  {
+    "slug": "chicken-rice-breakfast-bowl",
+    "name": "Chicken & rice breakfast bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple leftovers style breakfast with chicken and rice. Clean, high protein, and easy.",
+    "photoSearch": "chicken rice breakfast bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "hot sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook or reheat chicken."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook eggs."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine with rice and hot sauce."
+      }
+    ],
+    "tips": "Use rotisserie chicken to save time.",
+    "proto": "chicken",
+    "cal": 420,
+    "pro": 40,
+    "carb": 38,
+    "fat": 10,
+    "cost": 6
+  },
+  {
+    "slug": "edamame-egg-bowl",
+    "name": "Edamame & egg bowl",
+    "type": "breakfast",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "A simple bowl using edamame and eggs for protein. Quick, clean, and easy to repeat.",
+    "photoSearch": "edamame egg protein bowl",
+    "ingredients": [
+      {
+        "item": "edamame",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook edamame",
+        "instruction": "Heat edamame."
+      },
+      {
+        "step": 2,
+        "title": "Cook eggs",
+        "instruction": "Cook eggs."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine with rice and soy sauce."
+      }
+    ],
+    "tips": "Add chili flakes for spice.",
+    "proto": "legumes",
+    "cal": 350,
+    "pro": 28,
+    "carb": 26,
+    "fat": 14,
+    "cost": 5
+  },
+  {
+    "slug": "whey-protein-shake-oats",
+    "name": "Whey protein shake & oats",
+    "type": "breakfast",
+    "prepTime": 3,
+    "cookTime": 5,
+    "totalTime": 8,
+    "servings": 1,
+    "description": "The simplest high protein combo. Drink your shake and pair it with quick oats.",
+    "photoSearch": "protein shake oats breakfast",
+    "ingredients": [
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "milk",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "oats",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "banana",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Blend",
+        "instruction": "Blend protein powder with milk."
+      },
+      {
+        "step": 2,
+        "title": "Cook oats",
+        "instruction": "Cook oats."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Eat oats with banana and drink shake."
+      }
+    ],
+    "tips": "Use shaker bottle if no blender.",
+    "proto": "yogurt",
+    "cal": 360,
+    "pro": 36,
+    "carb": 40,
+    "fat": 6,
+    "cost": 3
+  },
+  {
+    "slug": "chicken-caesar-salad",
+    "name": "Chicken Caesar salad",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple high protein salad with grilled chicken and classic flavor. Easy to throw together and repeat.",
+    "photoSearch": "chicken caesar salad bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "romaine lettuce",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "caesar dressing",
+        "quantity": "2 tbsp"
+      },
+      {
+        "item": "parmesan cheese",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook chicken breast and slice it."
+      },
+      {
+        "step": 2,
+        "title": "Prep salad",
+        "instruction": "Add lettuce to a bowl."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Top with chicken, dressing, and cheese."
+      }
+    ],
+    "tips": "Use rotisserie chicken to save time.",
+    "proto": "chicken",
+    "cal": 480,
+    "pro": 44,
+    "carb": 20,
+    "fat": 22,
+    "cost": 7
+  },
+  {
+    "slug": "turkey-avocado-wrap",
+    "name": "Turkey & avocado wrap",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "Fast wrap with protein and healthy fats. Easy, filling, and great on the go.",
+    "photoSearch": "turkey avocado wrap lunch",
+    "ingredients": [
+      {
+        "item": "tortilla",
+        "quantity": "1"
+      },
+      {
+        "item": "deli turkey",
+        "quantity": "4 slices"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Layer",
+        "instruction": "Add turkey, avocado, and lettuce to tortilla."
+      },
+      {
+        "step": 2,
+        "title": "Wrap",
+        "instruction": "Roll tightly and slice."
+      }
+    ],
+    "tips": "Add mustard for extra flavor.",
+    "proto": "chicken",
+    "cal": 460,
+    "pro": 38,
+    "carb": 38,
+    "fat": 16,
+    "cost": 6
+  },
+  {
+    "slug": "tuna-salad-on-whole-grain",
+    "name": "Tuna salad on whole grain",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "Classic high protein sandwich that is easy to make anytime. Simple ingredients and solid macros.",
+    "photoSearch": "tuna sandwich simple lunch",
+    "ingredients": [
+      {
+        "item": "tuna",
+        "quantity": "1 can"
+      },
+      {
+        "item": "light mayo",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "celery",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Mix",
+        "instruction": "Mix tuna with mayo and celery."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add to bread and serve."
+      }
+    ],
+    "tips": "Use Greek yogurt instead of mayo for more protein.",
+    "proto": "fish",
+    "cal": 440,
+    "pro": 38,
+    "carb": 32,
+    "fat": 14,
+    "cost": 5
+  },
+  {
+    "slug": "beef-taco-salad",
+    "name": "Beef taco salad",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple taco flavors without the tortilla. Easy, filling, and high protein.",
+    "photoSearch": "beef taco salad bowl",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      },
+      {
+        "item": "shredded cheese",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook ground beef."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add lettuce, beef, salsa, and cheese to bowl."
+      }
+    ],
+    "tips": "Add avocado for more calories.",
+    "proto": "beef",
+    "cal": 510,
+    "pro": 42,
+    "carb": 30,
+    "fat": 22,
+    "cost": 7
+  },
+  {
+    "slug": "chicken-rice-bowl",
+    "name": "Chicken rice bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Clean simple meal with chicken and rice. Easy to repeat and great for consistency.",
+    "photoSearch": "chicken rice bowl meal",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "teriyaki sauce",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook and slice chicken."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add sauce."
+      }
+    ],
+    "tips": "Batch cook chicken for the week.",
+    "proto": "chicken",
+    "cal": 520,
+    "pro": 46,
+    "carb": 52,
+    "fat": 10,
+    "cost": 8
+  },
+  {
+    "slug": "lentil-soup-bread",
+    "name": "Lentil soup & bread",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Warm simple meal with plant protein. Easy to make and very filling.",
+    "photoSearch": "lentil soup bread bowl",
+    "ingredients": [
+      {
+        "item": "lentil soup",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Heat soup",
+        "instruction": "Warm lentil soup."
+      },
+      {
+        "step": 2,
+        "title": "Serve",
+        "instruction": "Serve with bread and drizzle olive oil."
+      }
+    ],
+    "tips": "Use canned soup to save time.",
+    "proto": "legumes",
+    "cal": 400,
+    "pro": 22,
+    "carb": 56,
+    "fat": 6,
+    "cost": 5
+  },
+  {
+    "slug": "shrimp-avocado-salad",
+    "name": "Shrimp & avocado salad",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "Light high protein salad with shrimp and healthy fats. Clean and refreshing.",
+    "photoSearch": "shrimp avocado salad bowl",
+    "ingredients": [
+      {
+        "item": "shrimp",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "mixed greens",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "lemon juice",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook shrimp",
+        "instruction": "Cook shrimp until pink."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine greens, shrimp, and avocado."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add lemon juice."
+      }
+    ],
+    "tips": "Use pre cooked shrimp for speed.",
+    "proto": "fish",
+    "cal": 420,
+    "pro": 36,
+    "carb": 18,
+    "fat": 20,
+    "cost": 8
+  },
+  {
+    "slug": "egg-salad-sandwich",
+    "name": "Egg salad sandwich",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple classic sandwich with solid protein. Easy to prep ahead.",
+    "photoSearch": "egg salad sandwich simple",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "mayo",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "bread",
+        "quantity": "2 slices"
+      },
+      {
+        "item": "mustard",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil eggs",
+        "instruction": "Boil and chop eggs."
+      },
+      {
+        "step": 2,
+        "title": "Mix",
+        "instruction": "Mix with mayo and mustard."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Add to bread."
+      }
+    ],
+    "tips": "Use Greek yogurt instead of mayo for leaner version.",
+    "proto": "eggs",
+    "cal": 430,
+    "pro": 26,
+    "carb": 36,
+    "fat": 18,
+    "cost": 4
+  },
+  {
+    "slug": "black-bean-veggie-burrito",
+    "name": "Black bean & veggie burrito",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based burrito with beans and rice. Cheap, easy, and filling.",
+    "photoSearch": "black bean burrito wrap",
+    "ingredients": [
+      {
+        "item": "tortilla",
+        "quantity": "1"
+      },
+      {
+        "item": "black beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm filling",
+        "instruction": "Heat beans and rice."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add to tortilla and roll."
+      }
+    ],
+    "tips": "Add cheese if you want more calories.",
+    "proto": "legumes",
+    "cal": 480,
+    "pro": 22,
+    "carb": 64,
+    "fat": 12,
+    "cost": 5
+  },
+  {
+    "slug": "salmon-quinoa-bowl",
+    "name": "Salmon & quinoa bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Balanced bowl with protein and carbs. Simple and clean.",
+    "photoSearch": "salmon quinoa bowl meal",
+    "ingredients": [
+      {
+        "item": "salmon",
+        "quantity": "1 fillet"
+      },
+      {
+        "item": "quinoa",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "lemon juice",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook salmon",
+        "instruction": "Cook salmon until done."
+      },
+      {
+        "step": 2,
+        "title": "Prep quinoa",
+        "instruction": "Cook quinoa."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add lemon juice."
+      }
+    ],
+    "tips": "Swap quinoa for rice if needed.",
+    "proto": "fish",
+    "cal": 510,
+    "pro": 44,
+    "carb": 36,
+    "fat": 18,
+    "cost": 10
+  },
+  {
+    "slug": "ground-beef-rice-bowl",
+    "name": "Ground beef & rice bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple meat and rice bowl. Easy to make and easy to repeat.",
+    "photoSearch": "ground beef rice bowl",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook ground beef."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add soy sauce."
+      }
+    ],
+    "tips": "Use lean beef to keep it lighter.",
+    "proto": "beef",
+    "cal": 530,
+    "pro": 44,
+    "carb": 48,
+    "fat": 16,
+    "cost": 7
+  },
+  {
+    "slug": "chicken-veggie-soup",
+    "name": "Chicken & veggie soup",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Warm simple soup with chicken and vegetables. Easy comfort meal.",
+    "photoSearch": "chicken vegetable soup bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "chicken broth",
+        "quantity": "2 cups"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook and shred chicken."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Add to broth with vegetables and simmer."
+      }
+    ],
+    "tips": "Use rotisserie chicken to speed it up.",
+    "proto": "chicken",
+    "cal": 360,
+    "pro": 38,
+    "carb": 30,
+    "fat": 8,
+    "cost": 6
+  },
+  {
+    "slug": "tofu-veggie-wrap",
+    "name": "Tofu & veggie wrap",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based wrap that is easy to make. Clean and repeatable.",
+    "photoSearch": "tofu veggie wrap lunch",
+    "ingredients": [
+      {
+        "item": "tortilla",
+        "quantity": "1"
+      },
+      {
+        "item": "tofu",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tofu",
+        "instruction": "Cook tofu until browned."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add tofu and lettuce to tortilla and roll."
+      }
+    ],
+    "tips": "Press tofu for better texture.",
+    "proto": "tofu",
+    "cal": 400,
+    "pro": 26,
+    "carb": 42,
+    "fat": 14,
+    "cost": 5
+  },
+  {
+    "slug": "pork-tenderloin-salad",
+    "name": "Pork tenderloin salad",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple protein packed salad with pork. Clean and filling.",
+    "photoSearch": "pork tenderloin salad bowl",
+    "ingredients": [
+      {
+        "item": "pork tenderloin",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed greens",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "balsamic vinegar",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook pork",
+        "instruction": "Cook and slice pork."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add greens and pork."
+      },
+      {
+        "step": 3,
+        "title": "Dress",
+        "instruction": "Add oil and vinegar."
+      }
+    ],
+    "tips": "Use pre cooked pork for speed.",
+    "proto": "pork",
+    "cal": 430,
+    "pro": 40,
+    "carb": 20,
+    "fat": 18,
+    "cost": 7
+  },
+  {
+    "slug": "chickpea-veggie-bowl",
+    "name": "Chickpea & veggie bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based bowl with chickpeas. Easy and budget friendly.",
+    "photoSearch": "chickpea veggie bowl meal",
+    "ingredients": [
+      {
+        "item": "chickpeas",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm chickpeas",
+        "instruction": "Heat chickpeas."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and drizzle oil."
+      }
+    ],
+    "tips": "Add spices for more flavor.",
+    "proto": "legumes",
+    "cal": 420,
+    "pro": 20,
+    "carb": 54,
+    "fat": 10,
+    "cost": 5
+  },
+  {
+    "slug": "blt-wrap-with-turkey",
+    "name": "BLT wrap with turkey",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 5,
+    "totalTime": 10,
+    "servings": 1,
+    "description": "Simple BLT upgraded with turkey for more protein. Fast, filling, and easy.",
+    "photoSearch": "blt turkey wrap lunch",
+    "ingredients": [
+      {
+        "item": "tortilla",
+        "quantity": "1"
+      },
+      {
+        "item": "turkey bacon",
+        "quantity": "3 strips"
+      },
+      {
+        "item": "deli turkey",
+        "quantity": "3 slices"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "tomato",
+        "quantity": "1/2"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook bacon",
+        "instruction": "Cook turkey bacon until crispy."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add all ingredients to tortilla."
+      },
+      {
+        "step": 3,
+        "title": "Wrap",
+        "instruction": "Roll tightly and slice."
+      }
+    ],
+    "tips": "Add light mayo for more flavor.",
+    "proto": "chicken",
+    "cal": 440,
+    "pro": 36,
+    "carb": 34,
+    "fat": 16,
+    "cost": 6
+  },
+  {
+    "slug": "beef-veggie-stir-fry",
+    "name": "Beef & veggie stir fry",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Quick stir fry with beef and vegetables. Simple, high protein, and easy to repeat.",
+    "photoSearch": "beef veggie stir fry",
+    "ingredients": [
+      {
+        "item": "beef strips",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook beef in a skillet."
+      },
+      {
+        "step": 2,
+        "title": "Add veggies",
+        "instruction": "Add vegetables and cook until tender."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add soy sauce and serve with rice."
+      }
+    ],
+    "tips": "Use frozen veggies to save time.",
+    "proto": "beef",
+    "cal": 490,
+    "pro": 42,
+    "carb": 38,
+    "fat": 16,
+    "cost": 8
+  },
+  {
+    "slug": "greek-salad-with-chicken",
+    "name": "Greek salad with chicken",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Fresh salad with chicken and simple Mediterranean flavors. Light but filling.",
+    "photoSearch": "greek salad chicken bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "cucumber",
+        "quantity": "1/2"
+      },
+      {
+        "item": "tomato",
+        "quantity": "1/2"
+      },
+      {
+        "item": "feta cheese",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook and slice chicken."
+      },
+      {
+        "step": 2,
+        "title": "Prep veggies",
+        "instruction": "Chop cucumber and tomato."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine all and drizzle olive oil."
+      }
+    ],
+    "tips": "Add olives if you like them.",
+    "proto": "chicken",
+    "cal": 450,
+    "pro": 42,
+    "carb": 16,
+    "fat": 22,
+    "cost": 7
+  },
+  {
+    "slug": "fish-tacos",
+    "name": "Fish tacos",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple fish tacos with clean ingredients. Easy and flavorful.",
+    "photoSearch": "fish tacos simple plate",
+    "ingredients": [
+      {
+        "item": "white fish",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "tortillas",
+        "quantity": "2"
+      },
+      {
+        "item": "cabbage",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook fish",
+        "instruction": "Cook fish until flaky."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add fish, cabbage, and salsa to tortillas."
+      }
+    ],
+    "tips": "Use pre shredded cabbage.",
+    "proto": "fish",
+    "cal": 460,
+    "pro": 36,
+    "carb": 42,
+    "fat": 14,
+    "cost": 8
+  },
+  {
+    "slug": "tempeh-grain-bowl",
+    "name": "Tempeh grain bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Plant based bowl with tempeh and grains. Simple and filling.",
+    "photoSearch": "tempeh grain bowl meal",
+    "ingredients": [
+      {
+        "item": "tempeh",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tempeh",
+        "instruction": "Cook tempeh until browned."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add soy sauce."
+      }
+    ],
+    "tips": "Slice tempeh thin for better texture.",
+    "proto": "tofu",
+    "cal": 460,
+    "pro": 28,
+    "carb": 48,
+    "fat": 14,
+    "cost": 7
+  },
+  {
+    "slug": "turkey-chili",
+    "name": "Turkey chili",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple chili with turkey and beans. High protein and easy to batch.",
+    "photoSearch": "turkey chili bowl meal",
+    "ingredients": [
+      {
+        "item": "ground turkey",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "kidney beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "tomato sauce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "chili seasoning",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook turkey",
+        "instruction": "Cook ground turkey."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Add beans, sauce, and seasoning and simmer."
+      }
+    ],
+    "tips": "Make extra for leftovers.",
+    "proto": "chicken",
+    "cal": 440,
+    "pro": 40,
+    "carb": 40,
+    "fat": 10,
+    "cost": 7
+  },
+  {
+    "slug": "white-bean-kale-soup",
+    "name": "White bean & kale soup",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple plant based soup with beans and greens. Light and filling.",
+    "photoSearch": "white bean kale soup",
+    "ingredients": [
+      {
+        "item": "white beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "kale",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "vegetable broth",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Simmer",
+        "instruction": "Add all ingredients to pot and simmer."
+      }
+    ],
+    "tips": "Add chicken for more protein.",
+    "proto": "legumes",
+    "cal": 360,
+    "pro": 20,
+    "carb": 46,
+    "fat": 6,
+    "cost": 5
+  },
+  {
+    "slug": "pork-rice-bowl",
+    "name": "Pork & rice bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple pork and rice combo. Easy, filling, and repeatable.",
+    "photoSearch": "pork rice bowl meal",
+    "ingredients": [
+      {
+        "item": "pork",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook pork",
+        "instruction": "Cook pork until done."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add soy sauce."
+      }
+    ],
+    "tips": "Use pre cooked pork to save time.",
+    "proto": "pork",
+    "cal": 480,
+    "pro": 40,
+    "carb": 44,
+    "fat": 14,
+    "cost": 7
+  },
+  {
+    "slug": "caprese-chicken",
+    "name": "Caprese chicken",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple chicken with tomato and mozzarella. Fresh and easy.",
+    "photoSearch": "caprese chicken plate simple",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "mozzarella",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "tomato",
+        "quantity": "1/2"
+      },
+      {
+        "item": "balsamic glaze",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook chicken breast."
+      },
+      {
+        "step": 2,
+        "title": "Top",
+        "instruction": "Add mozzarella and tomato."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Drizzle balsamic glaze."
+      }
+    ],
+    "tips": "Add basil for more flavor.",
+    "proto": "chicken",
+    "cal": 420,
+    "pro": 44,
+    "carb": 12,
+    "fat": 20,
+    "cost": 7
+  },
+  {
+    "slug": "salmon-rice-bowl",
+    "name": "Salmon rice bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple salmon bowl with rice. Clean, high protein, and easy.",
+    "photoSearch": "salmon rice bowl simple",
+    "ingredients": [
+      {
+        "item": "salmon",
+        "quantity": "1 fillet"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook salmon",
+        "instruction": "Cook salmon."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add to rice with avocado and soy sauce."
+      }
+    ],
+    "tips": "Use leftover salmon.",
+    "proto": "fish",
+    "cal": 490,
+    "pro": 42,
+    "carb": 44,
+    "fat": 14,
+    "cost": 9
+  },
+  {
+    "slug": "steak-veggie-bowl",
+    "name": "Steak & veggie bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple steak bowl with vegetables. Filling and high protein.",
+    "photoSearch": "steak veggie bowl meal",
+    "ingredients": [
+      {
+        "item": "steak",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "salt",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook steak",
+        "instruction": "Cook steak and slice."
+      },
+      {
+        "step": 2,
+        "title": "Cook veggies",
+        "instruction": "Cook vegetables."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and serve."
+      }
+    ],
+    "tips": "Use frozen vegetables for speed.",
+    "proto": "beef",
+    "cal": 520,
+    "pro": 46,
+    "carb": 24,
+    "fat": 22,
+    "cost": 10
+  },
+  {
+    "slug": "edamame-rice-bowl",
+    "name": "Edamame rice bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "Simple plant based bowl with edamame. Easy and quick.",
+    "photoSearch": "edamame rice bowl simple",
+    "ingredients": [
+      {
+        "item": "edamame",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook edamame",
+        "instruction": "Heat edamame."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine with rice and soy sauce."
+      }
+    ],
+    "tips": "Add chili flakes for spice.",
+    "proto": "legumes",
+    "cal": 400,
+    "pro": 22,
+    "carb": 52,
+    "fat": 10,
+    "cost": 6
+  },
+  {
+    "slug": "pulled-pork-bowl",
+    "name": "Pulled pork bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple pulled pork bowl with rice. Easy and filling.",
+    "photoSearch": "pulled pork rice bowl",
+    "ingredients": [
+      {
+        "item": "pulled pork",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "coleslaw mix",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "bbq sauce",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm pork",
+        "instruction": "Heat pulled pork."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine with rice and slaw."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add BBQ sauce."
+      }
+    ],
+    "tips": "Use store bought pulled pork.",
+    "proto": "pork",
+    "cal": 510,
+    "pro": 42,
+    "carb": 48,
+    "fat": 14,
+    "cost": 8
+  },
+  {
+    "slug": "falafel-hummus-bowl",
+    "name": "Falafel & hummus bowl",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based bowl with falafel. Easy and flavorful.",
+    "photoSearch": "falafel hummus bowl meal",
+    "ingredients": [
+      {
+        "item": "falafel",
+        "quantity": "4 pieces"
+      },
+      {
+        "item": "hummus",
+        "quantity": "1/4 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "cucumber",
+        "quantity": "1/2"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook falafel",
+        "instruction": "Cook falafel."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine with rice, hummus, and cucumber."
+      }
+    ],
+    "tips": "Use store bought falafel for speed.",
+    "proto": "legumes",
+    "cal": 450,
+    "pro": 18,
+    "carb": 56,
+    "fat": 14,
+    "cost": 6
+  },
+  {
+    "slug": "cottage-cheese-power-salad",
+    "name": "Cottage cheese power salad",
+    "type": "lunch",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "No cook high protein salad using cottage cheese. Very easy and fast.",
+    "photoSearch": "cottage cheese salad bowl",
+    "ingredients": [
+      {
+        "item": "cottage cheese",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "tomato",
+        "quantity": "1/2"
+      },
+      {
+        "item": "cucumber",
+        "quantity": "1/2"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Combine",
+        "instruction": "Mix all ingredients in a bowl."
+      }
+    ],
+    "tips": "Add salt and pepper for more flavor.",
+    "proto": "yogurt",
+    "cal": 360,
+    "pro": 30,
+    "carb": 24,
+    "fat": 14,
+    "cost": 5
+  },
+  {
+    "slug": "grilled-chicken-rice-bowl",
+    "name": "Grilled chicken & rice bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple grilled chicken with rice. Clean, high protein, and easy to repeat.",
+    "photoSearch": "grilled chicken rice bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Grill or pan cook chicken."
+      },
+      {
+        "step": 2,
+        "title": "Prep sides",
+        "instruction": "Cook rice and broccoli."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and drizzle olive oil."
+      }
+    ],
+    "tips": "Batch cook chicken for multiple meals.",
+    "proto": "chicken",
+    "cal": 520,
+    "pro": 46,
+    "carb": 52,
+    "fat": 10,
+    "cost": 9
+  },
+  {
+    "slug": "beef-broccoli-stir-fry",
+    "name": "Beef & broccoli stir fry",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Classic simple stir fry with beef and broccoli. High protein and quick.",
+    "photoSearch": "beef broccoli stir fry",
+    "ingredients": [
+      {
+        "item": "beef strips",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "broccoli",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook beef in skillet."
+      },
+      {
+        "step": 2,
+        "title": "Add broccoli",
+        "instruction": "Add broccoli and cook until tender."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add soy sauce and serve with rice."
+      }
+    ],
+    "tips": "Use frozen broccoli to save time.",
+    "proto": "beef",
+    "cal": 510,
+    "pro": 44,
+    "carb": 38,
+    "fat": 16,
+    "cost": 11
+  },
+  {
+    "slug": "baked-salmon-sweet-potato",
+    "name": "Baked salmon & sweet potato",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple baked salmon with sweet potato. Clean, balanced, and filling.",
+    "photoSearch": "salmon sweet potato plate",
+    "ingredients": [
+      {
+        "item": "salmon",
+        "quantity": "1 fillet"
+      },
+      {
+        "item": "sweet potato",
+        "quantity": "1"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "salt",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Bake salmon",
+        "instruction": "Bake salmon until cooked."
+      },
+      {
+        "step": 2,
+        "title": "Cook potato",
+        "instruction": "Bake or microwave sweet potato."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Plate together with olive oil."
+      }
+    ],
+    "tips": "Add lemon juice for extra flavor.",
+    "proto": "fish",
+    "cal": 490,
+    "pro": 40,
+    "carb": 40,
+    "fat": 17,
+    "cost": 14
+  },
+  {
+    "slug": "ground-turkey-stir-fry",
+    "name": "Ground turkey stir fry",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Quick turkey stir fry with vegetables. Lean, simple, and high protein.",
+    "photoSearch": "ground turkey stir fry",
+    "ingredients": [
+      {
+        "item": "ground turkey",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook turkey",
+        "instruction": "Cook ground turkey."
+      },
+      {
+        "step": 2,
+        "title": "Add veggies",
+        "instruction": "Add vegetables and cook."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add soy sauce and serve."
+      }
+    ],
+    "tips": "Use frozen veggies for speed.",
+    "proto": "chicken",
+    "cal": 460,
+    "pro": 43,
+    "carb": 36,
+    "fat": 12,
+    "cost": 10
+  },
+  {
+    "slug": "lean-beef-veggie-stew",
+    "name": "Lean beef & veggie stew",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple stew with beef and vegetables. Warm, filling, and easy.",
+    "photoSearch": "beef vegetable stew bowl",
+    "ingredients": [
+      {
+        "item": "beef",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "beef broth",
+        "quantity": "2 cups"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Combine",
+        "instruction": "Add all ingredients to pot."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Cook until beef is tender."
+      }
+    ],
+    "tips": "Use slow cooker for batch cooking.",
+    "proto": "beef",
+    "cal": 540,
+    "pro": 45,
+    "carb": 44,
+    "fat": 14,
+    "cost": 13
+  },
+  {
+    "slug": "chicken-black-bean-bowl",
+    "name": "Chicken & black bean bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple bowl with chicken and beans. Easy, filling, and high protein.",
+    "photoSearch": "chicken black bean bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "black beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook and slice chicken."
+      },
+      {
+        "step": 2,
+        "title": "Warm beans",
+        "instruction": "Heat beans."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add salsa."
+      }
+    ],
+    "tips": "Add avocado if you want more calories.",
+    "proto": "chicken",
+    "cal": 550,
+    "pro": 48,
+    "carb": 55,
+    "fat": 11,
+    "cost": 10
+  },
+  {
+    "slug": "pork-tenderloin-roasted-veg",
+    "name": "Pork tenderloin & roasted veg",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple roasted meal with pork and vegetables. Clean and easy.",
+    "photoSearch": "pork roasted vegetables plate",
+    "ingredients": [
+      {
+        "item": "pork tenderloin",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Roast",
+        "instruction": "Roast pork and vegetables together."
+      }
+    ],
+    "tips": "Season before roasting.",
+    "proto": "pork",
+    "cal": 500,
+    "pro": 44,
+    "carb": 38,
+    "fat": 13,
+    "cost": 11
+  },
+  {
+    "slug": "tofu-veggie-stir-fry",
+    "name": "Tofu & veggie stir fry",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based stir fry with tofu. Easy and repeatable.",
+    "photoSearch": "tofu veggie stir fry",
+    "ingredients": [
+      {
+        "item": "tofu",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tofu",
+        "instruction": "Cook tofu until browned."
+      },
+      {
+        "step": 2,
+        "title": "Add veggies",
+        "instruction": "Add vegetables."
+      },
+      {
+        "step": 3,
+        "title": "Finish",
+        "instruction": "Add soy sauce and serve."
+      }
+    ],
+    "tips": "Press tofu first.",
+    "proto": "tofu",
+    "cal": 420,
+    "pro": 28,
+    "carb": 40,
+    "fat": 14,
+    "cost": 9
+  },
+  {
+    "slug": "lentil-sweet-potato-curry",
+    "name": "Lentil & sweet potato curry",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple plant based curry with lentils. Filling and easy.",
+    "photoSearch": "lentil sweet potato curry",
+    "ingredients": [
+      {
+        "item": "lentils",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "sweet potato",
+        "quantity": "1"
+      },
+      {
+        "item": "curry sauce",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook",
+        "instruction": "Cook all ingredients together until tender."
+      }
+    ],
+    "tips": "Use jarred curry sauce.",
+    "proto": "legumes",
+    "cal": 450,
+    "pro": 22,
+    "carb": 62,
+    "fat": 9,
+    "cost": 7
+  },
+  {
+    "slug": "beef-taco-bowl",
+    "name": "Beef taco bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple taco bowl with beef. Easy, high protein, and repeatable.",
+    "photoSearch": "beef taco bowl meal",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook ground beef."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine all ingredients."
+      }
+    ],
+    "tips": "Add cheese if you want.",
+    "proto": "beef",
+    "cal": 530,
+    "pro": 44,
+    "carb": 44,
+    "fat": 16,
+    "cost": 10
+  },
+  {
+    "slug": "chicken-tikka-masala",
+    "name": "Chicken tikka masala",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple version using jar sauce. Easy and flavorful.",
+    "photoSearch": "chicken tikka masala rice",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "tikka masala sauce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook chicken."
+      },
+      {
+        "step": 2,
+        "title": "Add sauce",
+        "instruction": "Add sauce and simmer."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Serve with rice."
+      }
+    ],
+    "tips": "Use jar sauce for speed.",
+    "proto": "chicken",
+    "cal": 530,
+    "pro": 46,
+    "carb": 40,
+    "fat": 14,
+    "cost": 10
+  },
+  {
+    "slug": "shrimp-veggie-bowl",
+    "name": "Shrimp & veggie bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "Quick shrimp bowl with vegetables. Light and high protein.",
+    "photoSearch": "shrimp veggie bowl meal",
+    "ingredients": [
+      {
+        "item": "shrimp",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook shrimp",
+        "instruction": "Cook shrimp."
+      },
+      {
+        "step": 2,
+        "title": "Cook veggies",
+        "instruction": "Cook vegetables."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine and add soy sauce."
+      }
+    ],
+    "tips": "Use frozen shrimp.",
+    "proto": "fish",
+    "cal": 430,
+    "pro": 38,
+    "carb": 42,
+    "fat": 10,
+    "cost": 12
+  },
+  {
+    "slug": "steak-roasted-veg",
+    "name": "Steak & roasted veg",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple steak with roasted vegetables. Filling and easy.",
+    "photoSearch": "steak roasted vegetables plate",
+    "ingredients": [
+      {
+        "item": "steak",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "mixed vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook steak",
+        "instruction": "Cook steak."
+      },
+      {
+        "step": 2,
+        "title": "Roast veggies",
+        "instruction": "Roast vegetables."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Combine and serve."
+      }
+    ],
+    "tips": "Season well before cooking.",
+    "proto": "beef",
+    "cal": 550,
+    "pro": 48,
+    "carb": 24,
+    "fat": 22,
+    "cost": 14
+  },
+  {
+    "slug": "chicken-fajita-bowl",
+    "name": "Chicken fajita bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple fajita style bowl with chicken. Easy and flavorful.",
+    "photoSearch": "chicken fajita bowl meal",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "peppers and onions",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "fajita seasoning",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook chicken with seasoning."
+      },
+      {
+        "step": 2,
+        "title": "Cook veggies",
+        "instruction": "Cook peppers and onions."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine with rice."
+      }
+    ],
+    "tips": "Use frozen fajita mix.",
+    "proto": "chicken",
+    "cal": 500,
+    "pro": 44,
+    "carb": 46,
+    "fat": 12,
+    "cost": 9
+  },
+  {
+    "slug": "beef-stuffed-peppers",
+    "name": "Beef stuffed peppers",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple stuffed peppers with beef and rice. Easy and filling.",
+    "photoSearch": "beef stuffed peppers simple",
+    "ingredients": [
+      {
+        "item": "bell pepper",
+        "quantity": "1"
+      },
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "tomato sauce",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prep pepper",
+        "instruction": "Cut top off pepper."
+      },
+      {
+        "step": 2,
+        "title": "Fill",
+        "instruction": "Mix beef, rice, and sauce and stuff pepper."
+      },
+      {
+        "step": 3,
+        "title": "Bake",
+        "instruction": "Bake until pepper is soft."
+      }
+    ],
+    "tips": "Use pre cooked rice to save time.",
+    "proto": "beef",
+    "cal": 480,
+    "pro": 42,
+    "carb": 36,
+    "fat": 16,
+    "cost": 10
+  },
+  {
+    "slug": "tempeh-taco-bowl",
+    "name": "Tempeh taco bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant based taco bowl. Easy and high protein.",
+    "photoSearch": "tempeh taco bowl meal",
+    "ingredients": [
+      {
+        "item": "tempeh",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "salsa",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tempeh",
+        "instruction": "Cook tempeh until browned."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine with rice and toppings."
+      }
+    ],
+    "tips": "Add avocado if you want more calories.",
+    "proto": "tofu",
+    "cal": 450,
+    "pro": 30,
+    "carb": 46,
+    "fat": 14,
+    "cost": 9
+  },
+  {
+    "slug": "salmon-quinoa-salad",
+    "name": "Salmon & quinoa salad",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple salmon salad with quinoa. Clean and balanced.",
+    "photoSearch": "salmon quinoa salad bowl",
+    "ingredients": [
+      {
+        "item": "salmon",
+        "quantity": "1 fillet"
+      },
+      {
+        "item": "quinoa",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook salmon",
+        "instruction": "Cook salmon."
+      },
+      {
+        "step": 2,
+        "title": "Prep quinoa",
+        "instruction": "Cook quinoa."
+      },
+      {
+        "step": 3,
+        "title": "Assemble",
+        "instruction": "Combine all ingredients."
+      }
+    ],
+    "tips": "Add lemon juice for flavor.",
+    "proto": "fish",
+    "cal": 510,
+    "pro": 44,
+    "carb": 36,
+    "fat": 18,
+    "cost": 13
+  },
+  {
+    "slug": "pork-chop-sweet-potato-mash",
+    "name": "Pork chop & sweet potato mash",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple pork and sweet potato meal. Filling and easy.",
+    "photoSearch": "pork chop sweet potato",
+    "ingredients": [
+      {
+        "item": "pork chop",
+        "quantity": "1"
+      },
+      {
+        "item": "sweet potato",
+        "quantity": "1"
+      },
+      {
+        "item": "butter",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook pork",
+        "instruction": "Cook pork chop."
+      },
+      {
+        "step": 2,
+        "title": "Cook potato",
+        "instruction": "Cook and mash sweet potato."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Plate together."
+      }
+    ],
+    "tips": "Add cinnamon to sweet potato.",
+    "proto": "pork",
+    "cal": 530,
+    "pro": 44,
+    "carb": 46,
+    "fat": 14,
+    "cost": 11
+  },
+  {
+    "slug": "chickpea-spinach-bowl",
+    "name": "Chickpea & spinach bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple plant bowl with chickpeas and greens.",
+    "photoSearch": "chickpea spinach bowl",
+    "ingredients": [
+      {
+        "item": "chickpeas",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "spinach",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chickpeas",
+        "instruction": "Heat chickpeas."
+      },
+      {
+        "step": 2,
+        "title": "Add spinach",
+        "instruction": "Cook until wilted."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Combine with rice."
+      }
+    ],
+    "tips": "Add spices for flavor.",
+    "proto": "legumes",
+    "cal": 400,
+    "pro": 20,
+    "carb": 52,
+    "fat": 10,
+    "cost": 7
+  },
+  {
+    "slug": "beef-chili",
+    "name": "Beef chili",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 20,
+    "totalTime": 25,
+    "servings": 1,
+    "description": "Simple beef chili. High protein and easy to batch.",
+    "photoSearch": "beef chili bowl meal",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "beans",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "tomato sauce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "chili seasoning",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook beef."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Add everything and simmer."
+      }
+    ],
+    "tips": "Make extra for leftovers.",
+    "proto": "beef",
+    "cal": 500,
+    "pro": 44,
+    "carb": 42,
+    "fat": 14,
+    "cost": 10
+  },
+  {
+    "slug": "chicken-avocado-salad",
+    "name": "Chicken & avocado salad",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple salad with chicken and avocado. Clean and filling.",
+    "photoSearch": "chicken avocado salad bowl",
+    "ingredients": [
+      {
+        "item": "chicken breast",
+        "quantity": "1"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      },
+      {
+        "item": "lettuce",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "olive oil",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook and slice chicken."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine all ingredients."
+      }
+    ],
+    "tips": "Add lemon juice.",
+    "proto": "chicken",
+    "cal": 420,
+    "pro": 42,
+    "carb": 18,
+    "fat": 20,
+    "cost": 9
+  },
+  {
+    "slug": "ground-pork-lettuce-cups",
+    "name": "Ground pork lettuce cups",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple lettuce wraps with pork. Light and high protein.",
+    "photoSearch": "pork lettuce cups meal",
+    "ingredients": [
+      {
+        "item": "ground pork",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "lettuce leaves",
+        "quantity": "4"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook pork",
+        "instruction": "Cook pork."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Add pork to lettuce leaves."
+      }
+    ],
+    "tips": "Add chili sauce for spice.",
+    "proto": "pork",
+    "cal": 400,
+    "pro": 38,
+    "carb": 20,
+    "fat": 18,
+    "cost": 9
+  },
+  {
+    "slug": "shrimp-stir-fry",
+    "name": "Shrimp stir fry",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 8,
+    "totalTime": 13,
+    "servings": 1,
+    "description": "Simple shrimp stir fry. Quick and easy.",
+    "photoSearch": "shrimp stir fry simple",
+    "ingredients": [
+      {
+        "item": "shrimp",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "vegetables",
+        "quantity": "2 cups"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook shrimp",
+        "instruction": "Cook shrimp."
+      },
+      {
+        "step": 2,
+        "title": "Add veggies",
+        "instruction": "Cook vegetables and combine."
+      }
+    ],
+    "tips": "Use frozen mix.",
+    "proto": "fish",
+    "cal": 420,
+    "pro": 36,
+    "carb": 40,
+    "fat": 10,
+    "cost": 12
+  },
+  {
+    "slug": "korean-beef-rice-bowl",
+    "name": "Korean beef rice bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple sweet savory beef bowl. Easy and high protein.",
+    "photoSearch": "korean beef rice bowl",
+    "ingredients": [
+      {
+        "item": "ground beef",
+        "quantity": "1/2 cup cooked"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "soy sauce",
+        "quantity": "1 tbsp"
+      },
+      {
+        "item": "brown sugar",
+        "quantity": "1 tsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook beef."
+      },
+      {
+        "step": 2,
+        "title": "Add sauce",
+        "instruction": "Add soy sauce and sugar."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Serve over rice."
+      }
+    ],
+    "tips": "Add green onions.",
+    "proto": "beef",
+    "cal": 520,
+    "pro": 42,
+    "carb": 48,
+    "fat": 14,
+    "cost": 10
+  },
+  {
+    "slug": "veggie-omelette-sweet-potato",
+    "name": "Veggie omelette & sweet potato",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple eggs and carbs meal. Easy and balanced.",
+    "photoSearch": "veggie omelette sweet potato",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "3"
+      },
+      {
+        "item": "vegetables",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "sweet potato",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook omelette",
+        "instruction": "Cook eggs with vegetables."
+      },
+      {
+        "step": 2,
+        "title": "Cook potato",
+        "instruction": "Cook sweet potato."
+      }
+    ],
+    "tips": "Add cheese if you want.",
+    "proto": "eggs",
+    "cal": 380,
+    "pro": 28,
+    "carb": 36,
+    "fat": 18,
+    "cost": 6
+  },
+  {
+    "slug": "chicken-soup-with-veg",
+    "name": "Chicken soup with veg",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple chicken soup. Easy comfort meal.",
+    "photoSearch": "chicken soup vegetables bowl",
+    "ingredients": [
+      {
+        "item": "chicken",
+        "quantity": "1 breast"
+      },
+      {
+        "item": "vegetables",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broth",
+        "quantity": "2 cups"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook chicken",
+        "instruction": "Cook chicken."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Add all ingredients and simmer."
+      }
+    ],
+    "tips": "Use rotisserie chicken.",
+    "proto": "chicken",
+    "cal": 380,
+    "pro": 40,
+    "carb": 32,
+    "fat": 8,
+    "cost": 8
+  },
+  {
+    "slug": "teriyaki-salmon-bowl",
+    "name": "Teriyaki salmon bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple salmon bowl with teriyaki. Easy and flavorful.",
+    "photoSearch": "teriyaki salmon rice bowl",
+    "ingredients": [
+      {
+        "item": "salmon",
+        "quantity": "1 fillet"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "teriyaki sauce",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook salmon",
+        "instruction": "Cook salmon."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Serve with rice and sauce."
+      }
+    ],
+    "tips": "Add broccoli.",
+    "proto": "fish",
+    "cal": 520,
+    "pro": 42,
+    "carb": 48,
+    "fat": 14,
+    "cost": 13
+  },
+  {
+    "slug": "pulled-pork-rice-bowl",
+    "name": "Pulled pork rice bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 10,
+    "totalTime": 15,
+    "servings": 1,
+    "description": "Simple pork bowl. Easy and filling.",
+    "photoSearch": "pulled pork rice bowl",
+    "ingredients": [
+      {
+        "item": "pulled pork",
+        "quantity": "1/2 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "bbq sauce",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Warm pork",
+        "instruction": "Heat pork."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "instruction": "Combine with rice and sauce."
+      }
+    ],
+    "tips": "Add slaw.",
+    "proto": "pork",
+    "cal": 540,
+    "pro": 44,
+    "carb": 50,
+    "fat": 14,
+    "cost": 10
+  },
+  {
+    "slug": "tofu-tikka-bowl",
+    "name": "Tofu tikka bowl",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 12,
+    "totalTime": 17,
+    "servings": 1,
+    "description": "Simple plant bowl with tikka sauce.",
+    "photoSearch": "tofu tikka rice bowl",
+    "ingredients": [
+      {
+        "item": "tofu",
+        "quantity": "1/2 block"
+      },
+      {
+        "item": "tikka sauce",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "rice",
+        "quantity": "1 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook tofu",
+        "instruction": "Cook tofu."
+      },
+      {
+        "step": 2,
+        "title": "Add sauce",
+        "instruction": "Add sauce and simmer."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "instruction": "Serve with rice."
+      }
+    ],
+    "tips": "Use jar sauce.",
+    "proto": "tofu",
+    "cal": 430,
+    "pro": 24,
+    "carb": 48,
+    "fat": 14,
+    "cost": 8
+  },
+  {
+    "slug": "beef-veggie-soup",
+    "name": "Beef & veggie soup",
+    "type": "dinner",
+    "prepTime": 5,
+    "cookTime": 15,
+    "totalTime": 20,
+    "servings": 1,
+    "description": "Simple beef soup. Easy and filling.",
+    "photoSearch": "beef vegetable soup bowl",
+    "ingredients": [
+      {
+        "item": "beef",
+        "quantity": "5 oz"
+      },
+      {
+        "item": "vegetables",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "broth",
+        "quantity": "2 cups"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook beef",
+        "instruction": "Cook beef."
+      },
+      {
+        "step": 2,
+        "title": "Simmer",
+        "instruction": "Add all ingredients and simmer."
+      }
+    ],
+    "tips": "Make extra.",
+    "proto": "beef",
+    "cal": 420,
+    "pro": 40,
+    "carb": 34,
+    "fat": 12,
+    "cost": 10
+  },
+  {
+    "slug": "greek-yogurt-almonds",
+    "name": "Greek yogurt & almonds",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Quick high protein snack. Simple and clean.",
+    "photoSearch": "greek yogurt almonds bowl",
+    "ingredients": [
+      {
+        "item": "greek yogurt",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "almonds",
+        "quantity": "1/4 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Combine",
+        "instruction": "Add almonds to yogurt."
+      }
+    ],
+    "tips": "Use flavored yogurt if you want sweetness.",
+    "proto": "yogurt",
+    "cal": 280,
+    "pro": 24,
+    "carb": 18,
+    "fat": 10,
+    "cost": 3
+  },
+  {
+    "slug": "protein-shake-fruit",
+    "name": "Protein shake & fruit",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Fast protein hit with carbs. Easy anytime.",
+    "photoSearch": "protein shake fruit snack",
+    "ingredients": [
+      {
+        "item": "protein powder",
+        "quantity": "1 scoop"
+      },
+      {
+        "item": "milk",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "banana",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Blend",
+        "instruction": "Blend protein powder with milk."
+      },
+      {
+        "step": 2,
+        "title": "Serve",
+        "instruction": "Eat fruit with shake."
+      }
+    ],
+    "tips": "Use water if cutting calories.",
+    "proto": "yogurt",
+    "cal": 260,
+    "pro": 30,
+    "carb": 22,
+    "fat": 4,
+    "cost": 3
+  },
+  {
+    "slug": "cottage-cheese-veggies",
+    "name": "Cottage cheese & veggies",
+    "type": "meal3",
+    "prepTime": 3,
+    "cookTime": 0,
+    "totalTime": 3,
+    "servings": 1,
+    "description": "Simple high protein snack with crunch.",
+    "photoSearch": "cottage cheese vegetables snack",
+    "ingredients": [
+      {
+        "item": "cottage cheese",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "cucumber",
+        "quantity": "1/2"
+      },
+      {
+        "item": "carrots",
+        "quantity": "1/2 cup"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Prep",
+        "instruction": "Slice veggies."
+      },
+      {
+        "step": 2,
+        "title": "Serve",
+        "instruction": "Eat with cottage cheese."
+      }
+    ],
+    "tips": "Add salt and pepper.",
+    "proto": "yogurt",
+    "cal": 240,
+    "pro": 26,
+    "carb": 14,
+    "fat": 6,
+    "cost": 3
+  },
+  {
+    "slug": "hard-boiled-eggs-avocado",
+    "name": "Hard-boiled eggs & avocado",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 10,
+    "totalTime": 12,
+    "servings": 1,
+    "description": "Simple fats and protein combo.",
+    "photoSearch": "eggs avocado snack plate",
+    "ingredients": [
+      {
+        "item": "eggs",
+        "quantity": "2"
+      },
+      {
+        "item": "avocado",
+        "quantity": "1/2"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil eggs",
+        "instruction": "Boil eggs."
+      },
+      {
+        "step": 2,
+        "title": "Serve",
+        "instruction": "Peel and eat with avocado."
+      }
+    ],
+    "tips": "Prep eggs ahead of time.",
+    "proto": "eggs",
+    "cal": 300,
+    "pro": 20,
+    "carb": 8,
+    "fat": 20,
+    "cost": 3
+  },
+  {
+    "slug": "tuna-crackers",
+    "name": "Tuna & crackers",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Simple protein snack.",
+    "photoSearch": "tuna crackers snack",
+    "ingredients": [
+      {
+        "item": "tuna",
+        "quantity": "1 can"
+      },
+      {
+        "item": "crackers",
+        "quantity": "10"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Serve",
+        "instruction": "Eat tuna with crackers."
+      }
+    ],
+    "tips": "Add hot sauce.",
+    "proto": "fish",
+    "cal": 270,
+    "pro": 28,
+    "carb": 18,
+    "fat": 6,
+    "cost": 3
+  },
+  {
+    "slug": "peanut-butter-banana",
+    "name": "Peanut butter & banana",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Simple carb and fat snack.",
+    "photoSearch": "peanut butter banana snack",
+    "ingredients": [
+      {
+        "item": "banana",
+        "quantity": "1"
+      },
+      {
+        "item": "peanut butter",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Serve",
+        "instruction": "Dip banana in peanut butter."
+      }
+    ],
+    "tips": "Add honey for sweetness.",
+    "proto": "yogurt",
+    "cal": 320,
+    "pro": 16,
+    "carb": 36,
+    "fat": 14,
+    "cost": 2
+  },
+  {
+    "slug": "edamame-string-cheese",
+    "name": "Edamame & string cheese",
+    "type": "meal3",
+    "prepTime": 3,
+    "cookTime": 5,
+    "totalTime": 8,
+    "servings": 1,
+    "description": "Simple protein combo.",
+    "photoSearch": "edamame string cheese snack",
+    "ingredients": [
+      {
+        "item": "edamame",
+        "quantity": "1 cup"
+      },
+      {
+        "item": "string cheese",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Cook edamame",
+        "instruction": "Heat edamame."
+      },
+      {
+        "step": 2,
+        "title": "Serve",
+        "instruction": "Eat with cheese."
+      }
+    ],
+    "tips": "Add salt.",
+    "proto": "legumes",
+    "cal": 260,
+    "pro": 24,
+    "carb": 14,
+    "fat": 10,
+    "cost": 3
+  },
+  {
+    "slug": "turkey-roll-ups",
+    "name": "Turkey roll-ups",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Fast protein snack.",
+    "photoSearch": "turkey roll ups snack",
+    "ingredients": [
+      {
+        "item": "deli turkey",
+        "quantity": "5 slices"
+      },
+      {
+        "item": "cheese",
+        "quantity": "2 slices"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Roll",
+        "instruction": "Roll turkey around cheese."
+      }
+    ],
+    "tips": "Add mustard.",
+    "proto": "chicken",
+    "cal": 280,
+    "pro": 28,
+    "carb": 8,
+    "fat": 12,
+    "cost": 4
+  },
+  {
+    "slug": "beef-jerky-apple",
+    "name": "Beef jerky & apple",
+    "type": "meal3",
+    "prepTime": 2,
+    "cookTime": 0,
+    "totalTime": 2,
+    "servings": 1,
+    "description": "Simple sweet and salty snack.",
+    "photoSearch": "beef jerky apple snack",
+    "ingredients": [
+      {
+        "item": "beef jerky",
+        "quantity": "2 oz"
+      },
+      {
+        "item": "apple",
+        "quantity": "1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Serve",
+        "instruction": "Eat together."
+      }
+    ],
+    "tips": "Pick low sugar jerky.",
+    "proto": "beef",
+    "cal": 260,
+    "pro": 22,
+    "carb": 22,
+    "fat": 6,
+    "cost": 4
+  },
+  {
+    "slug": "shrimp-cocktail",
+    "name": "Shrimp cocktail",
+    "type": "meal3",
+    "prepTime": 5,
+    "cookTime": 0,
+    "totalTime": 5,
+    "servings": 1,
+    "description": "Lean protein snack.",
+    "photoSearch": "shrimp cocktail plate",
+    "ingredients": [
+      {
+        "item": "shrimp",
+        "quantity": "6 oz"
+      },
+      {
+        "item": "cocktail sauce",
+        "quantity": "2 tbsp"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Serve",
+        "instruction": "Dip shrimp in sauce."
+      }
+    ],
+    "tips": "Use pre cooked shrimp.",
+    "proto": "fish",
+    "cal": 200,
+    "pro": 28,
+    "carb": 10,
+    "fat": 2,
+    "cost": 5
+  }
+]

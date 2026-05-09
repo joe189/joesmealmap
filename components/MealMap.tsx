@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { MEALS, Meal, MealType, ProtoType, ShoppingCategory } from '@/lib/meals';
 import { buildVariedOptions, mealOk, ProtoStates } from '@/lib/meal-utils';
+import NavBar from '@/components/NavBar';
 
 const PROTO_LIST: ProtoType[] = ['chicken', 'beef', 'pork', 'eggs', 'fish', 'legumes', 'yogurt', 'tofu'];
 
@@ -463,10 +464,7 @@ export default function MealMap() {
   // ── Render ───────────────────────────────────────────────
   return (
     <>
-      <header>
-        <h1>Joe&apos;s MealMap</h1>
-        <span>plan · shop · eat</span>
-      </header>
+      <NavBar />
 
       <div className="container">
         {/* ── Macros card ── */}
