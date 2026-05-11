@@ -32,7 +32,7 @@ export function buildVariedOptions(
   const eligible = MEALS.filter(m => {
     if (m.type !== type) return false;
     if (excludeNames.has(m.name)) return false;
-    if (type === 'meal3') return dietaryOk(m, excluded);
+    if (type === 'snack') return dietaryOk(m, excluded);
     return mealOk(m, protoStates, excluded);
   });
 

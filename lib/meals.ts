@@ -1,4 +1,4 @@
-export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'meal3';
+export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack';
 export type ProtoType = 'chicken' | 'beef' | 'pork' | 'eggs' | 'fish' | 'legumes' | 'yogurt' | 'tofu';
 export type ShoppingCategory = 'Meat' | 'Produce' | 'Dairy' | 'Pantry';
 
@@ -306,33 +306,33 @@ export const MEALS: Meal[] = [
 // ════════════════════════════════════════
 // MEAL 3 — lighter protein hits
 // ════════════════════════════════════════
-{type:'meal3',name:'Greek yogurt & almonds',proto:'yogurt',cal:280,pro:24,carb:18,fat:10,cost:3,desc:'Greek yogurt, handful of almonds, honey, a piece of fruit',tags:['vegetarian','dairy','nuts'],
+{type:'snack',name:'Greek yogurt & almonds',proto:'yogurt',cal:280,pro:24,carb:18,fat:10,cost:3,desc:'Greek yogurt, handful of almonds, honey, a piece of fruit',tags:['vegetarian','dairy','nuts'],
  shopping:{Produce:[{name:'Banana or apple',qty:'3',price:2}],Dairy:[{name:'Greek yogurt',qty:'1 large tub',price:5}],Pantry:[{name:'Almonds',qty:'1 bag',price:5},{name:'Honey',qty:'12 oz bottle',price:4}]}},
 
-{type:'meal3',name:'Protein shake & fruit',proto:'yogurt',cal:260,pro:30,carb:22,fat:4,cost:3,desc:'Whey protein shake with almond milk, banana',tags:['vegetarian'],
+{type:'snack',name:'Protein shake & fruit',proto:'yogurt',cal:260,pro:30,carb:22,fat:4,cost:3,desc:'Whey protein shake with almond milk, banana',tags:['vegetarian'],
  shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Pantry:[{name:'Protein powder',qty:'1 scoop',price:3},{name:'Almond milk',qty:'half gallon',price:4}]}},
 
-{type:'meal3',name:'Cottage cheese & veggies',proto:'yogurt',cal:240,pro:26,carb:14,fat:6,cost:3,desc:'Cottage cheese with cucumber, cherry tomatoes, black pepper, crackers',tags:['vegetarian','dairy','gluten'],
+{type:'snack',name:'Cottage cheese & veggies',proto:'yogurt',cal:240,pro:26,carb:14,fat:6,cost:3,desc:'Cottage cheese with cucumber, cherry tomatoes, black pepper, crackers',tags:['vegetarian','dairy','gluten'],
  shopping:{Produce:[{name:'Cucumber',qty:'1',price:1},{name:'Cherry tomatoes',qty:'1 pint',price:3}],Dairy:[{name:'Cottage cheese',qty:'1 tub',price:4}],Pantry:[{name:'Whole grain crackers',qty:'1 box',price:3}]}},
 
-{type:'meal3',name:'Hard-boiled eggs & avocado',proto:'eggs',cal:300,pro:20,carb:8,fat:20,cost:3,desc:'3 hard-boiled eggs, half an avocado, salt, pepper, hot sauce',tags:['vegetarian','eggs'],
+{type:'snack',name:'Hard-boiled eggs & avocado',proto:'eggs',cal:300,pro:20,carb:8,fat:20,cost:3,desc:'3 hard-boiled eggs, half an avocado, salt, pepper, hot sauce',tags:['vegetarian','eggs'],
  shopping:{Produce:[{name:'Avocado',qty:'2',price:3}],Dairy:[{name:'Eggs',qty:'12-pack',price:5}],Pantry:[{name:'Hot sauce',qty:'5 oz bottle',price:3}]}},
 
-{type:'meal3',name:'Tuna & crackers',proto:'fish',cal:270,pro:28,carb:18,fat:6,cost:3,desc:'Canned tuna with lemon, mixed into whole grain crackers',tags:['meat','seafood','gluten'],
+{type:'snack',name:'Tuna & crackers',proto:'fish',cal:270,pro:28,carb:18,fat:6,cost:3,desc:'Canned tuna with lemon, mixed into whole grain crackers',tags:['meat','seafood','gluten'],
  shopping:{Produce:[{name:'Lemon',qty:'1',price:1},{name:'Celery sticks',qty:'1 bunch',price:2}],Meat:[{name:'Canned tuna',qty:'2 cans',price:4}],Pantry:[{name:'Whole grain crackers',qty:'1 box',price:3}]}},
 
-{type:'meal3',name:'Peanut butter & banana',proto:'yogurt',cal:320,pro:16,carb:36,fat:14,cost:2,desc:'2 tablespoons peanut butter, banana, glass of milk',tags:['vegetarian','dairy','nuts'],
+{type:'snack',name:'Peanut butter & banana',proto:'yogurt',cal:320,pro:16,carb:36,fat:14,cost:2,desc:'2 tablespoons peanut butter, banana, glass of milk',tags:['vegetarian','dairy','nuts'],
  shopping:{Produce:[{name:'Bananas',qty:'1 bunch',price:2}],Dairy:[{name:'Milk',qty:'1 gallon',price:4}],Pantry:[{name:'Peanut butter',qty:'16 oz jar',price:4}]}},
 
-{type:'meal3',name:'Edamame & string cheese',proto:'legumes',cal:260,pro:24,carb:14,fat:10,cost:3,desc:'Steamed edamame, string cheese, a handful of almonds',tags:['vegetarian','dairy','nuts'],
+{type:'snack',name:'Edamame & string cheese',proto:'legumes',cal:260,pro:24,carb:14,fat:10,cost:3,desc:'Steamed edamame, string cheese, a handful of almonds',tags:['vegetarian','dairy','nuts'],
  shopping:{Produce:[{name:'Frozen edamame',qty:'1 bag',price:3}],Dairy:[{name:'String cheese',qty:'1 pack',price:4}],Pantry:[{name:'Almonds',qty:'1 bag',price:5}]}},
 
-{type:'meal3',name:'Turkey roll-ups',proto:'chicken',cal:280,pro:28,carb:8,fat:12,cost:4,desc:'Deli turkey slices, cream cheese, cucumber, rolled up',tags:['meat','dairy'],
+{type:'snack',name:'Turkey roll-ups',proto:'chicken',cal:280,pro:28,carb:8,fat:12,cost:4,desc:'Deli turkey slices, cream cheese, cucumber, rolled up',tags:['meat','dairy'],
  shopping:{Produce:[{name:'Cucumber',qty:'1',price:1}],Meat:[{name:'Deli turkey',qty:'0.5 lb',price:4}],Dairy:[{name:'Cream cheese',qty:'1 tub',price:4}]}},
 
-{type:'meal3',name:'Beef jerky & apple',proto:'beef',cal:260,pro:22,carb:22,fat:6,cost:4,desc:'High protein beef jerky, a medium apple',tags:['meat'],
+{type:'snack',name:'Beef jerky & apple',proto:'beef',cal:260,pro:22,carb:22,fat:6,cost:4,desc:'High protein beef jerky, a medium apple',tags:['meat'],
  shopping:{Produce:[{name:'Apples',qty:'3',price:3}],Pantry:[{name:'Beef jerky',qty:'1 bag',price:6}]}},
 
-{type:'meal3',name:'Shrimp cocktail',proto:'fish',cal:200,pro:28,carb:10,fat:2,cost:5,desc:'Chilled shrimp, cocktail sauce, lemon — high protein, super low cal',tags:['meat','seafood'],
+{type:'snack',name:'Shrimp cocktail',proto:'fish',cal:200,pro:28,carb:10,fat:2,cost:5,desc:'Chilled shrimp, cocktail sauce, lemon — high protein, super low cal',tags:['meat','seafood'],
  shopping:{Produce:[{name:'Lemon',qty:'1',price:1}],Meat:[{name:'Shrimp (pre-cooked)',qty:'1 lb',price:9}],Pantry:[{name:'Cocktail sauce',qty:'1 bottle',price:3}]}},
 ];
