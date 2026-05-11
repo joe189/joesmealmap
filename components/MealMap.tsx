@@ -32,7 +32,7 @@ const TYPE_LABELS: Record<string, string> = {
   breakfast: '🌅 Breakfast',
   lunch: '☀️ Lunch',
   dinner: '🌙 Dinner',
-  meal3: '⚡ Meal 3 (lighter)',
+  snack: '⚡ Snack (lighter)',
 };
 
 const GOALS: Record<string, { pro_per_lb: number; carb_per_lb: number; fat_per_lb: number; label: string }> = {
@@ -77,10 +77,10 @@ export default function MealMap() {
 
   // ── Plan state ───────────────────────────────────────────
   const [picks, setPicks] = useState<Record<MealType, Meal[]>>({
-    breakfast: [], lunch: [], dinner: [], meal3: [],
+    breakfast: [], lunch: [], dinner: [], snack: [],
   });
   const [options, setOptions] = useState<Record<MealType, Meal[]>>({
-    breakfast: [], lunch: [], dinner: [], meal3: [],
+    breakfast: [], lunch: [], dinner: [], snack: [],
   });
 
   // ── UI state ─────────────────────────────────────────────
@@ -106,7 +106,7 @@ export default function MealMap() {
 
   // ── Derived values ───────────────────────────────────────
   const activeMealTypes = useMemo<MealType[]>(
-    () => skipBreakfast ? ['lunch', 'dinner', 'meal3'] : ['breakfast', 'lunch', 'dinner'],
+    () => skipBreakfast ? ['lunch', 'dinner', 'snack'] : ['breakfast', 'lunch', 'dinner'],
     [skipBreakfast]
   );
 
@@ -284,7 +284,7 @@ export default function MealMap() {
   };
 
   const handleGenerate = () => {
-    const currentPicks = showPickSection ? picks : { breakfast: [], lunch: [], dinner: [], meal3: [] } as Record<MealType, Meal[]>;
+    const currentPicks = showPickSection ? picks : { breakfast: [], lunch: [], dinner: [], snack: [] } as Record<MealType, Meal[]>;
     const newOptions: Partial<Record<MealType, Meal[]>> = {};
 
     for (const type of activeMealTypes) {
@@ -301,7 +301,7 @@ export default function MealMap() {
     }
 
     if (!showPickSection) {
-      setPicks({ breakfast: [], lunch: [], dinner: [], meal3: [] });
+      setPicks({ breakfast: [], lunch: [], dinner: [], snack: [] });
     }
     setOptions(prev => ({ ...prev, ...newOptions }));
     setShowPickSection(true);
@@ -384,8 +384,8 @@ export default function MealMap() {
     setWeightUnit('lbs'); setSelectedGoal(null); setCalcResultText(null);
     setProtoStates(defaultProtoStates());
     setExcluded(new Set()); setSkipBreakfast(false);
-    setPicks({ breakfast: [], lunch: [], dinner: [], meal3: [] });
-    setOptions({ breakfast: [], lunch: [], dinner: [], meal3: [] });
+    setPicks({ breakfast: [], lunch: [], dinner: [], snack: [] });
+    setOptions({ breakfast: [], lunch: [], dinner: [], snack: [] });
     setShowPickSection(false); setShowResults(false);
     setCheckedItems(new Set()); setPantryItems(new Set());
     try { localStorage.removeItem('macroPlanner4'); } catch { /* ignore */ }
@@ -637,7 +637,7 @@ export default function MealMap() {
               </p>
               {skipBreakfast && (
                 <div className="if-banner">
-                  <strong>⏭ Skipping breakfast</strong> — pick a Lunch, Dinner, and Meal 3 (lighter protein hit). Macros are spread across your 3 meals.
+                  <strong>⏭ Skipping breakfast</strong> — pick a Lunch, Dinner, and Snack (lighter protein hit). Macros are spread across your 3 meals.
                 </div>
               )}
               <div id="pick-content">
