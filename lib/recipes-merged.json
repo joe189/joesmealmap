@@ -4604,7 +4604,7 @@
   {
     "slug": "greek-yogurt-almonds",
     "name": "Greek yogurt & almonds",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4639,7 +4639,7 @@
   {
     "slug": "protein-shake-fruit",
     "name": "Protein shake & fruit",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4683,7 +4683,7 @@
   {
     "slug": "cottage-cheese-veggies",
     "name": "Cottage cheese & veggies",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 3,
     "cookTime": 0,
     "totalTime": 3,
@@ -4727,7 +4727,7 @@
   {
     "slug": "hard-boiled-eggs-avocado",
     "name": "Hard-boiled eggs & avocado",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 10,
     "totalTime": 12,
@@ -4767,7 +4767,7 @@
   {
     "slug": "tuna-crackers",
     "name": "Tuna & crackers",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4802,7 +4802,7 @@
   {
     "slug": "peanut-butter-banana",
     "name": "Peanut butter & banana",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4837,7 +4837,7 @@
   {
     "slug": "edamame-string-cheese",
     "name": "Edamame & string cheese",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 3,
     "cookTime": 5,
     "totalTime": 8,
@@ -4877,7 +4877,7 @@
   {
     "slug": "turkey-roll-ups",
     "name": "Turkey roll-ups",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4912,7 +4912,7 @@
   {
     "slug": "beef-jerky-apple",
     "name": "Beef jerky & apple",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 2,
     "cookTime": 0,
     "totalTime": 2,
@@ -4947,7 +4947,7 @@
   {
     "slug": "shrimp-cocktail",
     "name": "Shrimp cocktail",
-    "type": "meal3",
+    "type": "snack",
     "prepTime": 5,
     "cookTime": 0,
     "totalTime": 5,

@@ -38,7 +38,7 @@ const PROTO_EMOJI: Record<string, string> = {
 };
 
 const TYPE_LABEL: Record<string, string> = {
-  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', meal3: 'Snack',
+  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack',
 };
 
 export default function HomePage() {
