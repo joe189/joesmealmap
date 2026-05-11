@@ -24,6 +24,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+      <head>
+        <meta name="impact-site-verification" value="5483f2ab-0f90-487e-8b6f-41ed79c7de80" />
+      </head>
       <body>{children}</body>
     </html>
   );
