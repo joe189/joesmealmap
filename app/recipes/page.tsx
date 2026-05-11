@@ -1,20 +1,34 @@
-import Link from 'next/link';
 import NavBar from '@/components/NavBar';
+import RecipeFilterGrid from '@/components/RecipeFilterGrid';
+import recipesRaw from '@/lib/recipes-merged.json';
+
+type Recipe = {
+  slug: string; name: string; type: string; proto: string;
+  totalTime: number; cal: number; pro: number; carb: number;
+  fat: number; cost: number; description: string; photoSearch: string;
+};
+
+const recipes = recipesRaw as Recipe[];
+
+export const metadata = {
+  title: "Recipes | Joe's MealMap",
+  description: 'Browse all 100 high-protein recipes. Filter by meal type, dietary preference, or protein source.',
+};
 
 export default function RecipesPage() {
   return (
     <>
       <NavBar />
-      <main style={{ background: '#fafaf8', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 24px' }}>
-        <div style={{ textAlign: 'center', maxWidth: 480 }}>
-          <div style={{ fontSize: 48, marginBottom: 24 }}>🍽️</div>
-          <h1 style={{ fontSize: 32, fontWeight: 600, letterSpacing: '-0.4px', marginBottom: 12 }}>Recipes coming soon</h1>
-          <p style={{ fontSize: 16, color: '#6B7280', lineHeight: 1.65, marginBottom: 32 }}>
-            The full recipe index is being built. In the meantime, head to the planner to build your meal plan and shopping list.
-          </p>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', fontSize: 15, fontWeight: 600, color: '#fff', background: '#1a1a1a', padding: '13px 24px', borderRadius: 10, textDecoration: 'none' }}>
-            Go to the Planner →
-          </Link>
+      <main className="recipes-page-main">
+        <div className="section-inner">
+          <header className="recipes-page-header">
+            <span className="section-eyebrow">Recipe Index</span>
+            <h1 className="section-title">100 meals. Built around your macros.</h1>
+            <p className="section-sub">
+              Browse all recipes, filter by type or goal, and click through for full ingredients and instructions.
+            </p>
+          </header>
+          <RecipeFilterGrid recipes={recipes} />
         </div>
       </main>
     </>
