@@ -147,7 +147,7 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
                 <blockquote className="recipe-tips">{recipe.tips}</blockquote>
               )}
 
-              <Link href="/" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="/planner" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Add to meal plan →
               </Link>
             </aside>
