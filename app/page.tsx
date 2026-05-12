@@ -12,6 +12,17 @@ type Recipe = {
 
 const recipes = recipesRaw as Recipe[];
 
+export const metadata = {
+  title: {
+    absolute: "Joe's MealMap | Free Meal Planner & Macro Tracker",
+  },
+  description:
+    "Plan your meals, hit your macros, and build your grocery list automatically with Joe's MealMap.",
+  alternates: {
+    canonical: '/',
+  },
+};
+
 const FEATURED_SLUGS = [
   'grilled-chicken-rice-bowl',
   'baked-salmon-sweet-potato',

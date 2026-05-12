@@ -2,6 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 
+export const metadata = {
+  title: "About Joe's MealMap",
+  description:
+    "Joe's MealMap was built by Joe Jennings to make meal planning, macros, and grocery lists simpler for people who want to eat well without eating boring food.",
+  alternates: {
+    canonical: '/about',
+  },
+};
+
 export default function AboutPage() {
   return (
     <>

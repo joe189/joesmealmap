@@ -11,8 +11,12 @@ type Recipe = {
 const recipes = recipesRaw as Recipe[];
 
 export const metadata = {
-  title: "Recipes | Joe's MealMap",
-  description: 'Browse all 100 high-protein recipes. Filter by meal type, dietary preference, or protein source.',
+  title: 'High Protein Recipes with Macros',
+  description:
+    'Browse high protein breakfasts, lunches, dinners, and snacks with macros, ingredients, and step by step instructions.',
+  alternates: {
+    canonical: '/recipes',
+  },
 };
 
 export default function RecipesPage() {
