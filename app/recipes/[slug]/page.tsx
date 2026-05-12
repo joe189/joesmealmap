@@ -14,6 +14,9 @@ type Recipe = {
 
 const recipes = recipesRaw as Recipe[];
 
+const BASE_URL = 'https://www.joesmealmap.com';
+const OG_FALLBACK = '/og-image.jpg';
+
 const PROTO_EMOJI: Record<string, string> = {
   chicken: '🍗', beef: '🥩', fish: '🐟', yogurt: '🥛',
   eggs: '🥚', pork: '🐷', legumes: '🫘', tofu: '🌱',
@@ -23,6 +26,25 @@ const TYPE_LABEL: Record<string, string> = {
   breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack',
 };
 
+function getRelatedRecipes(current: Recipe, max = 4): Recipe[] {
+  const sameTypeSameProto = recipes.filter(
+    r => r.slug !== current.slug && r.type === current.type && r.proto === current.proto
+  );
+  const sameTypeOnly = recipes.filter(
+    r => r.slug !== current.slug && r.type === current.type && r.proto !== current.proto
+  );
+  const combined: Recipe[] = [];
+  for (const r of sameTypeSameProto) {
+    if (combined.length >= max) break;
+    combined.push(r);
+  }
+  for (const r of sameTypeOnly) {
+    if (combined.length >= max) break;
+    combined.push(r);
+  }
+  return combined;
+}
+
 export async function generateStaticParams() {
   return recipes.map(r => ({ slug: r.slug }));
 }
@@ -31,9 +53,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const recipe = recipes.find(r => r.slug === slug);
   if (!recipe) return {};
+
+  const base = `${recipe.name} | High Protein Recipe`;
+  const title = base.length <= 60 ? { absolute: base } : { absolute: recipe.name };
+
   return {
-    title: `${recipe.name} | Joe's MealMap`,
+    title,
     description: recipe.description,
+    alternates: {
+      canonical: `/recipes/${recipe.slug}`,
+    },
+    openGraph: {
+      title: recipe.name,
+      description: recipe.description,
+      url: `${BASE_URL}/recipes/${recipe.slug}`,
+      type: 'article' as const,
+      images: [
+        {
+          url: OG_FALLBACK,
+          width: 1200,
+          height: 630,
+          alt: recipe.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title: recipe.name,
+      description: recipe.description,
+      images: [OG_FALLBACK],
+    },
   };
 }
 
@@ -47,7 +96,8 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
         <NavBar />
         <main className="recipe-detail-main">
           <div className="section-inner">
-            <nav className="breadcrumb">
+            <nav className="breadcrumb" aria-label="Breadcrumb">
+              <Link href="/">Home</Link> →{' '}
               <Link href="/recipes">Recipes</Link> → Not found
             </nav>
             <p style={{ color: 'var(--text-muted)', padding: '40px 0' }}>
@@ -60,14 +110,63 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
     );
   }
 
+  const related = getRelatedRecipes(recipe);
+
+  const recipeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: recipe.name,
+    description: recipe.description,
+    image: [`${BASE_URL}${OG_FALLBACK}`],
+    prepTime: `PT${recipe.prepTime}M`,
+    cookTime: `PT${recipe.cookTime}M`,
+    totalTime: `PT${recipe.totalTime}M`,
+    recipeYield: `${recipe.servings} serving${recipe.servings !== 1 ? 's' : ''}`,
+    recipeCategory: TYPE_LABEL[recipe.type] ?? recipe.type,
+    recipeCuisine: 'American',
+    recipeIngredient: recipe.ingredients.map(i => `${i.quantity} ${i.item}`),
+    recipeInstructions: recipe.steps.map(s => ({
+      '@type': 'HowToStep',
+      name: s.title,
+      text: s.instruction,
+    })),
+    nutrition: {
+      '@type': 'NutritionInformation',
+      calories: `${recipe.cal} calories`,
+      proteinContent: `${recipe.pro}g`,
+      carbohydrateContent: `${recipe.carb}g`,
+      fatContent: `${recipe.fat}g`,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Recipes', item: `${BASE_URL}/recipes` },
+      { '@type': 'ListItem', position: 3, name: recipe.name, item: `${BASE_URL}/recipes/${recipe.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <NavBar />
       <main className="recipe-detail-main">
         <div className="section-inner">
 
-          <nav className="breadcrumb">
-            <Link href="/recipes">Recipes</Link> → {recipe.name}
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link> →{' '}
+            <Link href="/recipes">Recipes</Link> →{' '}
+            {recipe.name}
           </nav>
 
           <div className="recipe-hero">
@@ -153,6 +252,39 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
             </aside>
 
           </div>
+
+          {related.length > 0 && (
+            <section style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
+              <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px' }}>
+                More {TYPE_LABEL[recipe.type] ?? 'Recipes'} You Might Like
+              </h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                {related.map(r => (
+                  <Link
+                    key={r.slug}
+                    href={`/recipes/${r.slug}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      padding: '12px',
+                      border: '1px solid var(--border)',
+                      borderRadius: '10px',
+                      textDecoration: 'none',
+                      color: 'var(--text)',
+                    }}
+                  >
+                    <span style={{ fontSize: '28px' }}>{PROTO_EMOJI[r.proto] ?? '🍴'}</span>
+                    <div>
+                      <div style={{ fontWeight: 500, fontSize: '14px', marginBottom: '4px' }}>{r.name}</div>
+                      <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{r.cal} cal · {r.pro}g protein</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
         </div>
       </main>
     </>
