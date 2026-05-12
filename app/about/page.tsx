@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div className="about-cta-inner">
             <h2>Ready to plan your week?</h2>
             <p>Takes about 3 minutes. No account required.</p>
-            <Link href="/" className="btn-primary">Open the Planner →</Link>
+            <Link href="/planner" className="btn-primary">Open the Planner →</Link>
           </div>
         </section>
 
@@ -106,9 +106,9 @@ export default function AboutPage() {
           <div className="footer-inner">
             <div className="footer-logo">Joe&apos;s MealMap</div>
             <div className="footer-links">
-              <Link href="/home">Home</Link>
+              <Link href="/">Home</Link>
               <Link href="/recipes">Recipes</Link>
-              <Link href="/">Planner</Link>
+              <Link href="/planner">Planner</Link>
               <Link href="/about">About</Link>
             </div>
             <p className="footer-copy">
