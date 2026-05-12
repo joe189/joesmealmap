@@ -9,23 +9,23 @@ export default function NavBar() {
   return (
     <nav className="site-nav">
       <div className="site-nav-inner">
-        <Link href="/home" className="site-nav-logo">
+        <Link href="/" className="site-nav-logo">
           Joe&apos;s MealMap
         </Link>
         <div className="site-nav-links">
-          <Link href="/home" className={`site-nav-link${pathname === '/home' ? ' active' : ''}`}>
+          <Link href="/" className={`site-nav-link${pathname === '/' ? ' active' : ''}`}>
             Home
+          </Link>
+          <Link href="/planner" className={`site-nav-link${pathname === '/planner' ? ' active' : ''}`}>
+            Planner
           </Link>
           <Link href="/recipes" className={`site-nav-link${pathname?.startsWith('/recipes') ? ' active' : ''}`}>
             Recipes
           </Link>
-          <Link href="/" className={`site-nav-link${pathname === '/' ? ' active' : ''}`}>
-            Planner
-          </Link>
           <Link href="/about" className={`site-nav-link${pathname === '/about' ? ' active' : ''}`}>
             About
           </Link>
-          <Link href="/" className="site-nav-cta">
+          <Link href="/planner" className="site-nav-cta">
             Start Planning →
           </Link>
         </div>
@@ -45,11 +45,11 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
           <span />
         </summary>
         <div className="mobile-menu-dropdown">
-          <Link href="/home" className={pathname === '/home' ? 'active' : ''}>Home</Link>
+          <Link href="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
+          <Link href="/planner" className={pathname === '/planner' ? 'active' : ''}>Planner</Link>
           <Link href="/recipes" className={pathname?.startsWith('/recipes') ? 'active' : ''}>Recipes</Link>
-          <Link href="/" className={pathname === '/' ? 'active' : ''}>Planner</Link>
           <Link href="/about" className={pathname === '/about' ? 'active' : ''}>About</Link>
-          <Link href="/" className="mobile-cta">Start Planning →</Link>
+          <Link href="/planner" className="mobile-cta">Start Planning →</Link>
         </div>
       </details>
     </div>
