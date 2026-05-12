@@ -137,6 +137,11 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
       carbohydrateContent: `${recipe.carb}g`,
       fatContent: `${recipe.fat}g`,
     },
+    author: {
+      '@type': 'Person',
+      name: 'Joe Jennings',
+      url: 'https://www.joesmealmap.com/about',
+    },
   };
 
   const breadcrumbJsonLd = {
