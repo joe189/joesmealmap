@@ -1,6 +1,8 @@
 import NavBar from '@/components/NavBar';
 import RecipeFilterGrid from '@/components/RecipeFilterGrid';
 import recipesRaw from '@/lib/recipes-merged.json';
+import { readdirSync } from 'fs';
+import { join } from 'path';
 
 type Recipe = {
   slug: string; name: string; type: string; proto: string;
@@ -20,6 +22,15 @@ export const metadata = {
 };
 
 export default function RecipesPage() {
+  let slugsWithImages: string[] = [];
+  try {
+    slugsWithImages = readdirSync(join(process.cwd(), 'public', 'recipes'))
+      .filter(f => f.endsWith('.jpg'))
+      .map(f => f.replace('.jpg', ''));
+  } catch {
+    // public/recipes/ does not exist yet — no images downloaded
+  }
+
   return (
     <>
       <NavBar />
@@ -32,7 +43,7 @@ export default function RecipesPage() {
               Browse all recipes, filter by type or goal, and click through for full ingredients and instructions.
             </p>
           </header>
-          <RecipeFilterGrid recipes={recipes} slugsWithImages={[]} />
+          <RecipeFilterGrid recipes={recipes} slugsWithImages={slugsWithImages} />
         </div>
       </main>
     </>
