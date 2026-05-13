@@ -32,7 +32,7 @@ export default function RecipesPage() {
               Browse all recipes, filter by type or goal, and click through for full ingredients and instructions.
             </p>
           </header>
-          <RecipeFilterGrid recipes={recipes} />
+          <RecipeFilterGrid recipes={recipes} slugsWithImages={[]} />
         </div>
       </main>
     </>

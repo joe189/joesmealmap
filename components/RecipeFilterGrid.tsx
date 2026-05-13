@@ -42,7 +42,14 @@ const FILTERS = [
   { id: 'vegan',        label: 'Vegan' },
 ];
 
-export default function RecipeFilterGrid({ recipes }: { recipes: Recipe[] }) {
+export default function RecipeFilterGrid({
+  recipes,
+  slugsWithImages,
+}: {
+  recipes: Recipe[];
+  slugsWithImages: string[];
+}) {
+  const imageSet = new Set(slugsWithImages);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [search, setSearch] = useState('');
 
@@ -100,11 +107,21 @@ export default function RecipeFilterGrid({ recipes }: { recipes: Recipe[] }) {
             return (
               <Link key={r.slug} href={`/recipes/${r.slug}`} className="recipe-card">
                 <div className="recipe-card-img-wrap">
-                  <div className="recipe-card-img-placeholder">
-                    <span className="recipe-card-img-emoji">
-                      {PROTO_EMOJI[r.proto] ?? '🍴'}
-                    </span>
-                  </div>
+                  {imageSet.has(r.slug) ? (
+                    <img
+                      src={`/recipes/${r.slug}.jpg`}
+                      alt={r.name}
+                      width={400}
+                      height={300}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  ) : (
+                    <div className="recipe-card-img-placeholder">
+                      <span className="recipe-card-img-emoji">
+                        {PROTO_EMOJI[r.proto] ?? '🍴'}
+                      </span>
+                    </div>
+                  )}
                   <div
                     className="recipe-card-proto-tag"
                     style={{ background: protoColor.bg, color: protoColor.text }}
