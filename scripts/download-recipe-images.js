@@ -13,7 +13,13 @@ if (!UNSPLASH_ACCESS_KEY) {
 const RECIPES_PATH = path.join(__dirname, '..', 'lib', 'recipes-merged.json');
 const OUTPUT_DIR   = path.join(__dirname, '..', 'public', 'recipes');
 
-const recipes = JSON.parse(fs.readFileSync(RECIPES_PATH, 'utf8'));
+let recipes;
+try {
+  recipes = JSON.parse(fs.readFileSync(RECIPES_PATH, 'utf8'));
+} catch (err) {
+  console.error(`Error reading ${RECIPES_PATH}: ${err.message}`);
+  process.exit(1);
+}
 
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -43,6 +49,12 @@ async function main() {
       continue;
     }
 
+    if (!recipe.photoSearch) {
+      console.log(`Skipped: ${recipe.name} (missing photoSearch)`);
+      skipped++;
+      continue;
+    }
+
     try {
       const query = encodeURIComponent(recipe.photoSearch);
       const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=1&orientation=landscape`;
@@ -61,10 +73,15 @@ async function main() {
         console.log(`Skipped: ${recipe.name} (no Unsplash results)`);
         skipped++;
       } else {
-        const imageUrl = data.results[0].urls.regular;
-        await downloadBinary(imageUrl, destPath);
-        console.log(`Downloaded: ${recipe.name}`);
-        downloaded++;
+        const imageUrl = data.results[0]?.urls?.regular;
+        if (!imageUrl) {
+          console.log(`Skipped: ${recipe.name} (no image URL in result)`);
+          skipped++;
+        } else {
+          await downloadBinary(imageUrl, destPath);
+          console.log(`Downloaded: ${recipe.name}`);
+          downloaded++;
+        }
       }
     } catch (err) {
       console.error(`Error: ${recipe.name} — ${err.message}`);
