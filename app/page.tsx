@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import recipesRaw from '@/lib/recipes-merged.json';
+import { readdirSync } from 'fs';
+import { join } from 'path';
 
 type Recipe = {
   slug: string; name: string; type: string; proto: string;
@@ -56,6 +58,16 @@ export default function HomePage() {
   const featured = FEATURED_SLUGS
     .map(slug => recipes.find(r => r.slug === slug))
     .filter(Boolean) as Recipe[];
+
+  let slugsWithImages: string[] = [];
+  try {
+    slugsWithImages = readdirSync(join(process.cwd(), 'public', 'recipes'))
+      .filter(f => f.endsWith('.jpg'))
+      .map(f => f.replace('.jpg', ''));
+  } catch {
+    // public/recipes/ does not exist yet — no images downloaded
+  }
+  const imageSet = new Set(slugsWithImages);
 
   return (
     <>
@@ -163,11 +175,21 @@ export default function HomePage() {
                 return (
                   <Link key={recipe.slug} href={`/recipes/${recipe.slug}`} className="recipe-card">
                     <div className="recipe-card-img-wrap">
-                      <div className="recipe-card-img-placeholder">
-                        <span className="recipe-card-img-emoji">
-                          {PROTO_EMOJI[recipe.proto] ?? '🍴'}
-                        </span>
-                      </div>
+                      {imageSet.has(recipe.slug) ? (
+                        <img
+                          src={`/recipes/${recipe.slug}.jpg`}
+                          alt={recipe.name}
+                          width={400}
+                          height={300}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
+                      ) : (
+                        <div className="recipe-card-img-placeholder">
+                          <span className="recipe-card-img-emoji">
+                            {PROTO_EMOJI[recipe.proto] ?? '🍴'}
+                          </span>
+                        </div>
+                      )}
                       <div
                         className="recipe-card-proto-tag"
                         style={{ background: protoColor.bg, color: protoColor.text }}
