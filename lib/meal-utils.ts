@@ -1,4 +1,4 @@
-import { MEALS, Meal, MealType, ProtoType } from './meals';
+import { MEALS, Meal, MealType, ProtoType } from './meals-data';
 
 export type ProtoStates = Record<ProtoType, 'neutral' | 'selected' | 'excluded'>;
 

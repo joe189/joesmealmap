@@ -2,12 +2,12 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import { notFound } from 'next/navigation';
 import { CATEGORIES, type CategoryRecipe } from '@/lib/categories';
-import recipesRaw from '@/lib/recipes-merged.json';
+import { MEALS } from '@/lib/meals-data';
 import type { Metadata } from 'next';
 
 export const dynamicParams = false;
 
-const allRecipes = recipesRaw as CategoryRecipe[];
+const allRecipes = MEALS as CategoryRecipe[];
 
 const PROTO_EMOJI: Record<string, string> = {
   chicken: '🍗', beef: '🥩', fish: '🐟', yogurt: '🥛',

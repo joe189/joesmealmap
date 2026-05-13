@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { MEALS, Meal, MealType, ProtoType, ShoppingCategory } from '@/lib/meals';
+import { MEALS, Meal, MealType, ProtoType, ShoppingCategory } from '@/lib/meals-data';
 import { buildVariedOptions, mealOk, ProtoStates } from '@/lib/meal-utils';
 import NavBar from '@/components/NavBar';
 

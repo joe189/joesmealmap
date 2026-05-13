@@ -1,20 +1,10 @@
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
-import recipesRaw from '@/lib/recipes-merged.json';
+import { MEALS } from '@/lib/meals-data';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
-type Ingredient = { item: string; quantity: string };
-type Step      = { step: number; title: string; instruction: string };
-type Recipe = {
-  slug: string; name: string; type: string; proto: string;
-  prepTime: number; cookTime: number; totalTime: number; servings: number;
-  cal: number; pro: number; carb: number; fat: number; cost: number;
-  description: string; photoSearch: string;
-  ingredients: Ingredient[]; steps: Step[]; tips?: string;
-};
-
-const recipes = recipesRaw as Recipe[];
+const recipes = MEALS;
 
 const BASE_URL = 'https://www.joesmealmap.com';
 const OG_FALLBACK = '/og-image.jpg';
@@ -28,14 +18,16 @@ const TYPE_LABEL: Record<string, string> = {
   breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack',
 };
 
-function getRelatedRecipes(current: Recipe, max = 4): Recipe[] {
+import type { MealData } from '@/lib/meals-data';
+
+function getRelatedRecipes(current: MealData, max = 4): MealData[] {
   const sameTypeSameProto = recipes.filter(
     r => r.slug !== current.slug && r.type === current.type && r.proto === current.proto
   );
   const sameTypeOnly = recipes.filter(
     r => r.slug !== current.slug && r.type === current.type && r.proto !== current.proto
   );
-  const combined: Recipe[] = [];
+  const combined: MealData[] = [];
   for (const r of sameTypeSameProto) {
     if (combined.length >= max) break;
     combined.push(r);

@@ -1,18 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
-import recipesRaw from '@/lib/recipes-merged.json';
+import { MEALS } from '@/lib/meals-data';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-type Recipe = {
-  slug: string; name: string; type: string; proto: string;
-  prepTime: number; cookTime: number; totalTime: number;
-  cal: number; pro: number; carb: number; fat: number; cost: number;
-  description: string; photoSearch: string;
-};
-
-const recipes = recipesRaw as Recipe[];
+const recipes = MEALS;
 
 export const metadata = {
   title: {
@@ -57,7 +50,7 @@ const TYPE_LABEL: Record<string, string> = {
 export default function HomePage() {
   const featured = FEATURED_SLUGS
     .map(slug => recipes.find(r => r.slug === slug))
-    .filter(Boolean) as Recipe[];
+    .filter(Boolean) as typeof MEALS;
 
   let slugsWithImages: string[] = [];
   try {

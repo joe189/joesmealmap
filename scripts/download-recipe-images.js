@@ -10,7 +10,12 @@ if (!UNSPLASH_ACCESS_KEY) {
   process.exit(1);
 }
 
-const RECIPES_PATH = path.join(__dirname, '..', 'lib', 'recipes-merged.json');
+// Accept an optional path argument: node scripts/download-recipe-images.js [path/to/recipes.json]
+// Defaults to new-recipes.json (for new recipe batch downloads).
+// Already-downloaded slugs are always skipped regardless of source file.
+const RECIPES_PATH = process.argv[2]
+  ? path.resolve(process.argv[2])
+  : path.join(__dirname, '..', 'new-recipes.json');
 const OUTPUT_DIR   = path.join(__dirname, '..', 'public', 'recipes');
 
 let recipes;

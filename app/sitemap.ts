@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
-import recipesRaw from '@/lib/recipes-merged.json';
+import { MEALS } from '@/lib/meals-data';
 
 const BASE_URL = 'https://www.joesmealmap.com';
 
-const recipes = recipesRaw as { slug: string }[];
+const recipes = MEALS;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const recipeEntries: MetadataRoute.Sitemap = recipes.map(r => ({
