@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import recipesRaw from '@/lib/recipes-merged.json';
+import { existsSync } from 'fs';
+import { join } from 'path';
 
 type Ingredient = { item: string; quantity: string };
 type Step      = { step: number; title: string; instruction: string };
@@ -57,6 +59,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const base = `${recipe.name} | High Protein Recipe`;
   const title = base.length <= 60 ? { absolute: base } : { absolute: recipe.name };
 
+  const recipeImagePath = `/recipes/${recipe.slug}.jpg`;
+  const ogImage = existsSync(join(process.cwd(), 'public', recipeImagePath))
+    ? recipeImagePath
+    : OG_FALLBACK;
+
   return {
     title,
     description: recipe.description,
@@ -70,7 +77,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article' as const,
       images: [
         {
-          url: OG_FALLBACK,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: recipe.name,
@@ -81,7 +88,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: 'summary_large_image' as const,
       title: recipe.name,
       description: recipe.description,
-      images: [OG_FALLBACK],
+      images: [ogImage],
     },
   };
 }
@@ -111,13 +118,15 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
   }
 
   const related = getRelatedRecipes(recipe);
+  const recipeImagePath = `/recipes/${recipe.slug}.jpg`;
+  const hasImage = existsSync(join(process.cwd(), 'public', recipeImagePath));
 
   const recipeJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: recipe.name,
     description: recipe.description,
-    image: [`${BASE_URL}${OG_FALLBACK}`],
+    image: [`${BASE_URL}${hasImage ? recipeImagePath : OG_FALLBACK}`],
     prepTime: `PT${recipe.prepTime}M`,
     cookTime: `PT${recipe.cookTime}M`,
     totalTime: `PT${recipe.totalTime}M`,
@@ -175,7 +184,15 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
           </nav>
 
           <div className="recipe-hero">
-            <span className="recipe-hero-emoji">{PROTO_EMOJI[recipe.proto] ?? '🍴'}</span>
+            {hasImage ? (
+              <img
+                src={recipeImagePath}
+                alt={recipe.name}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: 0, left: 0 }}
+              />
+            ) : (
+              <span className="recipe-hero-emoji">{PROTO_EMOJI[recipe.proto] ?? '🍴'}</span>
+            )}
             <div className="recipe-hero-overlay">
               <span className="recipe-card-type-tag">
                 {TYPE_LABEL[recipe.type] ?? recipe.type}
