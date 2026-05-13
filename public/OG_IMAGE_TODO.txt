@@ -1,0 +1,12 @@
+TODO: Create og-image.jpg (1200x630px) for Open Graph social sharing.
+
+This file is referenced as /og-image.jpg in:
+- app/layout.tsx (global OG image)
+- app/recipes/[slug]/page.tsx (recipe OG image fallback)
+
+Design specs:
+- Dimensions: 1200 x 630 pixels
+- Format: JPG
+- Brand: Joe's MealMap
+- Style: Clean, green accent, white background
+- Place the finished file at: public/og-image.jpg
