@@ -52,6 +52,7 @@ export default function RecipeFilterGrid({
   const imageSet = new Set(slugsWithImages);
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState<'name-asc' | 'cal-asc' | 'pro-desc'>('name-asc');
 
   const filtered = recipes.filter(r => {
     const matchesFilter = !activeFilter || (
@@ -62,6 +63,12 @@ export default function RecipeFilterGrid({
     );
     const matchesSearch = !search || r.name.toLowerCase().includes(search.toLowerCase());
     return matchesFilter && matchesSearch;
+  });
+
+  const sorted = [...filtered].sort((a, b) => {
+    if (sort === 'cal-asc') return a.cal - b.cal;
+    if (sort === 'pro-desc') return b.pro - a.pro;
+    return a.name.localeCompare(b.name);
   });
 
   return (
@@ -78,31 +85,42 @@ export default function RecipeFilterGrid({
         ))}
       </div>
 
-      <input
-        type="search"
-        className="recipes-search"
-        placeholder="Search recipes…"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-      />
+      <div className="search-sort-row">
+        <input
+          type="search"
+          className="recipes-search"
+          placeholder="Search recipes…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+        <select
+          className="sort-select"
+          value={sort}
+          onChange={e => setSort(e.target.value as typeof sort)}
+        >
+          <option value="name-asc">Name A–Z</option>
+          <option value="cal-asc">Calories: Low to High</option>
+          <option value="pro-desc">Protein: High to Low</option>
+        </select>
+      </div>
 
       <p className="recipes-count">
-        Showing {filtered.length} of {recipes.length} recipes
+        Showing {sorted.length} of {recipes.length} recipes
       </p>
 
-      {filtered.length === 0 ? (
+      {sorted.length === 0 ? (
         <div className="recipes-empty">
           <p>No recipes match your filters.</p>
           <button
             className="filter-pill"
-            onClick={() => { setActiveFilter(null); setSearch(''); }}
+            onClick={() => { setActiveFilter(null); setSearch(''); setSort('name-asc'); }}
           >
             Clear filters
           </button>
         </div>
       ) : (
         <div className="recipe-grid">
-          {filtered.map(r => {
+          {sorted.map(r => {
             const protoColor = PROTO_COLORS[r.proto] ?? { bg: '#F5F5F5', text: '#555' };
             return (
               <Link key={r.slug} href={`/recipes/${r.slug}`} className="recipe-card">
