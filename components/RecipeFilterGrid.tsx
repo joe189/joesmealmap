@@ -26,7 +26,7 @@ const PROTO_EMOJI: Record<string, string> = {
 };
 
 const TYPE_LABEL: Record<string, string> = {
-  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack',
+  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', dessert: 'Dessert',
 };
 
 const VEGETARIAN_PROTOS = ['yogurt', 'eggs', 'legumes', 'tofu'];
@@ -37,6 +37,7 @@ const FILTERS = [
   { id: 'lunch',        label: 'Lunch' },
   { id: 'dinner',       label: 'Dinner' },
   { id: 'snack',        label: 'Snacks' },
+  { id: 'dessert',      label: 'Desserts' },
   { id: 'high-protein', label: 'High Protein' },
   { id: 'vegetarian',   label: 'Vegetarian' },
   { id: 'vegan',        label: 'Vegan' },
