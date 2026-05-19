@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import SubscribeForm from '@/components/SubscribeForm';
+import WelcomeBanner from '@/components/WelcomeBanner';
 import { MEALS } from '@/lib/meals-data';
 import { readdirSync } from 'fs';
 import { join } from 'path';
@@ -66,6 +67,7 @@ export default function HomePage() {
   return (
     <>
       <NavBar />
+      <WelcomeBanner />
       <main className="home-main">
 
         {/* Hero */}

@@ -27,7 +27,8 @@ export default function LoginPage() {
       if (error) {
         setError(error.message);
       } else {
-        setSuccess('Check your email to confirm your account.');
+        sessionStorage.setItem('welcomeBanner', '1');
+        window.location.href = '/';
       }
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
