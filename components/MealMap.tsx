@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { MEALS, Meal, MealType, ProtoType, ShoppingCategory } from '@/lib/meals-data';
 import { buildVariedOptions, mealOk, ProtoStates } from '@/lib/meal-utils';
+import { createClient, savePlan } from '@/lib/supabase';
 import NavBar from '@/components/NavBar';
 
 const PROTO_LIST: ProtoType[] = ['chicken', 'beef', 'pork', 'eggs', 'fish', 'legumes', 'yogurt', 'tofu'];
@@ -99,6 +100,10 @@ export default function MealMap() {
   const [emailSent, setEmailSent] = useState(false);
   const [emailLoading, setEmailLoading] = useState(false);
   const [emailError, setEmailError] = useState('');
+
+  const [planSaving, setPlanSaving] = useState(false);
+  const [planSaved, setPlanSaved] = useState(false);
+  const [planSaveError, setPlanSaveError] = useState('');
 
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const pickSectionRef = useRef<HTMLDivElement>(null);
@@ -390,6 +395,31 @@ export default function MealMap() {
     setCheckedItems(new Set()); setPantryItems(new Set());
     try { localStorage.removeItem('macroPlanner4'); } catch { /* ignore */ }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSavePlan = async () => {
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { window.location.href = '/login'; return; }
+
+    setPlanSaving(true);
+    setPlanSaveError('');
+
+    const planData = {
+      picks: Object.fromEntries(
+        activeMealTypes.map(type => [type, picks[type].map(m => ({ name: m.name, slug: m.slug, cal: m.cal, pro: m.pro, carb: m.carb, fat: m.fat, cost: m.cost }))])
+      ),
+      weeklyStats,
+      savedAt: new Date().toISOString(),
+    };
+
+    const { error } = await savePlan(planData);
+    if (error) {
+      setPlanSaveError('Could not save. Please try again.');
+    } else {
+      setPlanSaved(true);
+    }
+    setPlanSaving(false);
   };
 
   const handlePrintPlan = () => {
@@ -738,7 +768,19 @@ export default function MealMap() {
                 <button className="action-btn green" onClick={() => {
                   setEmailSent(false); setEmailName(''); setEmailAddress(''); setEmailError('');
                   setShowEmailModal(true);
-                }}>📧 Save my plan</button>
+                }}>📧 Email my plan</button>
+                <button
+                  className="action-btn outline"
+                  onClick={handleSavePlan}
+                  disabled={planSaving || planSaved}
+                  style={{
+                    background: planSaved ? '#f0fdf4' : '#fff',
+                    borderColor: planSaved ? '#22C55E' : '#E5E7EB',
+                    color: planSaved ? '#22C55E' : 'var(--text-muted)',
+                  }}
+                >
+                  {planSaved ? '✓ Plan saved' : planSaving ? 'Saving…' : '🔖 Save plan'}
+                </button>
                 <button className="action-btn outline" onClick={handlePrintPlan}>🖨 Print list</button>
                 <button className="action-btn outline" onClick={() => {
                   setShowResults(false);
@@ -746,6 +788,9 @@ export default function MealMap() {
                 }}>↩ Change meals</button>
                 <button className="action-btn outline" style={{ color: 'var(--red)', borderColor: 'var(--red)' }} onClick={handleResetEverything}>↺ Start over</button>
               </div>
+              {planSaveError && (
+                <p style={{ fontSize: 12, color: 'var(--red)', marginBottom: 10 }}>{planSaveError}</p>
+              )}
 
               <div className="tabs">
                 <button className={`tab${activeTab === 'meals' ? ' active' : ''}`} onClick={() => setActiveTab('meals')}>My week</button>

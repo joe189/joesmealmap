@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
+import SaveButton from '@/components/SaveButton';
 import { MEALS } from '@/lib/meals-data';
 import { existsSync } from 'fs';
 import { join } from 'path';
@@ -261,6 +262,8 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
               {recipe.tips && (
                 <blockquote className="recipe-tips">{recipe.tips}</blockquote>
               )}
+
+              <SaveButton slug={recipe.slug} />
 
               <Link href="/planner" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Add to meal plan →
