@@ -77,10 +77,10 @@ export default function MealMap() {
 
   // ── Plan state ───────────────────────────────────────────
   const [picks, setPicks] = useState<Record<MealType, Meal[]>>({
-    breakfast: [], lunch: [], dinner: [], snack: [],
+    breakfast: [], lunch: [], dinner: [], snack: [], dessert: [],
   });
   const [options, setOptions] = useState<Record<MealType, Meal[]>>({
-    breakfast: [], lunch: [], dinner: [], snack: [],
+    breakfast: [], lunch: [], dinner: [], snack: [], dessert: [],
   });
 
   // ── UI state ─────────────────────────────────────────────
@@ -284,7 +284,7 @@ export default function MealMap() {
   };
 
   const handleGenerate = () => {
-    const currentPicks = showPickSection ? picks : { breakfast: [], lunch: [], dinner: [], snack: [] } as Record<MealType, Meal[]>;
+    const currentPicks = showPickSection ? picks : { breakfast: [], lunch: [], dinner: [], snack: [], dessert: [] } as Record<MealType, Meal[]>;
     const newOptions: Partial<Record<MealType, Meal[]>> = {};
 
     for (const type of activeMealTypes) {
@@ -301,7 +301,7 @@ export default function MealMap() {
     }
 
     if (!showPickSection) {
-      setPicks({ breakfast: [], lunch: [], dinner: [], snack: [] });
+      setPicks({ breakfast: [], lunch: [], dinner: [], snack: [], dessert: [] });
     }
     setOptions(prev => ({ ...prev, ...newOptions }));
     setShowPickSection(true);
@@ -384,8 +384,8 @@ export default function MealMap() {
     setWeightUnit('lbs'); setSelectedGoal(null); setCalcResultText(null);
     setProtoStates(defaultProtoStates());
     setExcluded(new Set()); setSkipBreakfast(false);
-    setPicks({ breakfast: [], lunch: [], dinner: [], snack: [] });
-    setOptions({ breakfast: [], lunch: [], dinner: [], snack: [] });
+    setPicks({ breakfast: [], lunch: [], dinner: [], snack: [], dessert: [] });
+    setOptions({ breakfast: [], lunch: [], dinner: [], snack: [], dessert: [] });
     setShowPickSection(false); setShowResults(false);
     setCheckedItems(new Set()); setPantryItems(new Set());
     try { localStorage.removeItem('macroPlanner4'); } catch { /* ignore */ }
