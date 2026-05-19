@@ -187,7 +187,7 @@ export default function HomePage() {
                         className="recipe-card-proto-tag"
                         style={{ background: protoColor.bg, color: protoColor.text }}
                       >
-                        {recipe.proto.charAt(0).toUpperCase() + recipe.proto.slice(1)}
+                        {recipe.type === 'dessert' ? 'Desserts' : recipe.proto.charAt(0).toUpperCase() + recipe.proto.slice(1)}
                       </div>
                       <div className="recipe-card-type-tag">
                         {TYPE_LABEL[recipe.type] ?? recipe.type}
