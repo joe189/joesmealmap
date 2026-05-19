@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import NavBar from '@/components/NavBar';
+import SubscribeForm from '@/components/SubscribeForm';
 import { MEALS } from '@/lib/meals-data';
 import { readdirSync } from 'fs';
 import { join } from 'path';
@@ -219,24 +220,7 @@ export default function HomePage() {
             <p className="email-sub">
               Join the list. Get fresh meal ideas, macro tips, and the occasional food rant from Joe.
             </p>
-            <form
-              className="email-form"
-              action="https://joesmealmap.beehiiv.com/subscribe"
-              method="POST"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-                className="email-input"
-              />
-              <button type="submit" className="btn-primary email-submit">
-                Subscribe
-              </button>
-            </form>
+            <SubscribeForm />
             <p className="email-fine">No spam. Unsubscribe any time.</p>
           </div>
         </section>
