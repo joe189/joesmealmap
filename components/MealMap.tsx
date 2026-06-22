@@ -5,6 +5,7 @@ import { MEALS, Meal, MealType, ProtoType, ShoppingCategory } from '@/lib/meals-
 import { buildVariedOptions, mealOk, ProtoStates } from '@/lib/meal-utils';
 import { createClient, savePlan } from '@/lib/supabase';
 import NavBar from '@/components/NavBar';
+import { getAmazonLink } from '@/lib/amazon';
 
 const PROTO_LIST: ProtoType[] = ['chicken', 'beef', 'pork', 'eggs', 'fish', 'legumes', 'yogurt', 'tofu'];
 
@@ -879,11 +880,11 @@ export default function MealMap() {
                                 <span className="item-price">~${Math.round(item.totalPrice)}</span>
                                 <span className="item-qty">{item.qty}</span>
                                 <a
-                                  className="walmart-link"
-                                  href={`https://www.walmart.com/search?q=${encodeURIComponent(item.name)}`}
+                                  className="amazon-link"
+                                  href={getAmazonLink(item.name)}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                >🛒</a>
+                                >Amazon</a>
                               </div>
                             </div>
                           );

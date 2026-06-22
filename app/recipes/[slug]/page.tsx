@@ -2,6 +2,7 @@ import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import SaveButton from '@/components/SaveButton';
 import { MEALS } from '@/lib/meals-data';
+import { getAmazonLink } from '@/lib/amazon';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
@@ -207,12 +208,12 @@ export default async function RecipePage({ params }: { params: Promise<{ slug: s
                       <span className="ing-qty">{ing.quantity}</span>
                       <span className="ing-name">{ing.item}</span>
                       <a
-                        href={`https://www.walmart.com/search?q=${encodeURIComponent(ing.item)}`}
-                        className="walmart-link"
+                        href={getAmazonLink(ing.item)}
                         target="_blank"
                         rel="noopener noreferrer"
+                        style={{ fontSize: '11px', color: '#22C55E', textDecoration: 'none', whiteSpace: 'nowrap', marginLeft: '8px', fontWeight: 500 }}
                       >
-                        🛒 Walmart
+                        Buy on Amazon
                       </a>
                     </li>
                   ))}
