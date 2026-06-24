@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import NavBar from '@/components/NavBar';
 import SubscribeForm from '@/components/SubscribeForm';
 import WelcomeBanner from '@/components/WelcomeBanner';
@@ -39,15 +38,16 @@ export default function HomePage() {
   }
   const imageSet = new Set(slugsWithImages);
 
-  // Last recipe in MEALS that has a photo; falls back to absolute last if none
-  const featured =
+  // Latest recipe with a photo for the hero right side
+  const heroRecipe =
     [...MEALS].reverse().find(r => imageSet.has(r.slug)) ?? MEALS[MEALS.length - 1];
-  const featuredHasImage = imageSet.has(featured.slug);
+  const heroRecipeHasImage = imageSet.has(heroRecipe.slug);
 
-  // Last 6 in MEALS (most recently added)
+  // Last 6 in MEALS for the recipes grid
   const latestRecipes = MEALS.slice(-6);
 
   const recentPosts = getAllPosts().slice(0, 3);
+  const heroPost = recentPosts[0] ?? null;
 
   return (
     <>
@@ -55,105 +55,69 @@ export default function HomePage() {
       <WelcomeBanner />
       <main className="home-main">
 
-        {/* Featured Recipe Hero */}
-        <section style={{ padding: '48px 24px 60px' }}>
+        {/* Split Screen Hero — latest blog post + latest recipe */}
+        <section style={{ padding: '32px 24px 48px' }}>
           <div className="section-inner">
-            <p style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              marginBottom: '16px',
-            }}>
-              Featured Recipe
-            </p>
+            <div className="split-hero-card">
+              <div className="split-hero-grid">
 
-            <div className="featured-hero-grid">
-              {/* Photo — 60% */}
-              <div className="featured-hero-photo">
-                {featuredHasImage ? (
-                  <Image
-                    src={`/recipes/${featured.slug}.jpg`}
-                    alt={featured.name}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 60vw"
-                    style={{ objectFit: 'cover' }}
-                    priority
-                  />
+                {/* Left: Latest Blog Post */}
+                {heroPost ? (
+                  <div className="split-hero-left">
+                    <p className="split-hero-label">Latest Post</p>
+                    <div className="split-hero-img">
+                      {heroPost.coverImage && (
+                        <img src={heroPost.coverImage} alt={heroPost.title} />
+                      )}
+                    </div>
+                    {heroPost.tags.length > 0 && (
+                      <div className="split-hero-tags">
+                        {heroPost.tags.map(tag => (
+                          <span key={tag} className="split-hero-tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                    <h2 className="split-hero-title">{heroPost.title}</h2>
+                    <p className="split-hero-desc">{heroPost.description}</p>
+                    <div className="split-hero-cta">
+                      <Link href={`/blog/${heroPost.slug}`} className="btn-primary" style={{ background: '#166534' }}>
+                        Read Post →
+                      </Link>
+                    </div>
+                  </div>
                 ) : (
-                  <div style={{
-                    width: '100%',
-                    height: '100%',
-                    background: '#f0ede6',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}>
-                    <span style={{ fontSize: '96px' }}>
-                      {PROTO_EMOJI[featured.proto] ?? '🍴'}
-                    </span>
+                  <div className="split-hero-left" style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Blog posts coming soon.</p>
                   </div>
                 )}
-              </div>
 
-              {/* Info — 40% */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                gap: '20px',
-                padding: '8px 0',
-              }}>
-                <span style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  background: '#DCFCE7',
-                  color: '#166534',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  padding: '4px 12px',
-                  borderRadius: '99px',
-                  width: 'fit-content',
-                }}>
-                  {TYPE_LABEL[featured.type] ?? featured.type}
-                </span>
-
-                <h2 style={{
-                  fontFamily: 'var(--font-dm-sans), DM Sans, sans-serif',
-                  fontSize: 'clamp(26px, 3vw, 40px)',
-                  fontWeight: 700,
-                  lineHeight: 1.15,
-                  letterSpacing: '-0.5px',
-                  color: 'var(--text)',
-                  margin: 0,
-                }}>
-                  {featured.name}
-                </h2>
-
-                <p style={{
-                  fontSize: '15px',
-                  color: 'var(--text-muted)',
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}>
-                  {featured.description}
-                </p>
-
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  <span className="rcm rcm-cal">{featured.cal} cal</span>
-                  <span className="rcm rcm-pro">{featured.pro}g protein</span>
+                {/* Right: Latest Recipe */}
+                <div className="split-hero-right">
+                  <p className="split-hero-label">Latest Recipe</p>
+                  <div className="split-hero-img">
+                    {heroRecipeHasImage ? (
+                      <img src={`/recipes/${heroRecipe.slug}.jpg`} alt={heroRecipe.name} />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <span style={{ fontSize: '64px' }}>{PROTO_EMOJI[heroRecipe.proto] ?? '🍴'}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="split-hero-tags">
+                    <span className="split-hero-tag">{TYPE_LABEL[heroRecipe.type] ?? heroRecipe.type}</span>
+                  </div>
+                  <h2 className="split-hero-title">{heroRecipe.name}</h2>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <span className="rcm rcm-cal">{heroRecipe.cal} cal</span>
+                    <span className="rcm rcm-pro">{heroRecipe.pro}g protein</span>
+                  </div>
+                  <div className="split-hero-cta">
+                    <Link href={`/recipes/${heroRecipe.slug}`} className="btn-primary" style={{ background: '#166534' }}>
+                      View Recipe →
+                    </Link>
+                  </div>
                 </div>
 
-                <div>
-                  <Link
-                    href={`/recipes/${featured.slug}`}
-                    className="btn-primary"
-                    style={{ background: '#166534' }}
-                  >
-                    View Recipe →
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

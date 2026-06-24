@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import NavBar from '@/components/NavBar';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import { MEALS, type MealData } from '@/lib/meals-data';
@@ -87,9 +88,27 @@ export default async function BlogPostPage({
 
   const { frontmatter: fm, content: rawContent } = post;
 
+  const mdxComponents = {
+    img: ({ src, alt }: { src?: string; alt?: string }) => (
+      <figure style={{ margin: '28px 0' }}>
+        <img
+          src={src}
+          alt={alt ?? ''}
+          style={{ width: '100%', display: 'block', borderRadius: '12px', objectFit: 'cover' }}
+        />
+        {alt && (
+          <figcaption style={{ fontSize: '13px', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center', marginTop: '8px' }}>
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    ),
+  };
+
   const { content } = await compileMDX({
     source: rawContent,
-    options: { mdxOptions: { format: 'mdx' } },
+    options: { mdxOptions: { format: 'mdx', remarkPlugins: [remarkGfm] } },
+    components: mdxComponents,
   });
 
   const wordCount = rawContent.split(/\s+/).filter(Boolean).length;
