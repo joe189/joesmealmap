@@ -7,8 +7,6 @@ import { MEALS } from '@/lib/meals-data';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
-const recipes = MEALS;
-
 export const metadata = {
   title: {
     absolute: "Joe's MealMap | Free Meal Planner & Macro Tracker",
@@ -20,49 +18,33 @@ export const metadata = {
   },
 };
 
-const FEATURED_SLUGS = [
-  'grilled-chicken-rice-bowl',
-  'baked-salmon-sweet-potato',
-  'beef-taco-bowl',
-  'greek-yogurt-berry-bowl',
-  'chicken-tikka-masala',
-  'chicken-caesar-salad',
-];
-
-const PROTO_COLORS: Record<string, { bg: string; text: string }> = {
-  chicken:  { bg: '#FFF3E0', text: '#E65100' },
-  beef:     { bg: '#FCE4EC', text: '#C62828' },
-  fish:     { bg: '#E3F2FD', text: '#1565C0' },
-  yogurt:   { bg: '#F3E5F5', text: '#6A1B9A' },
-  eggs:     { bg: '#FFFDE7', text: '#F57F17' },
-  pork:     { bg: '#FBE9E7', text: '#BF360C' },
-  legumes:  { bg: '#E8F5E9', text: '#2E7D32' },
-  tofu:     { bg: '#E0F2F1', text: '#00695C' },
-};
-
 const PROTO_EMOJI: Record<string, string> = {
   chicken: '🍗', beef: '🥩', fish: '🐟', yogurt: '🥛',
   eggs: '🥚', pork: '🐷', legumes: '🫘', tofu: '🌱',
 };
 
 const TYPE_LABEL: Record<string, string> = {
-  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack',
+  breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', dessert: 'Dessert',
 };
 
 export default function HomePage() {
-  const featured = FEATURED_SLUGS
-    .map(slug => recipes.find(r => r.slug === slug))
-    .filter(Boolean) as typeof MEALS;
-
   let slugsWithImages: string[] = [];
   try {
     slugsWithImages = readdirSync(join(process.cwd(), 'public', 'recipes'))
       .filter(f => f.endsWith('.jpg'))
       .map(f => f.replace('.jpg', ''));
   } catch {
-    // public/recipes/ does not exist yet — no images downloaded
+    // public/recipes/ does not exist yet
   }
   const imageSet = new Set(slugsWithImages);
+
+  // Last recipe in MEALS that has a photo; falls back to absolute last if none
+  const featured =
+    [...MEALS].reverse().find(r => imageSet.has(r.slug)) ?? MEALS[MEALS.length - 1];
+  const featuredHasImage = imageSet.has(featured.slug);
+
+  // Last 6 in MEALS (most recently added)
+  const latestRecipes = MEALS.slice(-6);
 
   return (
     <>
@@ -70,49 +52,153 @@ export default function HomePage() {
       <WelcomeBanner />
       <main className="home-main">
 
-        {/* Hero */}
-        <section className="hero">
-          <div className="hero-inner">
-            <div className="hero-photo-col">
-              <div className="hero-photo-wrap">
-                <Image
-                  src="/joe.webp"
-                  alt="Joe Jennings, founder of Joe's MealMap"
-                  width={420}
-                  height={520}
-                  priority
-                  className="hero-photo"
-                />
+        {/* Featured Recipe Hero */}
+        <section style={{ padding: '48px 24px 60px' }}>
+          <div className="section-inner">
+            <p style={{
+              fontSize: '11px',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: 'var(--text-muted)',
+              marginBottom: '16px',
+            }}>
+              Featured Recipe
+            </p>
+
+            <div className="featured-hero-grid">
+              {/* Photo — 60% */}
+              <div className="featured-hero-photo">
+                {featuredHasImage ? (
+                  <Image
+                    src={`/recipes/${featured.slug}.jpg`}
+                    alt={featured.name}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 60vw"
+                    style={{ objectFit: 'cover' }}
+                    priority
+                  />
+                ) : (
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    background: '#f0ede6',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                    <span style={{ fontSize: '96px' }}>
+                      {PROTO_EMOJI[featured.proto] ?? '🍴'}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Info — 40% */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: '20px',
+                padding: '8px 0',
+              }}>
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  background: '#DCFCE7',
+                  color: '#166534',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  padding: '4px 12px',
+                  borderRadius: '99px',
+                  width: 'fit-content',
+                }}>
+                  {TYPE_LABEL[featured.type] ?? featured.type}
+                </span>
+
+                <h2 style={{
+                  fontFamily: 'var(--font-dm-sans), DM Sans, sans-serif',
+                  fontSize: 'clamp(26px, 3vw, 40px)',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.5px',
+                  color: 'var(--text)',
+                  margin: 0,
+                }}>
+                  {featured.name}
+                </h2>
+
+                <p style={{
+                  fontSize: '15px',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}>
+                  {featured.description}
+                </p>
+
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  <span className="rcm rcm-cal">{featured.cal} cal</span>
+                  <span className="rcm rcm-pro">{featured.pro}g protein</span>
+                </div>
+
+                <div>
+                  <Link
+                    href={`/recipes/${featured.slug}`}
+                    className="btn-primary"
+                    style={{ background: '#166534' }}
+                  >
+                    View Recipe →
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="hero-text-col">
-              <span className="hero-eyebrow">Meal planning, simplified</span>
-              <h1 className="hero-headline">
-                Eat right without<br />overthinking it.
-              </h1>
-              <p className="hero-sub">
-                Set your macro targets, pick meals you actually want to eat, and get a complete shopping list sent to your inbox. Takes about 3 minutes.
-              </p>
-              <div className="hero-actions">
-                <Link href="/planner" className="btn-primary">Start Planning →</Link>
-                <Link href="/recipes" className="btn-secondary">Browse Recipes</Link>
-              </div>
-              <div className="hero-stats">
-                <div className="hero-stat">
-                  <span className="hero-stat-num">100+</span>
-                  <span className="hero-stat-lbl">Recipes</span>
-                </div>
-                <div className="hero-stat-divider" />
-                <div className="hero-stat">
-                  <span className="hero-stat-num">6</span>
-                  <span className="hero-stat-lbl">Diet goals</span>
-                </div>
-                <div className="hero-stat-divider" />
-                <div className="hero-stat">
-                  <span className="hero-stat-num">Free</span>
-                  <span className="hero-stat-lbl">Forever</span>
-                </div>
-              </div>
+          </div>
+        </section>
+
+        {/* Latest Recipes Grid */}
+        <section style={{ padding: '0 24px 80px' }}>
+          <div className="section-inner">
+            <div className="section-header">
+              <span className="section-eyebrow">Fresh from the kitchen</span>
+              <h2 className="section-title">Latest Recipes</h2>
+            </div>
+
+            <div className="recipe-grid">
+              {latestRecipes.map(recipe => (
+                <Link key={recipe.slug} href={`/recipes/${recipe.slug}`} className="recipe-card">
+                  <div className="recipe-card-img-wrap">
+                    {imageSet.has(recipe.slug) ? (
+                      <img
+                        src={`/recipes/${recipe.slug}.jpg`}
+                        alt={recipe.name}
+                        width={400}
+                        height={300}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    ) : (
+                      <div className="recipe-card-img-placeholder">
+                        <span className="recipe-card-img-emoji">
+                          {PROTO_EMOJI[recipe.proto] ?? '🍴'}
+                        </span>
+                      </div>
+                    )}
+                    <div className="recipe-card-type-tag">
+                      {TYPE_LABEL[recipe.type] ?? recipe.type}
+                    </div>
+                  </div>
+                  <div className="recipe-card-body">
+                    <h3 className="recipe-card-name">{recipe.name}</h3>
+                    <div className="recipe-card-macros" style={{ marginTop: 'auto' }}>
+                      <span className="rcm rcm-pro">{recipe.pro}g protein</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="recipes-cta-row">
+              <Link href="/recipes" className="btn-secondary">View all recipes →</Link>
             </div>
           </div>
         </section>
@@ -151,66 +237,6 @@ export default function HomePage() {
                   Get a complete weekly shopping list with real US quantities, Walmart links, and budget tracking — delivered straight to your inbox.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Recipes */}
-        <section className="recipes-section">
-          <div className="section-inner">
-            <div className="section-header">
-              <span className="section-eyebrow">From the database</span>
-              <h2 className="section-title">Meals worth eating every week</h2>
-              <p className="section-sub">
-                Every recipe is built around hitting your macros — not sacrificing flavor to do it.
-              </p>
-            </div>
-            <div className="recipe-grid">
-              {featured.map((recipe) => {
-                const protoColor = PROTO_COLORS[recipe.proto] ?? { bg: '#F5F5F5', text: '#555' };
-                return (
-                  <Link key={recipe.slug} href={`/recipes/${recipe.slug}`} className="recipe-card">
-                    <div className="recipe-card-img-wrap">
-                      {imageSet.has(recipe.slug) ? (
-                        <img
-                          src={`/recipes/${recipe.slug}.jpg`}
-                          alt={recipe.name}
-                          width={400}
-                          height={300}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                        />
-                      ) : (
-                        <div className="recipe-card-img-placeholder">
-                          <span className="recipe-card-img-emoji">
-                            {PROTO_EMOJI[recipe.proto] ?? '🍴'}
-                          </span>
-                        </div>
-                      )}
-                      <div
-                        className="recipe-card-proto-tag"
-                        style={{ background: protoColor.bg, color: protoColor.text }}
-                      >
-                        {recipe.type === 'dessert' ? 'Desserts' : recipe.proto.charAt(0).toUpperCase() + recipe.proto.slice(1)}
-                      </div>
-                      <div className="recipe-card-type-tag">
-                        {TYPE_LABEL[recipe.type] ?? recipe.type}
-                      </div>
-                    </div>
-                    <div className="recipe-card-body">
-                      <h3 className="recipe-card-name">{recipe.name}</h3>
-                      <p className="recipe-card-desc">{recipe.description}</p>
-                      <div className="recipe-card-macros">
-                        <span className="rcm rcm-cal">{recipe.cal} cal</span>
-                        <span className="rcm rcm-pro">{recipe.pro}g protein</span>
-                        <span className="rcm rcm-time">⏱ {recipe.totalTime} min</span>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="recipes-cta-row">
-              <Link href="/recipes" className="btn-secondary">View all recipes →</Link>
             </div>
           </div>
         </section>
