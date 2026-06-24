@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import SubscribeForm from '@/components/SubscribeForm';
 import WelcomeBanner from '@/components/WelcomeBanner';
 import { MEALS } from '@/lib/meals-data';
+import { getAllPosts } from '@/lib/blog';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 
@@ -45,6 +46,8 @@ export default function HomePage() {
 
   // Last 6 in MEALS (most recently added)
   const latestRecipes = MEALS.slice(-6);
+
+  const recentPosts = getAllPosts().slice(0, 3);
 
   return (
     <>
@@ -202,6 +205,65 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* From the Blog */}
+        {recentPosts.length > 0 && (
+          <section style={{ padding: '0 24px 80px' }}>
+            <div className="section-inner">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '28px' }}>
+                <h2 className="section-title" style={{ margin: 0, textAlign: 'left' }}>
+                  From the Blog
+                </h2>
+                <Link
+                  href="/blog"
+                  style={{ fontSize: '14px', fontWeight: 600, color: '#22C55E', textDecoration: 'none', whiteSpace: 'nowrap' }}
+                >
+                  View all posts →
+                </Link>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {recentPosts.map(post => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '120px 1fr',
+                      gap: '16px',
+                      padding: '16px',
+                      background: '#fff',
+                      border: '1px solid var(--border)',
+                      borderRadius: '12px',
+                      textDecoration: 'none',
+                      color: 'inherit',
+                    }}
+                  >
+                    <div style={{ borderRadius: '8px', overflow: 'hidden', aspectRatio: '4/3', background: '#f0ede6' }}>
+                      {post.coverImage && (
+                        <img
+                          src={post.coverImage}
+                          alt={post.title}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
+                      )}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '6px' }}>
+                      <p style={{ fontFamily: 'var(--font-dm-mono), DM Mono, monospace', fontSize: '11px', color: 'var(--text-muted)', margin: 0 }}>
+                        {new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(new Date(post.date + 'T12:00:00'))}
+                      </p>
+                      <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text)', lineHeight: 1.35, margin: 0 }}>
+                        {post.title}
+                      </h3>
+                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>
+                        {post.description}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* How it works */}
         <section className="how-section">

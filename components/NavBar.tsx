@@ -114,6 +114,9 @@ export default function NavBar() {
           <Link href="/recipes" className={`site-nav-link${pathname?.startsWith('/recipes') ? ' active' : ''}`}>
             Recipes
           </Link>
+          <Link href="/blog" className={`site-nav-link${pathname?.startsWith('/blog') ? ' active' : ''}`}>
+            Blog
+          </Link>
           <Link href="/about" className={`site-nav-link${pathname === '/about' ? ' active' : ''}`}>
             About
           </Link>
@@ -141,6 +144,7 @@ function MobileMenu({ pathname, user }: { pathname: string | null; user: AuthUse
           <Link href="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
           <Link href="/planner" className={pathname === '/planner' ? 'active' : ''}>Planner</Link>
           <Link href="/recipes" className={pathname?.startsWith('/recipes') ? 'active' : ''}>Recipes</Link>
+          <Link href="/blog" className={pathname?.startsWith('/blog') ? 'active' : ''}>Blog</Link>
           <Link href="/about" className={pathname === '/about' ? 'active' : ''}>About</Link>
           {user ? (
             <Link href="/profile" className={pathname === '/profile' ? 'active' : ''}>My Account</Link>
