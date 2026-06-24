@@ -65,11 +65,11 @@ export default function HomePage() {
                 {heroPost ? (
                   <div className="split-hero-left">
                     <p className="split-hero-label">Latest Post</p>
-                    <div className="split-hero-img">
+                    <Link href={`/blog/${heroPost.slug}`} className="split-hero-img" style={{ display: 'block', textDecoration: 'none' }}>
                       {heroPost.coverImage && (
-                        <img src={heroPost.coverImage} alt={heroPost.title} />
+                        <img src={heroPost.coverImage} alt={heroPost.title} style={{ transition: 'opacity 0.2s' }} />
                       )}
-                    </div>
+                    </Link>
                     {heroPost.tags.length > 0 && (
                       <div className="split-hero-tags">
                         {heroPost.tags.map(tag => (
@@ -94,15 +94,15 @@ export default function HomePage() {
                 {/* Right: Latest Recipe */}
                 <div className="split-hero-right">
                   <p className="split-hero-label">Latest Recipe</p>
-                  <div className="split-hero-img">
+                  <Link href={`/recipes/${heroRecipe.slug}`} className="split-hero-img" style={{ display: 'block', textDecoration: 'none' }}>
                     {heroRecipeHasImage ? (
-                      <img src={`/recipes/${heroRecipe.slug}.jpg`} alt={heroRecipe.name} />
+                      <img src={`/recipes/${heroRecipe.slug}.jpg`} alt={heroRecipe.name} style={{ transition: 'opacity 0.2s' }} />
                     ) : (
                       <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <span style={{ fontSize: '64px' }}>{PROTO_EMOJI[heroRecipe.proto] ?? '🍴'}</span>
                       </div>
                     )}
-                  </div>
+                  </Link>
                   <div className="split-hero-tags">
                     <span className="split-hero-tag">{TYPE_LABEL[heroRecipe.type] ?? heroRecipe.type}</span>
                   </div>
