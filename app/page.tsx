@@ -57,7 +57,7 @@ export default function HomePage() {
       <main className="home-main">
 
         {/* Hero image with overlay links onto the baked-in CTA buttons, aligned to content width */}
-        <div className="section-inner">
+        <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div className="hero-image-section">
             <Image
               src="/hero-image.jpg"
@@ -83,7 +83,7 @@ export default function HomePage() {
 
         {/* Split Screen Hero — latest blog post + latest recipe */}
         <section style={{ padding: '32px 24px 48px' }}>
-          <div className="section-inner">
+          <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div className="split-hero-card">
               <div className="split-hero-grid">
 
@@ -151,7 +151,7 @@ export default function HomePage() {
 
         {/* Latest Recipes Grid */}
         <section style={{ padding: '0 24px 80px' }}>
-          <div className="section-inner">
+          <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div className="section-header">
               <span className="section-eyebrow">Fresh from the kitchen</span>
               <h2 className="section-title">Latest Recipes</h2>
@@ -199,7 +199,7 @@ export default function HomePage() {
         {/* From the Blog */}
         {recentPosts.length > 0 && (
           <section style={{ padding: '0 24px 80px' }}>
-            <div className="section-inner">
+            <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '28px' }}>
                 <h2 className="section-title" style={{ margin: 0, textAlign: 'left' }}>
                   From the Blog
@@ -257,7 +257,7 @@ export default function HomePage() {
 
         {/* How it works */}
         <section className="how-section">
-          <div className="section-inner">
+          <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div className="section-header">
               <span className="section-eyebrow">How it works</span>
               <h2 className="section-title">From goals to grocery list in minutes</h2>
