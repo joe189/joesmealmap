@@ -56,27 +56,29 @@ export default function HomePage() {
       <WelcomeBanner />
       <main className="home-main">
 
-        {/* Full-width hero image with overlay links onto the baked-in CTA buttons */}
-        <div className="hero-image-section">
-          <Image
-            src="/hero-image.jpg"
-            alt="Joe's MealMap — real food, real results"
-            width={1828}
-            height={860}
-            priority
-          />
-          <Link
-            href="/planner"
-            aria-label="Start Planning"
-            className="hero-overlay-btn"
-            style={{ left: '6.67%', top: '59.30%', width: '14.11%', height: '6.74%' }}
-          />
-          <Link
-            href="/recipes"
-            aria-label="Browse Recipes"
-            className="hero-overlay-btn"
-            style={{ left: '21.55%', top: '59.30%', width: '13.57%', height: '6.74%' }}
-          />
+        {/* Hero image with overlay links onto the baked-in CTA buttons, aligned to content width */}
+        <div className="section-inner">
+          <div className="hero-image-section">
+            <Image
+              src="/hero-image.jpg"
+              alt="Joe's MealMap — real food, real results"
+              width={1828}
+              height={860}
+              priority
+            />
+            <Link
+              href="/planner"
+              aria-label="Start Planning"
+              className="hero-overlay-btn"
+              style={{ left: '6.67%', top: '59.30%', width: '14.11%', height: '6.74%' }}
+            />
+            <Link
+              href="/recipes"
+              aria-label="Browse Recipes"
+              className="hero-overlay-btn"
+              style={{ left: '21.55%', top: '59.30%', width: '13.57%', height: '6.74%' }}
+            />
+          </div>
         </div>
 
         {/* Split Screen Hero — latest blog post + latest recipe */}
